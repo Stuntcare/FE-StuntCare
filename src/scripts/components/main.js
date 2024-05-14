@@ -1,0 +1,4 @@
+import './navbar';
+import './content1'
+import './content2'
+import './content3'
