@@ -7,7 +7,7 @@ class content4 extends HTMLElement {
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
-                <h1 class="fw-bold">
+                <h1 class="fw-bold" style="margin-top: 15px">
                   Makanan <span class="text-warning"> Bernutrisi </span><br> dan <span class="text-warning"> Bergizi </span> untuk<br> <span class="text-warning">Balita</span> Anda
                 </h1>
                 <p class="lead">

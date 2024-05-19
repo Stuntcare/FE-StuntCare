@@ -53,7 +53,7 @@ class content6 extends HTMLElement {
               style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 class="card-title">Gizi Makanan</h5>
+              <h5 class="card-title">MPASI</h5>
               <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#">Lihat Selengkapnya</a>
             </div>
           </div>

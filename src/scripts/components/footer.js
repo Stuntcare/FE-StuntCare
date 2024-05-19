@@ -9,17 +9,19 @@ class FooterElement extends HTMLElement {
           <div class="col-md-4 mb-4">
             <img src="../images/Logo.png" height="30" alt="image" />
             <div class="social-icons">
-              <a href="https://www.instagram.com/benarinipiers17/"<i class="bi bi-github"></i></a>
-              <a href="https://www.instagram.com/benarinipiers17/"<i class="bi bi-linkedin"></i></a>
-              <a href="https://www.instagram.com/benarinipiers17/"<i class="bi bi-instagram"></i></a>
+              <a href="https://www.github.com/"<i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/"<i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/"<i class="bi bi-instagram"></i></a>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <h5><span class="text-warning fw-bold">Services</span></h5>
             <ul class="list-unstyled">
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Beranda</a>
+              <a class="nav-link" href="#">Artikel</a>
+              <a class="nav-link" href="#">Kalkulator Gizi</a>
+              <a class="nav-link" href="#">MPASI</a>
+              <a class="nav-link" href="#">Tentang Kami</a>
             </ul>
           </div>
           <div class="col-md-4 mb-4">
