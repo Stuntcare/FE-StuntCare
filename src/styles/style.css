@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 body {
   font-family: "Poppins", Arial, sans-serif;
 }
@@ -15,9 +17,6 @@ nav {
   height: 85px;
 }
 
-.content1 .btn {
-  padding: 18px 25px;
-}
 .content1 {
   background-color: #019973;
   color: white;
@@ -30,7 +29,6 @@ nav {
   line-height: 55px;
 }
 .lead {
-  margin: 20px 0px;
   font-size: 18px;
 }
 .subheading{
@@ -63,3 +61,47 @@ nav {
   background-color: #019973;
   color: white;
 }
+
+.content5 {
+  height: 40vh;
+  
+}
+.content5 .tester {
+  background-image: url("../public/images/periksa_gizi.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 50vh;
+  padding-top: 2rem;
+  width: 100%;
+  
+}
+
+.footer {
+  background-color: #009879;
+  color: #fff;
+  padding: 20px 0;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #ddd;
+}
+
+.footer img{
+  width: 175px;
+  height: auto;
+}
+
+.footer .social-icons{
+  margin-top: 7px;
+  font-size: 24px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
