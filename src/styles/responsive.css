@@ -1,0 +1,21 @@
+@media screen and (min-width: 650px) {
+  
+}
+@media screen and (max-width: 550px) {
+  
+}
+
+
+@media screen and (min-width: 800px) {
+  
+  
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media only screen and (max-width: 768px) {
+    .content1 .img-fluid, .content4 .img-fluid{
+    display: none;
+  }
+}
