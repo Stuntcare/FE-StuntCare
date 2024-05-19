@@ -3,7 +3,7 @@ class navbarnih extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="">
           <img src="../images/Logo.png" height="30" alt="image" />
@@ -22,19 +22,19 @@ class navbarnih extends HTMLElement {
         <div class="collapse navbar-collapse" id="navbarNav11">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="#/home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#/artikel">Artikel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#/kalkulator">Kalkulator Gizi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
+              <a class="nav-link" href="#/mpasi">MPASI</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#/tentangkami">Tentang Kami</a>
             </li>
           </ul>
         </div>
