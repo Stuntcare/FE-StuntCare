@@ -1,3 +1,5 @@
+import RestaurantSource from '../../data/restaurant-source';
+
 const Mpasi = {
     async render() {
       return `

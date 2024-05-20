@@ -23,7 +23,7 @@ class content2 extends HTMLElement {
                 Anda bisa klik tombol yang di bawah ini
               </p>
               <p class="mt-4">
-                <a class="btn btn-outline-warning fw-bold" href="#">Baca Selengkapnya</a>
+                <a class="btn btn-outline-warning fw-bold" href="#/artikel">Baca Selengkapnya</a>
               </p>
 
               </p>

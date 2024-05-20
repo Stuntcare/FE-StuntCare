@@ -22,7 +22,7 @@ class content6 extends HTMLElement {
             />
             <div class="card-body">
               <h5 class="card-title">Artikel</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#">Lihat Selengkapnya</a>
+              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#/Artikel">Lihat Selengkapnya</a>
             </div>
           </div>
 
@@ -38,7 +38,7 @@ class content6 extends HTMLElement {
             />
             <div class="card-body">
               <h5 class="card-title">Kalkulator Gizi</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#">Lihat Selengkapnya</a>
+              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#/kalkulator">Lihat Selengkapnya</a>
             </div>
           </div>
 
@@ -54,7 +54,7 @@ class content6 extends HTMLElement {
             />
             <div class="card-body">
               <h5 class="card-title">MPASI</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#">Lihat Selengkapnya</a>
+              <a class="btn btn-outline-warning fw-bold mt-3" style="font-size: 14px" href="#/mpasi">Lihat Selengkapnya</a>
             </div>
           </div>
         </div>

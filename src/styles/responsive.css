@@ -1,5 +1,48 @@
 @media screen and (min-width: 650px) {
-  
+  .app-bar {
+    flex-direction: row;
+  }
+
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .app-bar .app-bar__navigation ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    position: relative;
+  }
+
+  .app-bar .app-bar__navigation ul li .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    display: none;
+    flex-direction: column;
+    background-color: #019973;
+  }
+
+  .app-bar .app-bar__navigation ul li:hover .dropdown-content {
+    display: flex;
+  }
+
+  .app-bar .app-bar__navigation ul li .dropdown-content a {
+    padding: 8px 16px;
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -8,7 +51,9 @@
 
 
 @media screen and (min-width: 800px) {
-  
+  .app-bar .app-bar__brand h1 {
+    font-size: 2em;
+  }
 
 }
 @media only screen and (max-width: 991pX) {
@@ -21,7 +66,9 @@
 
 
 @media screen and (min-width: 1200px) {
-
+  .app-bar {
+    padding: 10px 100px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -93,5 +140,4 @@
     padding-inline: 55px;
     font-size: small;
   }
-
 }
