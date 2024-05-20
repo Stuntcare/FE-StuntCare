@@ -13,7 +13,7 @@ class content2 extends HTMLElement {
                 src="../images/Group 33.png"
               />
             </div>
-            <div class="col-12 col-md-6 col-lg-5">
+            <div class="col-12 col-md-6 col-lg-5 text-content2">
               <h2 class="subheading fw-bold">Apa itu <span class="text-warning">Stunting?</span></h2>
               <p class="lead">
                 Stunting adalah kondisi terhambatnya pertumbuhan fisik dan
