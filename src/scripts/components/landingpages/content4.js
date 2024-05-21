@@ -15,7 +15,7 @@ class content4 extends HTMLElement {
                 Temukan rekomendasi gizi yang dapat dipercaya untuk menjaga kesehatan anak Anda.
                 </p>
                 <p class="mt-4">
-                  <a class="btn btn-warning text-white" href="#/mpasi">Gizi Makanan ></a>
+                  <a class="btn btn-warning text-white align-content-center" href="#/mpasi">Gizi Makanan ></a>
                 </p>
               </div>
               <div class="col-12 col-md-6 ms-md-auto mt-4 mt-md-0">

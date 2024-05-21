@@ -9,10 +9,7 @@ class content3 extends HTMLElement {
           Kenapa Pilih <span class="text-warning">StuntCare?</span>
         </h1>
         <div class="row justify-content-center">
-          <div
-            class="card m-2 highlight-hover text-center"
-            style="width: 20rem"
-          >
+          <div class="card m-2 mx-4 highlight-hover text-center" style="width:18rem;">
             <img
               src="../images/undraw_family_vg76 2.png"
               class="card-img-top p-3 mx-auto d-block"
@@ -29,10 +26,7 @@ class content3 extends HTMLElement {
             </div>
           </div>
 
-          <div
-            class="card m-2 highlight-hover text-center"
-            style="width: 20rem"
-          >
+          <div class="card m-2 highlight-hover text-center" style="width:18rem;">
             <img
               src="../images/Group 3473678.png"
               class="card-img-top p-3 mx-auto d-block"
@@ -50,10 +44,7 @@ class content3 extends HTMLElement {
             </div>
           </div>
 
-          <div
-            class="card m-2 highlight-hover text-center"
-            style="width: 20rem"
-          >
+          <div class="card m-2 highlight-hover text-center" style="width:18rem;">
             <img
               src="../images/undraw_fatherhood_-7-i19 2.png"
               class="card-img-top p-3 mx-auto d-block"

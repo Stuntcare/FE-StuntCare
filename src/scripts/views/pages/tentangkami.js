@@ -1,9 +1,14 @@
-import RestaurantSource from "../../data/restaurant-source";
+
 
 const AboutUs = {
   async render() {
     return `
-        <h2>Tentang Kami</h2>
+    <h1 style="text-align: center;" class="fw-bold">Tentang <span class="text-warning">Kami</span></h1>
+    <div class="container mt-4" >
+    <about-us></about-us>
+    <h1 style="text-align: center;" class="text-warning fw-bold">Advisor</h1>
+    <div class="container mt-4" >
+    <team-advisor></team-advisor>
       `;
   },
 
