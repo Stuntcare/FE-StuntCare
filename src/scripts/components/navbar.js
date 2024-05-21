@@ -3,45 +3,32 @@ class navbarnih extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="">
-          <img src="../images/Logo.png" height="30" alt="image" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav11"
-          aria-controls="navbarNav11"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav11">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#/home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#/artikel">Artikel</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#/kalkulator">Kalkulator Gizi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#/mpasi">MPASI</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#/tentangkami">Tentang Kami</a>
-            </li>
-          </ul>
-        </div>
+    <header class="app-bar">
+      <div class="app-bar__menu">
+        <button id="hamburgerButton">☰</button>
       </div>
-    </nav>
+      <div class="app-bar__brand">
+        <a href="#/"><img src="../images/Logo.png" height="30" alt="image" /></a>
+      </div>
+      <nav id="navigationDrawer" class="app-bar__navigation">
+        <ul>
+          <li><a href="#/">home</a></li>
+          <li class="nav-item dropdown">
+            <a>feature</a>
+            <ul class="dropdown-content">
+              <li><a href="#/artikel">Artikel</a></li>
+              <li><a href="#/kalkulator">Kalkulator Gizi</a></li>
+              <li><a href="#/mpasi">MPASI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#/tentangkami">About Us</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     `;
   }
 }
 
-customElements.define('navbar-nih', navbarnih);
+customElements.define("navbar-nih", navbarnih);

@@ -3,7 +3,7 @@ class content1 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section class="content1" style="margin-top: 85px;">
+    <section class="content1">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-12 col-md-6 col-lg-5">
