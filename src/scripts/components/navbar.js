@@ -12,7 +12,7 @@ class navbarnih extends HTMLElement {
       </div>
       <nav id="navigationDrawer" class="app-bar__navigation">
         <ul>
-          <li><a href="#/">home</a></li>
+          <li><a href="#/">Beranda</a></li>
           <li class="nav-item dropdown">
             <a>feature</a>
             <ul class="dropdown-content">
@@ -22,7 +22,7 @@ class navbarnih extends HTMLElement {
             </ul>
           </li>
           <li>
-            <a href="#/tentangkami">About Us</a>
+            <a href="#/tentangkami">Tentang Kami</a>
           </li>
         </ul>
       </nav>

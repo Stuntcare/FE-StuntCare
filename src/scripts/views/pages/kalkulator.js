@@ -3,7 +3,7 @@ import RestaurantSource from '../../data/restaurant-source';
 const Kalkulator = {
     async render() {
       return `
-      <div class="container d-flex justify-content-center align-items-center" style="  height: 90vh;">
+      <div class="container d-flex justify-content-center align-items-center kalkulator"  style="height: 90vh;">
       <form class="needs-validation" action="">
       <h1 class="text-center">Kalkulator Gizi</h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
@@ -11,7 +11,7 @@ const Kalkulator = {
           <div class="input-container">
               <input id="walk" type="radio" name="radio" required/>
               <div class="radio-tile">
-              <svg width="200" height="200">
+              <svg width="200" height="200" class="wanita">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
                   <path d="M138.8 73.4C138.8 97.9 199.5 193.9 100.1 193.9C0.699955 193.9 61.3999 97.9 61.3999 73.4C61.3999 48.9 63 29 100.1 29C137.2 29 138.8 48.9 138.8 73.4Z" fill="white"/>
                   <path d="M100.1 194.6C75.2002 194.6 58.2002 188.5 49.5002 176.4C34.8002 156 46.0002 122.7 54.1002 98.4C57.6002 87.9 60.7002 78.8 60.7002 73.4C60.7002 47 63.5002 28.3 100.1 28.3C136.7 28.3 139.6 47 139.6 73.4C139.6 78.8 142.6 87.9 146.2 98.4C154.3 122.7 165.5 156 150.8 176.4C142 188.5 125 194.6 100.1 194.6ZM100.1 29.7C64.7002 29.7 62.1002 47 62.1002 73.4C62.1002 79 59.0002 88.2 55.4002 98.9C47.4002 122.9 36.4002 155.8 50.6002 175.6C59.1002 187.3 75.7002 193.2 100.1 193.2C124.5 193.2 141.1 187.3 149.6 175.6C163.9 155.8 152.8 122.9 144.8 98.9C141.2 88.2 138.1 79 138.1 73.4C138.1 47 135.5 29.8 100.1 29.7Z" fill="#231F20"/>
@@ -45,7 +45,7 @@ const Kalkulator = {
           <div class="input-container">
               <input id="bike" type="radio" name="radio" required/>                    
               <div class="radio-tile">
-              <svg width="200" height="200">
+              <svg width="200" height="200" class="pria">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
                   <path d="M177.9 162.1C161.4 182.8 137.4 196.1 111.1 199C103.8 199.8 96.4999 199.8 89.1999 199C62.8999 196.1 38.7999 182.8 22.3999 162.1C34.3999 153.8 49.9999 145 67.6999 139.8C78.1999 136.6 89.0999 134.9 100.1 134.9C111.1 135 122.1 136.6 132.6 139.8C150.3 145.1 165.9 153.8 177.9 162.1Z" fill="#019973"/>
                   <path d="M120.8 146.7L111.1 199C110.3 199.1 109.5 199.2 108.7 199.2C105.9 199.4 103.1 199.6 100.2 199.6C96.9999 199.6 93.7999 199.5 90.5999 199.1L89.2999 199L78.3999 146.7C88.4999 143.7 110.6 143.7 120.8 146.7Z" fill="#231F20"/>

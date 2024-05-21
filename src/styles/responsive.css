@@ -45,11 +45,6 @@
   }
 }
 
-@media screen and (max-width: 550px) {
-  
-}
-
-
 @media screen and (min-width: 800px) {
   .app-bar .app-bar__brand h1 {
     font-size: 2em;
@@ -71,7 +66,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 769px) {
     .content1 .img-fluid, .content4 .img-fluid{
     display: none;
   }
@@ -137,7 +132,37 @@
     font-size: 18px;
   }
   .content5 .deskripsi{
-    padding-inline: 55px;
+    padding-inline: 100px;
     font-size: small;
   }
+  .content6 .container{
+    margin-top: 30px !important;
+  }
+  .kalkulator{
+    height: 105vh !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .content5 {
+    height: 33vh;
+  }
+  .content5 .deskripsi{
+    display: none;
+  }
+  .content5 .tester {
+    width: 80% !important;
+  }
+  .content5 .btn{
+    margin-top: 10px;
+  }
+  .content6 .container{
+    margin-top: 0px !important;
+  }
+  .kalkulator{
+    margin-top: 3rem;
+
+  }
+
+
 }

@@ -5,7 +5,10 @@ const Artikel = {
   async render() {
     return `
       <h1 style="text-align: center;">Artikel Terkait Stunting</h1>
-      <div class="cards-container" id="restaurants"></div>
+      <div class="container mt-4" >
+        <div class="row" id="restaurants">
+        </div>
+      </div>
     `;
   },
 
