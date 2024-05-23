@@ -4,7 +4,7 @@ import RestaurantSource from "../../data/restaurant-source";
 const Artikel = {
   async render() {
     return `
-      <h1 style="text-align: center;">Artikel Terkait Stunting</h1>
+      <h1 class="fw-bold" style="text-align: center;">Artikel Terkait <span class="text-warning">Stunting</span></h1>
       <div class="container mt-4" >
         <div class="row" id="restaurants">
         </div>

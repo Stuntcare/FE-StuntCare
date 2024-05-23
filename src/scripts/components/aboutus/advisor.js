@@ -1,8 +1,8 @@
 class Advisor extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.innerHTML = `
+  constructor() {
+    super();
+
+    this.innerHTML = `
         <div class="single-team-member text-center">
           <div class="team-img">
             <a href="#">
@@ -29,13 +29,12 @@ class Advisor extends HTMLElement {
             </div>
           </div>
           <div class="team-content">
-            <h5>Nama Advisor</h5>
-            <p>Advisor</p>
+            <h5>Agrey Tosira</h5>
+            <p>Front-End Advisor</p>
           </div>
         </div>
       `;
-    }
   }
-  
-  customElements.define("team-advisor", Advisor);
-  
+}
+
+customElements.define("team-advisor", Advisor);

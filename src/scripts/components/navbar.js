@@ -22,7 +22,7 @@ class navbarnih extends HTMLElement {
             </ul>
           </li>
           <li>
-            <a href="#/tentangkami">Tentang Kami</a>
+            <a href="#/tentangkami">About Us</a>
           </li>
         </ul>
       </nav>
