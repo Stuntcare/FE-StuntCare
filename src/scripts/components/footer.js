@@ -18,10 +18,10 @@ class FooterElement extends HTMLElement {
             <h5><span class="text-warning fw-bold">Services</span></h5>
             <ul class="list-unstyled">
               <a class="nav-link" href="#">Beranda</a>
-              <a class="nav-link" href="#">Artikel</a>
-              <a class="nav-link" href="#">Kalkulator Gizi</a>
-              <a class="nav-link" href="#">MPASI</a>
-              <a class="nav-link" href="#">Tentang Kami</a>
+              <a class="nav-link" href="#/artikel">Artikel</a>
+              <a class="nav-link" href="#/kalkulator">Kalkulator Gizi</a>
+              <a class="nav-link" href="#/mpasi">MPASI</a>
+              <a class="nav-link" href="#/tentangkami">Tentang Kami</a>
             </ul>
           </div>
           <div class="col-md-4 mb-4">
