@@ -1,8 +1,8 @@
 class FooterElement extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.innerHTML = `
+  constructor() {
+    super();
+
+    this.innerHTML = `
       <footer class="footer">
       <div class="container">
         <div class="row text-center">
@@ -42,8 +42,7 @@ class FooterElement extends HTMLElement {
       </div>
     </footer>
       `;
-    }
   }
-  
-  customElements.define("footer-gaming", FooterElement);
-  
+}
+
+customElements.define("footer-gaming", FooterElement);

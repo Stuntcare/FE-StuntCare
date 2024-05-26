@@ -4,6 +4,10 @@ body {
   font-family: "Poppins", Arial, sans-serif;
 }
 
+.ijonih{
+  color: #019973;
+}
+
 button,
 a,
 input,
@@ -310,4 +314,17 @@ input:checked + .radio-tile label {
   font-size: 14px;
   line-height: 1.5em;
   color: black;
+}
+
+/* 
+  AboutUs
+*/
+
+.AboutUs {
+  color: white;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
 }

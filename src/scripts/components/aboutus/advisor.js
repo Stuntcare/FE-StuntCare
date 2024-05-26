@@ -3,34 +3,17 @@ class Advisor extends HTMLElement {
     super();
 
     this.innerHTML = `
-        <div class="single-team-member text-center">
-          <div class="team-img">
-            <a href="#">
-              <img src="assets/img/team/advisor.jpg" alt="Foto Advisor" class="img-fluid" style="height: 250px; object-fit: cover;">
-            </a>
-            <div class="team-social-icon">
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="bi bi-github"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="team-content">
-            <h5>Agrey Tosira</h5>
-            <p>Front-End Advisor</p>
+        <div class="card" style="width: 18rem; margin: 30px auto;">
+          <img src="../images/profile-fery.jpg" class="card-img-top" alt="muhammad fery syahputra" style="width: 150px height: 150px">
+          <div class="card-body text-center">
+              <h5 class="card-title text-uppercase">Agrey Tosira</h5>
+              <p class="card-text text-capitalize">Front-End Advisor</p>
+              <div class="d-flex justify-content-center ">
+                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
+                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
+                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
+              </div>
           </div>
         </div>
       `;
