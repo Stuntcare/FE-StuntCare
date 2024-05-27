@@ -1,15 +1,16 @@
-import RestaurantSource from '../../data/restaurant-source';
+import RestaurantSource from "../../data/restaurant-source";
+import whoData from "../../data/whoData";
 
 const Kalkulator = {
-    async render() {
-      return `
-      <div class="container d-flex justify-content-center align-items-center kalkulator"  style="height: 90vh;">
-      <form class="needs-validation" action="">
+  async render() {
+    return `
+      <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator"  style="height: 90vh;">
+      <form class="needs-validation" action="" novalidate>
       <h1 class="text-center">Kalkulator Gizi</h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
 
           <div class="input-container">
-              <input id="walk" type="radio" name="radio" required/>
+              <input id="gender1" type="radio" value="wanita" name="radio" required/>
               <div class="radio-tile">
               <svg width="200" height="200" class="wanita">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
@@ -43,7 +44,7 @@ const Kalkulator = {
               </div>
           </div>
           <div class="input-container">
-              <input id="bike" type="radio" name="radio" required/>                    
+              <input id="gender2" type="radio" value="pria" name="radio" required/>                    
               <div class="radio-tile">
               <svg width="200" height="200" class="pria">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
@@ -77,7 +78,7 @@ const Kalkulator = {
           
           </div>
           <div class="mb-3">
-              <label for="usia" class="form-label">Usia</label>
+              <label for="usia" class="form-label">Usia (Bulan)</label>
               <input type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" required>
               <div class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
@@ -100,32 +101,149 @@ const Kalkulator = {
           <div class="d-grid">
               <button type="submit" class="btn btn-custom">Submit</button>
           </div>
-      </form>
-    </div>
+          </form>
+          </div>
+          <div id="result" class="mt-4 mb-4 d-flex justify-content-center align-items-center"></div>
       `;
 
-      document.addEventListener('DOMContentLoaded', function () {
-        const forms = document.querySelectorAll('.needs-validation');
-        
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-        
-                form.classList.add('was-validated');
-            }, false);
+    document.addEventListener("DOMContentLoaded", function () {});
+  },
+
+  async afterRender() {
+    const forms = document.querySelectorAll(".needs-validation");
+
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault();
+            handleFormSubmit();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+
+    function handleFormSubmit() {
+      const ageMonths = parseInt(document.getElementById("usia").value);
+      const weightKg = parseFloat(document.getElementById("beratBadan").value);
+      const heightCm = parseFloat(document.getElementById("tinggiBadan").value);
+      document.querySelectorAll('input[name="radio"]').forEach((elem) => {
+        elem.addEventListener("change", function (event) {
+          const gender = event.target.value;
+          console.log(gender);
         });
-        });
-    },
-   
-    async afterRender() {
-      // Fungsi ini akan dipanggil setelah render()
-      
-      const restaurants = await RestaurantSource.getListOfRestaurants();
-      console.log(restaurants);
-    },
-  };
-   
-  export default Kalkulator;
+      });
+      const gender = document.querySelector(
+        'input[name="radio"]:checked'
+      ).value;
+
+      const waz = calculateWAZ(ageMonths, weightKg, gender);
+      const haz = calculateHAZ(ageMonths, heightCm, gender);
+      const result = determineSPGA(waz, haz, ageMonths, gender);
+
+      displayResult(result, waz, haz);
+    }
+
+    function calculateWAZ(ageInMonths, weightKg, gender) {
+      const data =
+        gender === "pria" ? whoData.maleWeight : whoData.femaleWeight;
+      const { range } = data.find((entry) => entry.ageMonths === ageInMonths);
+      const zScore = (weightKg - range[0]) / (range[1] - range[0]);
+      return zScore;
+    }
+
+    function calculateHAZ(ageInMonths, heightCm, gender) {
+      const data =
+        gender === "pria" ? whoData.maleHeight : whoData.femaleHeight;
+      const { range } = data.find((entry) => entry.ageMonths === ageInMonths);
+      const zScore = (heightCm - range[0]) / (range[1] - range[0]);
+      return zScore;
+    }
+
+    function determineSPGA(waz, haz, ageInMonths, gender) {
+      const isUnderweight = waz <= -2 || haz <= -2;
+      const isModeratelyMalnourished =
+        (waz > -2 && waz <= -1) || (haz > -2 && haz <= -1);
+      const isOverweight = waz > 1 || haz > 1;
+
+      const weightData =
+        gender === "pria" ? whoData.maleWeight : whoData.femaleWeight;
+      const heightData =
+        gender === "pria" ? whoData.maleHeight : whoData.femaleHeight;
+      const weightRange = weightData.find(
+        (entry) => entry.ageMonths === ageInMonths
+      ).range;
+      const heightRange = heightData.find(
+        (entry) => entry.ageMonths === ageInMonths
+      ).range;
+      if (isOverweight) {
+        return {
+          status: "Gizi Lebih (Overweight/Obese)",
+          gambar: "../images/Gizi-Lebih.webp",
+          weightRecommendation: `Rekomendasi: Berat badan ideal diperlukan untuk kesehatan anak. Rentang berat badan yang normal untuk usia ini: ${weightRange[0]} - ${weightRange[1]} kg. Konsultasikan dengan dokter anak.`,
+          heightRecommendation: `Rekomendasi: Tinggi badan ideal diperlukan untuk kesehatan anak. Rentang tinggi badan yang normal untuk usia ini: ${heightRange[0]} - ${heightRange[1]} cm. Konsultasikan dengan dokter anak.`,
+        };
+      }
+
+      if (isUnderweight || isModeratelyMalnourished) {
+        return {
+          status: isUnderweight
+            ? "Gizi Kurang (Underweight/Stunted)"
+            : "Gizi Kurang (Moderately Malnourished)",
+          weightRecommendation: `Rekomendasi: Berat badan ideal diperlukan untuk kesehatan anak. Rentang berat badan yang normal untuk usia ini: ${weightRange[0]} - ${weightRange[1]} kg. Konsultasikan dengan dokter anak.`,
+          heightRecommendation: `Rekomendasi: Tinggi badan ideal diperlukan untuk kesehatan anak. Rentang tinggi badan yang normal untuk usia ini: ${heightRange[0]} - ${heightRange[1]} cm. Konsultasikan dengan dokter anak.`,
+          gambar: "../images/Gizi-Kurang.webp",
+        };
+      }
+
+      return {
+        status: "Normal (Well-Nourished)",
+        weightRecommendation:
+          "Berat badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.",
+        heightRecommendation:
+          "Tinggi badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.",
+        gambar: "../images/Gizi-baik.webp",
+      };
+    }
+
+    function displayResult(result, waz, haz) {
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <div class="card" style="width: 85%;">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="${result.gambar}" class="img-fluid" alt="Responsive image" style="display:block; margin-inline:auto;">
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Status Perkembangan Gizi Anak</th>
+                                <td>${result.status}</td>
+                            </tr>
+                            <tr>
+                                <th>Rekomendasi Berat Badan</th>
+                                <td>${result.weightRecommendation}</td>
+                            </tr>
+                            <tr>
+                                <th>Rekomendasi Tinggi Badan</th>
+                                <td>${result.heightRecommendation}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+          `;
+    }
+  },
+};
+
+export default Kalkulator;
