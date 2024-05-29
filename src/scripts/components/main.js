@@ -9,3 +9,6 @@ import "./footer.js";
 
 import "./aboutus/aboutus";
 import "./aboutus/advisor";
+import "./aboutus/fery";
+import "./aboutus/firza";
+import "./aboutus/rizq";

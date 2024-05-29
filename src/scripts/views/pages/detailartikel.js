@@ -1,8 +1,8 @@
 import UrlParser from "../../routes/url-parser";
-import RestaurantSource from "../../data/restaurant-source";
-import { createRestaurantDetailTemplate } from "../templates/template-creator";
+import ArtikelSource from "../../data/artikel-source";
+import { createArtikelDetailTemplate } from "../templates/template-creator";
 
-const Detail = {
+const DetailArtikel = {
   async render() {
     return `
       <div id="restaurant" class="restaurant"></div>
@@ -11,10 +11,11 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.getRestaurantDetail(url.id);
-    const restaurantContainer = document.querySelector("#restaurant");
-    restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    const artikel = await ArtikelSource.detailArtikel(url.id);
+    console.log(artikel);
+    const artikelContainer = document.querySelector("#restaurant");
+    artikelContainer.innerHTML = createArtikelDetailTemplate(artikel);
   },
 };
 
-export default Detail;
+export default DetailArtikel;
