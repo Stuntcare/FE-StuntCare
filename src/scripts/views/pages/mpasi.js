@@ -1,45 +1,28 @@
+import { createMpasiTemplate } from "../templates/template-creator";
+import MpasiSource from "../../data/mpasi-source";
 import UrlParser from "../../routes/url-parser";
-import { createMPASIDetailTemplate } from "../templates/template-creator";
-
-const Detail = {
+const Mpasi = {
   async render() {
     return `
-      <div id="mpasi" class="mpasi"></div>
+      <h1 class="fw-bold mt-4" style="text-align: center; text-transform: uppercase">mpasi <span class="text-warning">Stunting</span></h1>
+      <div class="container mt-4" >
+        <div class="row" id="mpasi">
+        </div>
+      </div>
     `;
   },
 
   async afterRender() {
-    // Data MPASI yang akan digunakan
-    const mpasi = {
-      makanan: "Bubur bayi",
-      porsi: 2,
-      bahan: {
-        kentang: "50gr",
-        telur: "1 butir",
-        kaldu_sapi: "50 ml",
-      },
-      cara_masak: [
-        "Kupas dan potong kentang menjadi potongan kecil-kecil.",
-        "Rebus kentang hingga empuk, lalu tiriskan.",
-        "Kocok telur dan tambahkan ke dalam kentang yang telah dihaluskan.",
-        "Panaskan kaldu sapi dan tambahkan ke dalam campuran kentang dan telur. Aduk hingga merata.",
-        "Masak campuran tersebut dengan api kecil hingga mengental dan menjadi bubur yang lembut.",
-        "Angkat dan biarkan dingin sebelum disajikan kepada bayi.",
-      ],
-      kandungan: {
-        kalori: "100 kkal",
-        protein: "6 gr",
-        lemak: "3,5 gr",
-        karbohidrat: "7,8 gr",
-      },
-      kategori: "6-8 bulan",
-      gambar: "https://sardjito.co.id/wp-content/uploads/2019/08/stunting.jpg",
-    };
-
-    // Memasukkan hasil template ke dalam elemen dengan id "mpasi"
+    const mpasi = await MpasiSource.getAllMpasi();
     const mpasiContainer = document.querySelector("#mpasi");
-    mpasiContainer.innerHTML = createMPASIDetailTemplate(mpasi);
+    if (mpasiContainer) {
+      mpasi.forEach((mpasi) => {
+        mpasiContainer.innerHTML += createMpasiTemplate(mpasi);
+      });
+    } else {
+      console.error("Element #mpasi not found");
+    }
   },
 };
 
-export default Detail;
+export default Mpasi;

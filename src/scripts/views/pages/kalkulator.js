@@ -1,4 +1,3 @@
-import RestaurantSource from "../../data/restaurant-source";
 import whoData from "../../data/whoData";
 
 const Kalkulator = {
@@ -44,7 +43,7 @@ const Kalkulator = {
               </div>
           </div>
           <div class="input-container">
-              <input id="gender2" type="radio" value="pria" name="radio" required/>                    
+              <input id="gender2" type="radio" value="pria" name="radio" required/>     
               <div class="radio-tile">
               <svg width="200" height="200" class="pria">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
@@ -94,6 +93,7 @@ const Kalkulator = {
           <div class="mb-3">
               <label for="beratBadan" class="form-label">Berat Badan (kg)</label>
               <input type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
+              <div class="valid-feedback">Cakepp</div>
               <div class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
@@ -104,9 +104,9 @@ const Kalkulator = {
           </form>
           </div>
           <div id="result" class="mt-4 mb-4 d-flex justify-content-center align-items-center"></div>
+          <div id="rekomendasi"></div>
       `;
 
-    document.addEventListener("DOMContentLoaded", function () {});
   },
 
   async afterRender() {
@@ -215,6 +215,7 @@ const Kalkulator = {
 
     function displayResult(result, waz, haz) {
       const resultDiv = document.getElementById("result");
+      const rekomendasi = document.getElementById("rekomendasi");
       resultDiv.innerHTML = `
         <div class="card" style="width: 85%;">
             <div class="card-body">
@@ -242,6 +243,30 @@ const Kalkulator = {
             </div>
         </div>
           `;
+      rekomendasi.innerHTML = `
+      <div class="container d-flex justify-content-center align-items-center flex-column mb-4">
+        <div class="mb-4"><h1>Rekomendasi Kategori</h1></div>
+        <div class="radio-tile-group d-flex flex-wrap justify-content-center">
+      
+          <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
+            <input id="mpasi" type="radio" name="radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
+            <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+              <ion-icon name="nutrition-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
+              <label for="mpasi" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Mpasi</label>
+            </div>
+          </div>
+      
+          <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
+            <input id="artikel" type="radio" name="radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
+            <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+              <ion-icon name="book-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
+              <label for="artikel" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Artikel</label>
+            </div>
+          </div>
+
+        </div>
+      </div>    
+      `;
     }
   },
 };

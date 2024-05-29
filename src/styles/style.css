@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", Arial, sans-serif;
 }
 
-.ijonih{
+.ijonih {
   color: #019973;
 }
 
@@ -227,7 +227,7 @@ input,
 }
 
 /* Kalkulator */
-.kalkulator{
+.kalkulator {
   margin-bottom: 3rem;
 }
 
@@ -285,9 +285,33 @@ input:checked + .radio-tile label {
   border: 1px solid #666666;
 }
 
+input:checked + .radio-tile2 {
+  background-color: #019973;
+  box-shadow: 0 0 12px #019973;
+  transform: scale(1.1);
+}
+
+input:hover + .radio-tile2 {
+  box-shadow: 0 0 12px #019973;
+}
+
+input:checked + .radio-tile2 ion-icon,
+input:checked + .radio-tile2 label {
+  color: white !important;
+  fill: #019973;
+}
+/* 
+  mpasi
+*/
+
+.mpasi-img {
+  object-fit: cover;
+  width: 100%;
+  height: 250px;
+}
 /* Artikel */
 
-.arikel-pages .card img{
+.arikel-pages .card img {
   object-fit: cover;
   width: 100%;
   height: 250px;

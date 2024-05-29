@@ -1,4 +1,4 @@
-import CONFIG from '../globals/config';
+import CONFIG from "../globals/config";
 
 class RestaurantSource {
   static async getListOfRestaurants() {
@@ -7,7 +7,7 @@ class RestaurantSource {
       const responseJson = await response.json();
       return responseJson.restaurants;
     } catch (error) {
-      console.error('Error fetching restaurant data:', error);
+      console.error("Error fetching restaurant data:", error);
       return null;
     }
   }
@@ -18,7 +18,7 @@ class RestaurantSource {
       const responseJson = await response.json();
       return responseJson.restaurant;
     } catch (error) {
-      console.error('Error fetching restaurant detail:', error);
+      console.error("Error fetching restaurant detail:", error);
       return null;
     }
   }
@@ -29,7 +29,7 @@ class RestaurantSource {
       const responseJson = await response.json();
       return responseJson.restaurants;
     } catch (error) {
-      console.error('Error searching restaurants:', error);
+      console.error("Error searching restaurants:", error);
       return null;
     }
   }
@@ -37,27 +37,27 @@ class RestaurantSource {
   static async addReview(reviewData) {
     try {
       const response = await fetch(`${CONFIG.BASE_URL}review`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(reviewData),
       });
       const responseJson = await response.json();
       return responseJson.customerReviews;
     } catch (error) {
-      console.error('Error adding review:', error);
+      console.error("Error adding review:", error);
       return null;
     }
   }
 
-  static getRestaurantImageUrl(pictureId, size = 'medium') {
+  static getRestaurantImageUrl(pictureId, size = "medium") {
     switch (size) {
-      case 'small':
+      case "small":
         return `${CONFIG.BASE_IMAGE_URL_SMALL}${pictureId}`;
-      case 'medium':
+      case "medium":
         return `${CONFIG.BASE_IMAGE_URL_MEDIUM}${pictureId}`;
-      case 'large':
+      case "large":
         return `${CONFIG.BASE_IMAGE_URL_LARGE}${pictureId}`;
       default:
         return `${CONFIG.BASE_IMAGE_URL_MEDIUM}${pictureId}`;

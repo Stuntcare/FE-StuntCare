@@ -27,10 +27,10 @@ const AboutUs = {
                       <h5 class="card-title text-uppercase">Muhammad Firza Fernanda</h5>
                       <p class="card-text text-capitalize">project manager</p>
                       <div class="d-flex justify-content-center ">
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
+                  <a href="https://github.com/MuhammadFirzaFernanda17" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
+                  <a href="https://www.linkedin.com/in/muhammad-firza-fernanda-84abb3221/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/benarinipiers17/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
+                  <a href="https://t.me/ngekngek17" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
               </div>
                   </div>
               </div>
@@ -42,9 +42,9 @@ const AboutUs = {
                       <h5 class="card-title text-uppercase">Muhammad Rizq Saputra</h5>
                       <p class="card-text text-capitalize">back-end developer</p>
                       <div class="d-flex justify-content-center ">
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
-                  <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
+                  <a href="https://github.com/Rizq-Saputra" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
+                  <a href="https://www.linkedin.com/in/muhammad-rizq-saputra-378088281/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/rizqsptr/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
                   <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
               </div>
                   </div>
