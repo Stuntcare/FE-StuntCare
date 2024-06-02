@@ -4,12 +4,12 @@ const createMpasiTemplate = (mpasi) => `
     <img src="${mpasi.gambar}" class="card-img-top mpasi-img" alt="${mpasi.makanan}">
     <div class="card-body">
       <h5 class="card-title">
-        <a href="#/detailmpasi/${mpasi.id}">
+        <a href="#/mpasi/${mpasi.id}">
           <h2 class="list_item_title arikel-pages-name" tabindex="0">${mpasi.makanan}</h2>
         </a>
       </h5>
       <p class="card-text arikel-pages-desc">${mpasi.kategori}</p>
-      <a href="#/detailmpasi/${mpasi.id}" class="no-link-style">
+      <a href="#/mpasi/${mpasi.id}" class="no-link-style">
         <button class="btn btn-warning">Baca Selengkapnya</button>
       </a>
     </div>
@@ -23,12 +23,12 @@ const createArtikelTemplate = (artikel) => `
     <img src="${artikel.gambar}" class="card-img-top artikel-img" alt="${artikel.judul}">
     <div class="card-body">
       <h5 class="card-title">
-        <a href="#/detailartikel/${artikel.id}">
+        <a href="#/artikel/${artikel.id}">
           <h2 class="list_item_title arikel-pages-name" tabindex="0">${artikel.judul}</h2>
         </a>
       </h5>
       <p class="card-text arikel-pages-desc">${artikel.kategori}</p>
-      <a href="#/detailartikel/${artikel.id}" class="no-link-style">
+      <a href="#/artikel/${artikel.id}" class="no-link-style">
         <button class="btn btn-warning">Baca Selengkapnya</button>
       </a>
     </div>
@@ -37,24 +37,58 @@ const createArtikelTemplate = (artikel) => `
 `;
 
 const createMPASIDetailTemplate = (mpasi) => `
-<img src="${mpasi.gambar}" alt="${mpasi.makanan}" class="img-fluid mb-4" style="max-width: 600px;">
-<div class="container mt-5">
-  <div class="text-center">
-    <h2 class="mb-3">${mpasi.makanan}</h2>
-    <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${mpasi.kategori}</p>
-  </div>
+  <img src="${mpasi.gambar}" alt="${
+  mpasi.makanan
+}" class="img-fluid mb-4" style="max-width: 600px;">
+  <div class="container mt-5">
+    <div class="text-center">
+      <h2 class="mb-3">${mpasi.makanan}</h2>
+      <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${
+  mpasi.kategori
+}</p>
+    </div>
 
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <h4 class="mb-3">Bahan-bahan</h4>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <h4 class="mb-3">Bahan-bahan</h4>
+        <ul>
+          ${Object.keys(mpasi.bahan)
+            .map(
+              (key) => `
+            <li>${key}: ${mpasi.bahan[key]}</li>
+          `
+            )
+            .join("")}
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4 class="mb-3">Cara Memasak</h4>
+        <ol>
+          ${mpasi.cara_masak
+            .map(
+              (step) => `
+            <li>${step}</li>
+          `
+            )
+            .join("")}
+        </ol>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h4 class="mb-3">Kandungan Gizi</h4>
+      <ul>
+        <li>Kalori: ${mpasi.kalori}</li>
+        <li>Protein: ${mpasi.protein}</li>
+        <li>Lemak: ${mpasi.lemak}</li>
+        <li>Karbohidrat: ${mpasi.karbohidrat}</li>
+      </ul>
     </div>
   </div>
-
-  <div class="mt-4">
-    <h4 class="mb-3">Kandungan Gizi</h4>
-  </div>
-</div>
 `;
+
+export default createMPASIDetailTemplate;
+
 // const createMPASIDetailTemplate = (mpasi) => `
 // <img src="${mpasi.gambar}" alt="${
 //   mpasi.makanan
@@ -101,7 +135,6 @@ const createMPASIDetailTemplate = (mpasi) => `
 //   </div>
 // </div>
 // `;
-
 
 // Fungsi untuk memformat tanggal
 const formatTanggal = (tanggal) => {
