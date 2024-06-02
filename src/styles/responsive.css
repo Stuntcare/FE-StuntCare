@@ -49,16 +49,14 @@
   .app-bar .app-bar__brand h1 {
     font-size: 2em;
   }
-
 }
-@media only screen and (max-width: 991pX) {
-  .navbar-collapse{
-      background-color: #333;
-      text-align: center;
-      width: 100%;
-    }
+@media only screen and (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #333;
+    text-align: center;
+    width: 100%;
+  }
 }
-
 
 @media screen and (min-width: 1200px) {
   .app-bar {
@@ -66,12 +64,17 @@
   }
 }
 
-@media only screen and (max-width: 769px) {
-    .content1 .img-fluid, .content4 .img-fluid{
+@media only screen and (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .content1 .img-fluid,
+  .content4 .img-fluid {
     display: none;
   }
 
-  .content1{
+  .content1 {
     position: relative;
     background-image: url(https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
@@ -81,14 +84,14 @@
   }
 
   .content1::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 1; 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
   }
 
   .content1 > * {
@@ -96,49 +99,55 @@
     z-index: 2;
   }
 
-  .heading-title{
+  .heading-title {
     text-align: center;
     line-height: 40px;
     margin-top: 20px;
   }
-  .deskripsi{
+  .deskripsi {
     text-align: center;
   }
-  .button-content1{
+  .button-content1 {
     text-align: center;
   }
-  
-  .text-content2{
+
+  .text-content2 {
     text-align: center;
   }
-  .lead{
+  .lead {
     font-size: 14px;
     padding-inline: 35px;
   }
 
-  .content3 .card img{
+  .content3 .card img {
     height: 150px !important;
   }
-  .content3 .card-title{
+  .content3 .card-title {
     font-size: 16px;
   }
-  .content3 .card-text{
+  .content3 .card-text {
     font-size: 12px;
   }
-  .content4{
+  .content4 {
     text-align: center;
   }
-  .content5 .h2{
+  .content5 {
+    height: 25vh;
+  }
+  .content5 .h2 {
     font-size: 18px;
   }
-  .content5 .deskripsi{
+  .content5 .deskripsi {
     padding-inline: 100px;
     font-size: small;
   }
-  .content6 .container{
+  .content5 .tester {
+    height: 25vh;
+  }
+  .content6 .container {
     margin-top: 30px !important;
   }
-  .kalkulator{
+  .kalkulator {
     height: 105vh !important;
   }
 }
@@ -147,22 +156,19 @@
   .content5 {
     height: 33vh;
   }
-  .content5 .deskripsi{
+  .content5 .deskripsi {
     display: none;
   }
   .content5 .tester {
     width: 80% !important;
   }
-  .content5 .btn{
+  .content5 .btn {
     margin-top: 10px;
   }
-  .content6 .container{
+  .content6 .container {
     margin-top: 0px !important;
   }
-  .kalkulator{
+  .kalkulator {
     margin-top: 3rem;
-
   }
-
-
 }

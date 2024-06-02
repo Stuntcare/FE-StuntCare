@@ -1,10 +1,9 @@
 import { createMpasiTemplate } from "../templates/template-creator";
 import MpasiSource from "../../data/mpasi-source";
-import UrlParser from "../../routes/url-parser";
 const Mpasi = {
   async render() {
     return `
-      <h1 class="fw-bold mt-4" style="text-align: center; text-transform: uppercase">mpasi <span class="text-warning">Stunting</span></h1>
+      <h1 class="fw-bold mt-4" style="text-align: center; text-transform: uppercase">mpasi Stunting</h1>
       <div class="container mt-4" >
         <div class="row" id="mpasi">
         </div>

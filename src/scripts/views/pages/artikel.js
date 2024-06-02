@@ -1,7 +1,5 @@
 import ArtikelSource from "../../data/artikel-source";
-import UrlParser from '../../routes/url-parser';
 import { createArtikelTemplate } from "../templates/template-creator";
-// ! import RestaurantSource from "../../data/restaurant-source";
 
 const Artikel = {
   async render() {

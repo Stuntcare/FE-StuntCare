@@ -93,7 +93,6 @@ const Kalkulator = {
           <div class="mb-3">
               <label for="beratBadan" class="form-label">Berat Badan (kg)</label>
               <input type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
-              <div class="valid-feedback">Cakepp</div>
               <div class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>

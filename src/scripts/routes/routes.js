@@ -12,8 +12,8 @@ const routes = {
   "/kalkulator": Kalkulator,
   "/mpasi": Mpasi,
   "/tentangkami": AboutUs,
-  "/detailartikel/:id": DetailArtikel,
-  "/detailmpasi/:id": DetailMpasi,
+  "/artikel/:id": DetailArtikel,
+  "/mpasi/:id": DetailMpasi,
 };
 
 export default routes;

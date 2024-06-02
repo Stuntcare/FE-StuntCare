@@ -4,11 +4,11 @@ class navbarnih extends HTMLElement {
 
     this.innerHTML = `
     <header class="app-bar">
-      <div class="app-bar__menu">
-        <button id="hamburgerButton">☰</button>
-      </div>
       <div class="app-bar__brand">
         <a href="#/"><img src="../images/Logo.png" height="30" alt="image" /></a>
+      </div>
+      <div class="app-bar__menu">
+        <button id="hamburgerButton">☰</button>
       </div>
       <nav id="navigationDrawer" class="app-bar__navigation">
         <ul>
