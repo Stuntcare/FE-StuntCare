@@ -111,5 +111,5 @@ const whoData = {
       { ageMonths: 24, range: [78.8, 95.4] },
     ],
   };
-
+  
 export default whoData;

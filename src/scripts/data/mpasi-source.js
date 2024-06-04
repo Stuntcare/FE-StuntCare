@@ -2,9 +2,14 @@ import API_ENDPOINT from "../globals/api-endpoint";
 
 class MpasiSource {
   static async getAllMpasi() {
-    const response = await fetch(API_ENDPOINT.MPASI);
-    const responseJson = await response.json();
-    return responseJson.data;
+    try {
+      const response = await fetch(API_ENDPOINT.MPASI);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error("Failed to fetch MPASI data:", error);
+      alert("Gagal memuat data MPASI. Silakan coba lagi nanti.");
+    }
   }
 
   static async detailMpasi(id) {
@@ -25,37 +30,15 @@ class MpasiSource {
     return responseJson;
   }
 
-  static async addMpasi(mpasiData) {
-    const response = await fetch(API_ENDPOINT.MPASI, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(mpasiData),
-    });
-
-    const responseJson = await response.json();
-    return responseJson;
-  }
-
-  static async updateMpasi(id, mpasiData) {
-    const response = await fetch(API_ENDPOINT.DETAILMPASI(id), {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(mpasiData),
-    });
-
-    return response.json();
-  }
-
-  static async deleteMpasi(id) {
-    const response = await fetch(API_ENDPOINT.DETAILMPASI(id), {
-      method: "DELETE",
-    });
-
-    return response.json();
+  static async getMpasiByPage(page) {
+    try {
+      const response = await fetch(API_ENDPOINT.MPASIPAGE(page));
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error("Failed to fetch MPASI data:", error);
+      alert("Gagal memuat data MPASI. Silakan coba lagi nanti.");
+    }
   }
 }
 

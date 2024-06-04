@@ -2,9 +2,14 @@ import API_ENDPOINT from "../globals/api-endpoint";
 
 class ArtikelSource {
   static async getAllArtikel() {
-    const response = await fetch(API_ENDPOINT.ARTIKEL);
-    const responseJson = await response.json();
-    return responseJson.data;
+    try {
+      const response = await fetch(API_ENDPOINT.ARTIKEL);
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error("Failed to fetch Artikel data:", error);
+      alert("Gagal memuat data Artikel. Silakan coba lagi nanti.");
+    }
   }
 
   static async detailArtikel(id) {
@@ -25,37 +30,15 @@ class ArtikelSource {
     return responseJson;
   }
 
-  static async createArtikel(artikelData) {
-    const response = await fetch(API_ENDPOINT.ARTIKEL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(artikelData),
-    });
-
-    const responseJson = await response.json();
-    return responseJson;
-  }
-
-  static async updateArtikel(id, artikelData) {
-    const response = await fetch(API_ENDPOINT.DETAILARTIKEL(id), {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(artikelData),
-    });
-
-    return response.json();
-  }
-
-  static async deleteArtikel(id) {
-    const response = await fetch(API_ENDPOINT.DETAILARTIKEL(id), {
-      method: "DELETE",
-    });
-
-    return response.json();
+  static async getArtikelByPage(page) {
+    try {
+      const response = await fetch(API_ENDPOINT.ARTIKELPAGE(page));
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error("Failed to fetch Artikel data:", error);
+      alert("Gagal memuat data Artikel. Silakan coba lagi nanti.");
+    }
   }
 }
 
