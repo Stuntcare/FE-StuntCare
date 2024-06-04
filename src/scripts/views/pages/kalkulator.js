@@ -77,8 +77,8 @@ const Kalkulator = {
           
           </div>
           <div class="mb-3">
-              <label for="usia" class="form-label">Usia (Bulan)</label>
-              <input type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" required>
+              <label for="usia" class="form-label">Usia (0-23 Bulan)</label>
+              <input type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" max="23" required>
               <div class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
@@ -105,7 +105,6 @@ const Kalkulator = {
           <div id="result" class="mt-4 mb-4 d-flex justify-content-center align-items-center"></div>
           <div id="rekomendasi"></div>
       `;
-
   },
 
   async afterRender() {
@@ -186,8 +185,8 @@ const Kalkulator = {
         return {
           status: "Gizi Lebih (Overweight/Obese)",
           gambar: "../images/Gizi-Lebih.webp",
-          weightRecommendation: `Rekomendasi: Berat badan ideal diperlukan untuk kesehatan anak. Rentang berat badan yang normal untuk usia ini: ${weightRange[0]} - ${weightRange[1]} kg. Konsultasikan dengan dokter anak.`,
-          heightRecommendation: `Rekomendasi: Tinggi badan ideal diperlukan untuk kesehatan anak. Rentang tinggi badan yang normal untuk usia ini: ${heightRange[0]} - ${heightRange[1]} cm. Konsultasikan dengan dokter anak.`,
+          weightRecommendation: `${weightRange[0]} - ${weightRange[1]} kg`,
+          heightRecommendation: `${heightRange[0]} - ${heightRange[1]} cm`,
         };
       }
 
@@ -196,8 +195,8 @@ const Kalkulator = {
           status: isUnderweight
             ? "Gizi Kurang (Underweight/Stunted)"
             : "Gizi Kurang (Moderately Malnourished)",
-          weightRecommendation: `Rekomendasi: Berat badan ideal diperlukan untuk kesehatan anak. Rentang berat badan yang normal untuk usia ini: ${weightRange[0]} - ${weightRange[1]} kg. Konsultasikan dengan dokter anak.`,
-          heightRecommendation: `Rekomendasi: Tinggi badan ideal diperlukan untuk kesehatan anak. Rentang tinggi badan yang normal untuk usia ini: ${heightRange[0]} - ${heightRange[1]} cm. Konsultasikan dengan dokter anak.`,
+          weightRecommendation: `${weightRange[0]} - ${weightRange[1]} kg`,
+          heightRecommendation: `${heightRange[0]} - ${heightRange[1]} cm`,
           gambar: "../images/Gizi-Kurang.webp",
         };
       }
@@ -219,25 +218,30 @@ const Kalkulator = {
         <div class="card" style="width: 85%;">
             <div class="card-body">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="${result.gambar}" class="img-fluid" alt="Responsive image" style="display:block; margin-inline:auto;">
+                <div class="container mt-5">
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <img src="${result.gambar}" class="img-fluid" alt="Responsive image" style="display:block; margin-inline:auto;">
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <h1 class="text-center">Informasi Gizi</h1>
+                  <div class="result-box mt-4">
+                      <div class="text-secondary">Status Gizi</div>
+                      <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.status}</div>
                     </div>
-                    <div class="col-md-6">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Status Perkembangan Gizi Anak</th>
-                                <td>${result.status}</td>
-                            </tr>
-                            <tr>
-                                <th>Rekomendasi Berat Badan</th>
-                                <td>${result.weightRecommendation}</td>
-                            </tr>
-                            <tr>
-                                <th>Rekomendasi Tinggi Badan</th>
-                                <td>${result.heightRecommendation}</td>
-                            </tr>
-                        </table>
+                    
+                    <div class="result-box">
+                      <div class="text-secondary">Berat Badan Ideal</div>
+                      <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.weightRecommendation}</div>
                     </div>
+                    
+                    <div class="result-box">
+                      <div class="text-secondary">Tinggi Badan Ideal</div>
+                      <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.heightRecommendation}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
                 </div>
             </div>
         </div>

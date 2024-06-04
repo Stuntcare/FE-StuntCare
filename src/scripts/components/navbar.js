@@ -14,7 +14,7 @@ class navbarnih extends HTMLElement {
         <ul>
           <li><a href="#/">Beranda</a></li>
           <li class="nav-item dropdown">
-            <a>feature</a>
+            <a>Layanan</a>
             <ul class="dropdown-content">
               <li><a href="#/artikel">Artikel</a></li>
               <li><a href="#/kalkulator">Kalkulator Gizi</a></li>
@@ -22,7 +22,7 @@ class navbarnih extends HTMLElement {
             </ul>
           </li>
           <li>
-            <a href="#/tentangkami">About Us</a>
+            <a href="#/tentangkami">tentang</a>
           </li>
         </ul>
       </nav>

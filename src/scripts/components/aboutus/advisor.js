@@ -4,7 +4,7 @@ class Advisor extends HTMLElement {
 
     this.innerHTML = `
         <div class="card" style="width: 18rem; margin: 30px auto;">
-          <img src="../images/advisor.jpg" class="card-img-top" alt="muhammad fery syahputra" style="width: 150px height: 150px">
+          <img src="../images/advisor.jpg" class="card-img-top" alt="muhammad fery syahputra" style="width: 150px height: 150px" crossorigin="anonymous" >
           <div class="card-body text-center">
               <h5 class="card-title text-uppercase">Agrey Tosira</h5>
               <p class="card-text text-capitalize">Front-End Advisor</p>

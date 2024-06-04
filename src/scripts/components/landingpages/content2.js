@@ -6,7 +6,7 @@ class content2 extends HTMLElement {
     <section class="content2">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0">
+            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0" style="margin-inline: auto;">
               <img
                 alt="image"
                 class="img-fluid"

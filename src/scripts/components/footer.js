@@ -15,7 +15,7 @@ class FooterElement extends HTMLElement {
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <h5><span class="text-warning fw-bold">Services</span></h5>
+            <h5><span class="text-warning fw-bold">Layanan</span></h5>
             <ul class="list-unstyled">
               <a class="nav-link" href="#">Beranda</a>
               <a class="nav-link" href="#/artikel">Artikel</a>
