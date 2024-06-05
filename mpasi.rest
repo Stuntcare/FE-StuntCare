@@ -1,0 +1,33 @@
+// 1. CRUD Mpasi
+###
+POST https://stuntcare.cleverapps.io/api/mpasi
+Content-Type: application/json
+
+{
+  "makanan": "Nasi Campur",
+  "porsi": 3,
+  "bahan": {
+    "nasi": "200 gram",
+    "telur": "3 butir, kocok lepas",
+    "daun bawang": "1 batang, iris tipis",
+    "bawang bombai": "1/2 buah, cincang kasar",
+    "wortel": "15 gram, cincang halus",
+    "daging ayam giling": "30 gram, rebus matang",
+    "minyak jagung": "3 sdm",
+    "merica": "secukupnya",
+    "garam": "secukupnya",
+    "bawang putih": "2 siung",
+    "bawang merah": "1 siung"
+  },
+  "cara_masak": [
+    "1. Campur telur dengan daun bawang, bawang bombai, wortel, daging ayam giling, garam, merica, dan bumbu halus. Aduk hingga tercampur rata.",
+    "2. Goreng dengan minyak jagung hingga matang.",
+    "3. Sajikan dengan nasi."
+  ],
+  "kategori": "12-23 bulan",
+  "gambar": "https://img-global.cpcdn.com/recipes/46269b51d18e363b/680x482cq70/nasi-campur-campur-dadakan-mpasi-tak-terduga-foto-resep-utama.webp",
+  "kalori": 230,
+  "protein": 10.8,
+  "lemak": 12.1,
+  "karbohidrat": 18.8
+}
