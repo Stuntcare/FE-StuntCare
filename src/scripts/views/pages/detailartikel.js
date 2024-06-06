@@ -1,11 +1,15 @@
 import UrlParser from "../../routes/url-parser";
 import ArtikelSource from "../../data/artikel-source";
-import { createArtikelDetailTemplate } from "../templates/template-creator";
+import { createArtikelDetailTemplate, createArtikelTemplate, renderNotFound } from "../templates/template-creator";
 
 const DetailArtikel = {
   async render() {
     return `
-      <div id="restaurant" class="restaurant"></div>
+      <div id="ArtikelDetail" class="restaurant"></div>
+      <div class="container mt-4">
+        <div class="row" id="artikel"></div>
+        <div id="pagination" class="d-flex justify-content-center mt-4"></div>
+      </div>
     `;
   },
 
@@ -13,9 +17,75 @@ const DetailArtikel = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const artikel = await ArtikelSource.detailArtikel(url.id);
     console.log(artikel);
-    const artikelContainer = document.querySelector("#restaurant");
-    artikelContainer.innerHTML = createArtikelDetailTemplate(artikel);
+    const detailartikelContainer = document.querySelector("#ArtikelDetail");
+    const artikelContainer = document.querySelector("#artikel");
+    const paginationContainer = document.querySelector("#pagination");
+
+    const loadArtikel = async (query = "", category = "semua", page = 1) => {
+      try {
+        let artikel;
+        if (query || category !== "semua") {
+          if (query) {
+            artikel = await ArtikelSource.searchArtikel(query);
+          } else {
+            artikel = await ArtikelSource.kategoriArtikel(category);
+          }
+        } else {
+          artikel = await ArtikelSource.getArtikelByPage(page);
+        }
+
+        const data = artikel.data;
+        const pages = artikel.pages;
+        console.log(data);
+        console.log(pages);
+
+        if (!data || data.length === 0) {
+          artikelContainer.innerHTML = renderNotFound();
+        } else {
+          artikelContainer.innerHTML = data.map(createArtikelTemplate).join("");
+        }
+
+        if (pages > 1) {
+          renderPagination(pages);
+          addPaginationEventListeners(loadArtikel, query, category);
+        } else {
+          paginationContainer.innerHTML = "";
+        }
+      } catch (error) {
+        console.error("Error fetching artikel:", error);
+        alert("Gagal memuat data Artikel. Silakan coba lagi nanti.");
+      }
+    };
+
+    loadArtikel();
+    
+  
+
+    
+
+    detailartikelContainer.innerHTML = createArtikelDetailTemplate(artikel);
   },
+};
+
+const addPaginationEventListeners = (loadMpasi, query, category) => {
+  const paginationButtons = document.querySelectorAll("#pagination button");
+  paginationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const page = button.dataset.page;
+      loadMpasi(query, category, page);
+    });
+  });
+};
+
+const renderPagination = (pages) => {
+  const paginationContainer = document.querySelector("#pagination");
+  if (paginationContainer) {
+    let paginationHtml = "";
+    for (let i = 1; i <= pages; i++) {
+      paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
+    }
+    paginationContainer.innerHTML = paginationHtml;
+  }
 };
 
 export default DetailArtikel;

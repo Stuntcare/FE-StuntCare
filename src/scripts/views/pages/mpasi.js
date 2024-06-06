@@ -1,6 +1,7 @@
 import {
   createMpasiTemplate,
   renderNotFound,
+  createSkeletonMpasiItemTemplate,
 } from "../templates/template-creator";
 import MpasiSource from "../../data/mpasi-source";
 
@@ -42,10 +43,13 @@ const Mpasi = {
     const searchKeywordInput = document.querySelector("#searchKeyword");
     const filterKategori = document.querySelector("#filterKategori");
     const paginationContainer = document.querySelector("#pagination");
-
     // Function to load and display MPASI data
     const loadMpasi = async (query = "", category = "semua", page = 1) => {
       try {
+        // Render skeletons
+        mpasiContainer.innerHTML = createSkeletonMpasiItemTemplate(12);
+        
+        
         let mpasi;
         if (query || category !== "semua") {
           if (query) {
@@ -56,10 +60,10 @@ const Mpasi = {
         } else {
           mpasi = await MpasiSource.getMpasiByPage(page);
         }
-
+        
         const data = mpasi.data;
         const pages = mpasi.pages;
-        
+
         if (!data || data.length === 0) {
           mpasiContainer.innerHTML = renderNotFound();
         } else {

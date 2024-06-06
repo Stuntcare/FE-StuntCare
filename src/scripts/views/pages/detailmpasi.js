@@ -5,7 +5,7 @@ import { createMPASIDetailTemplate } from "../templates/template-creator";
 const DetailMpasi = {
   async render() {
     return `
-      <div id="mpasi" class="restaurant"></div>
+      <div id="mpasi" class="restaurant">      </div>
     `;
   },
 
