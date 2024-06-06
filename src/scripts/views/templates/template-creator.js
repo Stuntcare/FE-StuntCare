@@ -6,6 +6,29 @@ const renderNotFound = () => {
   `;
 };
 
+const createSkeletonMpasiItemTemplate = (count) => {
+  let template = "";
+
+  for (let i = 0; i < count; i++) {
+    template += `
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages">
+      <a>
+        <div class="card">
+          <img class="header__img skeleton">
+          <div class="card-body">
+            <h5 class="card-title">
+              <div class="skeleton skeleton-text" style="width:50%; display: block; margin-inline: auto;"></div>
+            </h5>
+          </div>
+        </div>  
+      </a>
+    </div>
+    `;
+  }
+
+  return template;
+};
+
 const createMpasiTemplate = (mpasi) => `
 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages">
   <a href="#/mpasi/${mpasi.id}">
@@ -47,7 +70,7 @@ const createArtikelTemplate = (artikel) => `
       <img src="${artikel.gambar}" class="card-img-top artikel-img" alt="${artikel.judul}">
       <div class="card-body">
         <h5 class="card-title">
-          <h2 class="list_item_title arikel-pages-name" tabindex="0">${artikel.judul}</h2>
+          <h2 class="list_item_title arikel-pages-name text-dark" tabindex="0">${artikel.judul}</h2>
           <p style="    overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
@@ -117,7 +140,7 @@ const createMPASIDetailTemplate = (mpasi) => `
           </ul>
         </div>
         <div class="col-md-8">
-          <h4 class="mb-3 pb-2 border-bottom fw-bold">Cara Memasak</h4>
+          <h4 class="mb-3 pb-2 border-bottom fw-bold">Cara Membuat</h4>
           <ol class="pl-3">
             ${mpasi.cara_masak
               .map(
@@ -145,13 +168,74 @@ const formatTanggal = (tanggal) => {
   return tanggalObj.toLocaleDateString("id-ID", options);
 };
 
-const createArtikelDetailTemplate = (artikel) => `
-<div class="container artikel-detail mt-4">
+const createArtikelDetailTemplate = (artikel) => {
+  const deskripsiFormatted = artikel.deskripsi.replace(/\n/g, '<br>');
+  
+  return `
+  <style>
+    .text-artikel{
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .img-artikel-detail{
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .detail-artikel{
+      position: relative;
+      padding: 4rem;
+    }
+
+    .desc-detail-artikel {
+      text-align: justify;
+      margin-top: 20px;
+      padding: 4rem;
+    }
+  </style>
+  <section class="container-fluid">
+    <div class="row">
+      <div class="detail-artikel">
+        <img src="${artikel.gambar}" alt="${artikel.judul}" class="img-artikel-detail" />
+        <div class="text-artikel text-center">
+          <span>${artikel.kategori}</span>
+          <h2>${artikel.judul} Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur veritatis qui architecto ea perspiciatis labore autem ad? Culpa, officia enim.</h2>
+        </div>
+      </div>
+
+      <div class="container-fluid px-3 container-lg">
+        <div class="row news-info justify-content-center">
+          <div class="col-md-auto col-author text-center text-md-end">
+            Source: <a href="${artikel.sumber}" target="_blank">Sumber</a>
+          </div>
+
+          <div class="col-md-auto col-date text-center text-md-center">
+            Date: ${formatTanggal(artikel.tanggal)}.
+          </div>
+        </div>
+      </div>
+      
+      <p class="desc-detail-artikel">
+        ${deskripsiFormatted}
+      </p>
+    </div>
+  </section>
+  `;
+}
+
+
+{/* <div class="container artikel-detail mt-4">
   <div class="row justify-content-center">
     <div class="col-12 col-md-4 text-center">
-      <img class="artikel-detail__gambar img-fluid rounded mb-4" src="${
-        artikel.gambar
-      }" alt="${artikel.judul}" />
+      <img class="artikel-detail__gambar img-fluid rounded mb-4" src="${artikel.gambar}" alt="${artikel.judul}" />
       <p class="artikel-detail__sumber">Source: <a href="${
         artikel.sumber
       }" target="_blank">${artikel.sumber}</a></p>
@@ -172,9 +256,7 @@ const createArtikelDetailTemplate = (artikel) => `
       </div>
     </div>
   </div>
-</div>
-`;
-
+</div> */}
 // * TOMBOL LIKE
 // const createLikeButtonTemplate = () => `;
 //   <button aria-label="like this restaurants" id="likeButton" class="like">
@@ -281,4 +363,5 @@ export {
   createMPASIDetailTemplate,
   createArtikelTemplate,
   createArtikelDetailTemplate,
+  createSkeletonMpasiItemTemplate,
 };

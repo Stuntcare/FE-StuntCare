@@ -1,11 +1,17 @@
 import whoData from "../../data/whoData";
+import ArtikelSource from "../../data/artikel-source";
+import MpasiSource from "../../data/mpasi-source";
+import {
+  createArtikelTemplate,
+  createMpasiTemplate,
+} from "../templates/template-creator";
 
 const Kalkulator = {
   async render() {
     return `
       <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator"  style="height: 90vh;">
       <form class="needs-validation" action="" novalidate>
-      <h1 class="text-center">Kalkulator Gizi</h1>
+      <h1 class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
 
           <div class="input-container">
@@ -80,7 +86,7 @@ const Kalkulator = {
               <label for="usia" class="form-label">Usia (0-23 Bulan)</label>
               <input type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" max="23" required>
               <div class="invalid-feedback">
-                  Tolong isi kolom ini terlebih dahulu
+                  Tolong isi kolom ini terlebih dahulu (0-23 Bulan)
               </div>
           </div>
           <div class="mb-3">
@@ -104,6 +110,7 @@ const Kalkulator = {
           </div>
           <div id="result" class="mt-4 mb-4 d-flex justify-content-center align-items-center"></div>
           <div id="rekomendasi"></div>
+          <div id="hasilRekomendasi"></div>
       `;
   },
 
@@ -128,7 +135,7 @@ const Kalkulator = {
       );
     });
 
-    function handleFormSubmit() {
+    async function handleFormSubmit() {
       const ageMonths = parseInt(document.getElementById("usia").value);
       const weightKg = parseFloat(document.getElementById("beratBadan").value);
       const heightCm = parseFloat(document.getElementById("tinggiBadan").value);
@@ -147,6 +154,8 @@ const Kalkulator = {
       const result = determineSPGA(waz, haz, ageMonths, gender);
 
       displayResult(result, waz, haz);
+      displayRecommendationOptions();
+      await displayRekomendasi(ageMonths, "mpasi");
     }
 
     function calculateWAZ(ageInMonths, weightKg, gender) {
@@ -223,7 +232,7 @@ const Kalkulator = {
                   <div class="col-md-6 text-center">
                     <img src="${result.gambar}" class="img-fluid" alt="Responsive image" style="display:block; margin-inline:auto;">
                   </div>
-                  <div class="col-md-6 text-center">
+                  <div class="col-md-6 text-center" style="margin-block: auto;">
                     <h1 class="text-center">Informasi Gizi</h1>
                   <div class="result-box mt-4">
                       <div class="text-secondary">Status Gizi</div>
@@ -246,29 +255,89 @@ const Kalkulator = {
             </div>
         </div>
           `;
-      rekomendasi.innerHTML = `
-      <div class="container d-flex justify-content-center align-items-center flex-column mb-4">
-        <div class="mb-4"><h1>Rekomendasi Kategori</h1></div>
-        <div class="radio-tile-group d-flex flex-wrap justify-content-center">
-      
-          <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
-            <input id="mpasi" type="radio" name="radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
-            <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
-              <ion-icon name="nutrition-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
-              <label for="mpasi" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Mpasi</label>
-            </div>
-          </div>
-      
-          <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
-            <input id="artikel" type="radio" name="radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
-            <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
-              <ion-icon name="book-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
-              <label for="artikel" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Artikel</label>
-            </div>
-          </div>
+    }
 
+    function displayRecommendationOptions() {
+      const rekomendasi = document.getElementById("rekomendasi");
+      rekomendasi.innerHTML = `
+        <div class="container d-flex justify-content-center align-items-center flex-column mb-4">
+          <div class="mb-4"><h1>Rekomendasi Kategori</h1></div>
+          <div class="radio-tile-group d-flex flex-wrap justify-content-center">
+            <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
+              <input id="mpasi" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;" checked>
+              <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+                <ion-icon name="nutrition-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
+                <label for="mpasi" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Mpasi</label>
+              </div>
+            </div>
+            <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
+              <input id="artikel" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
+              <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+                <ion-icon name="book-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
+                <label for="artikel" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Artikel</label>
+              </div>
+            </div>
+          </div>
+        </div>    
+      `;
+
+      const mpasiRadio = document.getElementById("mpasi");
+      const artikelRadio = document.getElementById("artikel");
+
+      mpasiRadio.addEventListener("change", async () => {
+        if (mpasiRadio.checked) {
+          const ageMonths = parseInt(document.getElementById("usia").value);
+          await displayRekomendasi(ageMonths, "mpasi");
+        }
+      });
+
+      artikelRadio.addEventListener("change", async () => {
+        if (artikelRadio.checked) {
+          const ageMonths = parseInt(document.getElementById("usia").value);
+          await displayRekomendasi(ageMonths, "artikel");
+        }
+      });
+    }
+
+    async function displayRekomendasi(ageMonths, type) {
+      const hasilRekomendasi = document.getElementById("hasilRekomendasi");
+      hasilRekomendasi.innerHTML =
+        '<div class="loader text-center">Loading...</div>';
+
+      let filteredList = [];
+      if (type === "mpasi") {
+        // const mpasiList = await MpasiSource.getAllMpasi();
+        filteredList = await MpasiSource.getAllMpasi();
+        // filteredList = mpasiList.filter((mpasi) => mpasi.ageRange.includes(ageMonths));
+      } else if (type === "artikel") {
+        // const artikelList = await ArtikelSource.getAllArtikel();
+        filteredList = await ArtikelSource.getAllArtikel();
+        // filteredList = artikelList.filter((artikel) => artikel.ageRange.includes(ageMonths));
+      }
+
+      hasilRekomendasi.innerHTML = `
+        <div class="container text-center mt-5">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>${type === "mpasi" ? "MPASI" : "Artikel"}</h2>
+              <div class="row">
+                ${
+                  filteredList.length > 0
+                    ? filteredList
+                        .map((item) =>
+                          type === "mpasi"
+                            ? createMpasiTemplate(item)
+                            : createArtikelTemplate(item)
+                        )
+                        .join("")
+                    : `<p>Tidak ada rekomendasi ${
+                        type === "mpasi" ? "MPASI" : "artikel"
+                      } untuk usia ini.</p>`
+                }
+              </div>
+            </div>
+          </div>
         </div>
-      </div>    
       `;
     }
   },
