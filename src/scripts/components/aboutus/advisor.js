@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class Advisor extends HTMLElement {
   constructor() {
     super();
@@ -20,4 +21,4 @@ class Advisor extends HTMLElement {
   }
 }
 
-customElements.define("team-advisor", Advisor);
+customElements.define('team-advisor', Advisor);

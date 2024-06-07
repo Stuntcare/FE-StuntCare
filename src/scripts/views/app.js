@@ -1,6 +1,7 @@
-import DrawerInitiator from "../utils/drawer-initiator";
-import UrlParser from "../routes/url-parser";
-import routes from "../routes/routes";
+/* eslint-disable no-undef */
+import DrawerInitiator from '../utils/drawer-initiator';
+import UrlParser from '../routes/url-parser';
+import routes from '../routes/routes';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -26,12 +27,12 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
-    const mainContent = document.querySelector("#mainContent");
-    const skipLink = document.querySelector(".skip2content");
-    const hero = document.querySelector("#hero");
-    skipLink.addEventListener("click", (e) => {
+    const mainContent = document.querySelector('#mainContent');
+    const skipLink = document.querySelector('.skip2content');
+    // const hero = document.querySelector('#hero');
+    skipLink.addEventListener('click', (e) => {
       e.preventDefault();
-      mainContent.scrollIntoView({ behavior: "smooth" });
+      mainContent.scrollIntoView({ behavior: 'smooth' });
       skipLink.blur();
     });
   }

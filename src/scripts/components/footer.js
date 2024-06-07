@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class FooterElement extends HTMLElement {
   constructor() {
     super();
@@ -45,4 +46,4 @@ class FooterElement extends HTMLElement {
   }
 }
 
-customElements.define("footer-gaming", FooterElement);
+customElements.define('footer-gaming', FooterElement);

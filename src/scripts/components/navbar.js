@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+import { handleKeydown, handleClick, addLayananTabListener } from '../utils/dropdown';
+
 class navbarnih extends HTMLElement {
   constructor() {
     super();
@@ -14,21 +17,27 @@ class navbarnih extends HTMLElement {
         <ul>
           <li><a href="#/">Beranda</a></li>
           <li class="nav-item dropdown">
-            <a>Layanan</a>
-            <ul class="dropdown-content">
+            <a href="#" aria-haspopup="true" aria-expanded="false">Layanan</a>
+            <ul class="dropdown-content" aria-label="submenu">
               <li><a href="#/artikel">Artikel</a></li>
               <li><a href="#/kalkulator">Kalkulator Gizi</a></li>
               <li><a href="#/mpasi">MPASI</a></li>
             </ul>
           </li>
           <li>
-            <a href="#/tentangkami">tentang</a>
+            <a href="#/tentangkami">Tentang</a>
           </li>
         </ul>
       </nav>
     </header>
     `;
+
+    this.addEventListener('keydown', handleKeydown);
+    this.addEventListener('click', handleClick);
+
+    const layananButton = this.querySelector('.nav-item.dropdown > a');
+    addLayananTabListener(layananButton);
   }
 }
 
-customElements.define("navbar-nih", navbarnih);
+customElements.define('navbar-nih', navbarnih);

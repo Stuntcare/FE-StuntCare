@@ -1,10 +1,14 @@
-import whoData from "../../data/whoData";
-import ArtikelSource from "../../data/artikel-source";
-import MpasiSource from "../../data/mpasi-source";
+/* eslint-disable radix */
+/* eslint-disable no-undef */
+/* eslint-disable no-use-before-define */
+import whoData from '../../data/whoData';
+import ArtikelSource from '../../data/artikel-source';
+import MpasiSource from '../../data/mpasi-source';
 import {
   createArtikelTemplate,
   createMpasiTemplate,
-} from "../templates/template-creator";
+  renderNotFound,
+} from '../templates/template-creator';
 
 const Kalkulator = {
   async render() {
@@ -115,12 +119,12 @@ const Kalkulator = {
   },
 
   async afterRender() {
-    const forms = document.querySelectorAll(".needs-validation");
+    const forms = document.querySelectorAll('.needs-validation');
 
-    Array.prototype.slice.call(forms).forEach(function (form) {
+    Array.prototype.slice.call(forms).forEach((form) => {
       form.addEventListener(
-        "submit",
-        function (event) {
+        'submit',
+        (event) => {
           if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
@@ -129,24 +133,24 @@ const Kalkulator = {
             handleFormSubmit();
           }
 
-          form.classList.add("was-validated");
+          form.classList.add('was-validated');
         },
-        false
+        false,
       );
     });
 
     async function handleFormSubmit() {
-      const ageMonths = parseInt(document.getElementById("usia").value);
-      const weightKg = parseFloat(document.getElementById("beratBadan").value);
-      const heightCm = parseFloat(document.getElementById("tinggiBadan").value);
+      const ageMonths = parseInt(document.getElementById('usia').value);
+      const weightKg = parseFloat(document.getElementById('beratBadan').value);
+      const heightCm = parseFloat(document.getElementById('tinggiBadan').value);
       document.querySelectorAll('input[name="radio"]').forEach((elem) => {
-        elem.addEventListener("change", function (event) {
+        elem.addEventListener('change', (event) => {
           const gender = event.target.value;
           console.log(gender);
         });
       });
       const gender = document.querySelector(
-        'input[name="radio"]:checked'
+        'input[name="radio"]:checked',
       ).value;
 
       const waz = calculateWAZ(ageMonths, weightKg, gender);
@@ -155,20 +159,18 @@ const Kalkulator = {
 
       displayResult(result, waz, haz);
       displayRecommendationOptions();
-      await displayRekomendasi(ageMonths, "mpasi");
+      await displayRekomendasi(ageMonths, 'mpasi');
     }
 
     function calculateWAZ(ageInMonths, weightKg, gender) {
-      const data =
-        gender === "pria" ? whoData.maleWeight : whoData.femaleWeight;
+      const data = gender === 'pria' ? whoData.maleWeight : whoData.femaleWeight;
       const { range } = data.find((entry) => entry.ageMonths === ageInMonths);
       const zScore = (weightKg - range[0]) / (range[1] - range[0]);
       return zScore;
     }
 
     function calculateHAZ(ageInMonths, heightCm, gender) {
-      const data =
-        gender === "pria" ? whoData.maleHeight : whoData.femaleHeight;
+      const data = gender === 'pria' ? whoData.maleHeight : whoData.femaleHeight;
       const { range } = data.find((entry) => entry.ageMonths === ageInMonths);
       const zScore = (heightCm - range[0]) / (range[1] - range[0]);
       return zScore;
@@ -176,24 +178,21 @@ const Kalkulator = {
 
     function determineSPGA(waz, haz, ageInMonths, gender) {
       const isUnderweight = waz <= -2 || haz <= -2;
-      const isModeratelyMalnourished =
-        (waz > -2 && waz <= -1) || (haz > -2 && haz <= -1);
+      const isModeratelyMalnourished = (waz > -2 && waz <= -1) || (haz > -2 && haz <= -1);
       const isOverweight = waz > 1 || haz > 1;
 
-      const weightData =
-        gender === "pria" ? whoData.maleWeight : whoData.femaleWeight;
-      const heightData =
-        gender === "pria" ? whoData.maleHeight : whoData.femaleHeight;
+      const weightData = gender === 'pria' ? whoData.maleWeight : whoData.femaleWeight;
+      const heightData = gender === 'pria' ? whoData.maleHeight : whoData.femaleHeight;
       const weightRange = weightData.find(
-        (entry) => entry.ageMonths === ageInMonths
+        (entry) => entry.ageMonths === ageInMonths,
       ).range;
       const heightRange = heightData.find(
-        (entry) => entry.ageMonths === ageInMonths
+        (entry) => entry.ageMonths === ageInMonths,
       ).range;
       if (isOverweight) {
         return {
-          status: "Gizi Lebih (Overweight/Obese)",
-          gambar: "../images/Gizi-Lebih.webp",
+          status: 'Gizi Lebih (Overweight/Obese)',
+          gambar: '../images/Gizi-Lebih.webp',
           weightRecommendation: `${weightRange[0]} - ${weightRange[1]} kg`,
           heightRecommendation: `${heightRange[0]} - ${heightRange[1]} cm`,
         };
@@ -202,27 +201,26 @@ const Kalkulator = {
       if (isUnderweight || isModeratelyMalnourished) {
         return {
           status: isUnderweight
-            ? "Gizi Kurang (Underweight/Stunted)"
-            : "Gizi Kurang (Moderately Malnourished)",
+            ? 'Gizi Kurang (Underweight/Stunted)'
+            : 'Gizi Kurang (Moderately Malnourished)',
           weightRecommendation: `${weightRange[0]} - ${weightRange[1]} kg`,
           heightRecommendation: `${heightRange[0]} - ${heightRange[1]} cm`,
-          gambar: "../images/Gizi-Kurang.webp",
+          gambar: '../images/Gizi-Kurang.webp',
         };
       }
 
       return {
-        status: "Normal (Well-Nourished)",
+        status: 'Normal (Well-Nourished)',
         weightRecommendation:
-          "Berat badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.",
+          'Berat badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.',
         heightRecommendation:
-          "Tinggi badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.",
-        gambar: "../images/Gizi-baik.webp",
+          'Tinggi badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.',
+        gambar: '../images/Gizi-baik.webp',
       };
     }
 
-    function displayResult(result, waz, haz) {
-      const resultDiv = document.getElementById("result");
-      const rekomendasi = document.getElementById("rekomendasi");
+    function displayResult(result) {
+      const resultDiv = document.getElementById('result');
       resultDiv.innerHTML = `
         <div class="card" style="width: 85%;">
             <div class="card-body">
@@ -258,7 +256,7 @@ const Kalkulator = {
     }
 
     function displayRecommendationOptions() {
-      const rekomendasi = document.getElementById("rekomendasi");
+      const rekomendasi = document.getElementById('rekomendasi');
       rekomendasi.innerHTML = `
         <div class="container d-flex justify-content-center align-items-center flex-column mb-4">
           <div class="mb-4"><h1>Rekomendasi Kategori</h1></div>
@@ -281,59 +279,62 @@ const Kalkulator = {
         </div>    
       `;
 
-      const mpasiRadio = document.getElementById("mpasi");
-      const artikelRadio = document.getElementById("artikel");
+      const mpasiRadio = document.getElementById('mpasi');
+      const artikelRadio = document.getElementById('artikel');
 
-      mpasiRadio.addEventListener("change", async () => {
+      mpasiRadio.addEventListener('change', async () => {
         if (mpasiRadio.checked) {
-          const ageMonths = parseInt(document.getElementById("usia").value);
-          await displayRekomendasi(ageMonths, "mpasi");
+          const ageMonths = parseInt(document.getElementById('usia').value);
+          await displayRekomendasi(ageMonths, 'mpasi');
         }
       });
 
-      artikelRadio.addEventListener("change", async () => {
+      artikelRadio.addEventListener('change', async () => {
         if (artikelRadio.checked) {
-          const ageMonths = parseInt(document.getElementById("usia").value);
-          await displayRekomendasi(ageMonths, "artikel");
+          const ageMonths = parseInt(document.getElementById('usia').value);
+          await displayRekomendasi(ageMonths, 'artikel');
         }
       });
     }
 
     async function displayRekomendasi(ageMonths, type) {
-      const hasilRekomendasi = document.getElementById("hasilRekomendasi");
-      hasilRekomendasi.innerHTML =
-        '<div class="loader text-center">Loading...</div>';
+      const hasilRekomendasi = document.getElementById('hasilRekomendasi');
+      hasilRekomendasi.innerHTML = '<div class="loader text-center">Loading...</div>';
 
       let filteredList = [];
-      if (type === "mpasi") {
-        // const mpasiList = await MpasiSource.getAllMpasi();
-        filteredList = await MpasiSource.getAllMpasi();
-        // filteredList = mpasiList.filter((mpasi) => mpasi.ageRange.includes(ageMonths));
-      } else if (type === "artikel") {
-        // const artikelList = await ArtikelSource.getAllArtikel();
-        filteredList = await ArtikelSource.getAllArtikel();
-        // filteredList = artikelList.filter((artikel) => artikel.ageRange.includes(ageMonths));
+      let kategori = '';
+
+      if (ageMonths >= 6 && ageMonths <= 8) {
+        kategori = '6-8 bulan';
+      } else if (ageMonths >= 9 && ageMonths <= 11) {
+        kategori = '9-11 bulan';
+      } else if (ageMonths >= 12 && ageMonths <= 23) {
+        kategori = '12-23 bulan';
       }
+
+      if (type === 'mpasi') {
+        const mpasiList = await MpasiSource.kategoriMpasi(kategori);
+        filteredList = mpasiList.data;
+      } else if (type === 'artikel') {
+        const artikelList = await ArtikelSource.getAllArtikel();
+        filteredList = artikelList.data;
+      }
+
+      const itemTemplates = filteredList.length > 0
+        ? filteredList
+          .map((item) => (type === 'mpasi'
+            ? createMpasiTemplate(item)
+            : createArtikelTemplate(item)))
+          .join('')
+        : renderNotFound();
 
       hasilRekomendasi.innerHTML = `
         <div class="container text-center mt-5">
           <div class="row">
             <div class="col-md-12">
-              <h2>${type === "mpasi" ? "MPASI" : "Artikel"}</h2>
+              <h2>${type === 'mpasi' ? 'MPASI' : 'Artikel'}</h2>
               <div class="row">
-                ${
-                  filteredList.length > 0
-                    ? filteredList
-                        .map((item) =>
-                          type === "mpasi"
-                            ? createMpasiTemplate(item)
-                            : createArtikelTemplate(item)
-                        )
-                        .join("")
-                    : `<p>Tidak ada rekomendasi ${
-                        type === "mpasi" ? "MPASI" : "artikel"
-                      } untuk usia ini.</p>`
-                }
+                ${itemTemplates}
               </div>
             </div>
           </div>

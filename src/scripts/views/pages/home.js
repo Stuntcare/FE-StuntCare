@@ -1,4 +1,4 @@
-import "../../components/main";
+import '../../components/main';
 
 const Home = {
   async render() {
@@ -12,7 +12,7 @@ const Home = {
     `;
   },
 
-async afterRender() {
+  async afterRender() {
     // Fungsi ini akan dipanggil setelah render(), bisa dibiarkan kosong jika tidak dibutuhkan
   },
 };

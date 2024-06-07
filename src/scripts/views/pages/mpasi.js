@@ -1,14 +1,19 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-alert */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-undef */
 import {
   createMpasiTemplate,
   renderNotFound,
   createSkeletonMpasiItemTemplate,
-} from "../templates/template-creator";
-import MpasiSource from "../../data/mpasi-source";
+} from '../templates/template-creator';
+import MpasiSource from '../../data/mpasi-source';
+import FavoriteMpasiIdb from '../../data/favorite-mpasi-idb';
 
 const Mpasi = {
   async render() {
     return `
-      <h1 class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">MPASI</span> Stunting</h1>
+      <h1 class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">MPASI</span></h1>
       <div class="container mt-4">
         <div class="row g-3">
           <div class="col-12 d-flex flex-nowrap">
@@ -23,6 +28,7 @@ const Mpasi = {
               <div class="input-group">
                 <select class="form-select" id="filterKategori" aria-label="Filter">
                   <option value="semua">Semua Kategori</option>
+                  <option value="Favorite">Favorite</option>
                   <option value="6-8 bulan">6-8 bulan</option>
                   <option value="9-12 bulan">9-12 bulan</option>
                   <option value="12-23 bulan">12-23 bulan</option>
@@ -38,20 +44,20 @@ const Mpasi = {
   },
 
   async afterRender() {
-    const mpasiContainer = document.querySelector("#mpasi");
-    const searchForm = document.querySelector("#searchForm");
-    const searchKeywordInput = document.querySelector("#searchKeyword");
-    const filterKategori = document.querySelector("#filterKategori");
-    const paginationContainer = document.querySelector("#pagination");
-    // Function to load and display MPASI data
-    const loadMpasi = async (query = "", category = "semua", page = 1) => {
+    const mpasiContainer = document.querySelector('#mpasi');
+    const searchForm = document.querySelector('#searchForm');
+    const searchKeywordInput = document.querySelector('#searchKeyword');
+    const filterKategori = document.querySelector('#filterKategori');
+    const paginationContainer = document.querySelector('#pagination');
+
+    const loadMpasi = async (query = '', category = 'semua', page = 1) => {
       try {
         // Render skeletons
         mpasiContainer.innerHTML = createSkeletonMpasiItemTemplate(12);
-        
-        
+
         let mpasi;
-        if (query || category !== "semua") {
+
+        if (query || category !== 'semua') {
           if (query) {
             mpasi = await MpasiSource.searchMpasi(query);
           } else {
@@ -60,39 +66,47 @@ const Mpasi = {
         } else {
           mpasi = await MpasiSource.getMpasiByPage(page);
         }
-        
-        const data = mpasi.data;
-        const pages = mpasi.pages;
+
+        const { data, pages } = mpasi;
 
         if (!data || data.length === 0) {
           mpasiContainer.innerHTML = renderNotFound();
         } else {
-          mpasiContainer.innerHTML = data.map(createMpasiTemplate).join("");
+          mpasiContainer.innerHTML = data.map(createMpasiTemplate).join('');
+        }
+
+        if (category === 'Favorite') {
+          const favoriteMpasi = await FavoriteMpasiIdb.getAllMpasi();
+          if (favoriteMpasi.length > 0) {
+            mpasiContainer.innerHTML = favoriteMpasi.map(createMpasiTemplate).join('');
+          } else {
+            mpasiContainer.innerHTML = renderNotFound();
+          }
         }
 
         if (pages > 1) {
           renderPagination(pages);
           addPaginationEventListeners(loadMpasi, query, category);
         } else {
-          paginationContainer.innerHTML = "";
+          paginationContainer.innerHTML = '';
         }
       } catch (error) {
-        console.error("Error fetching mpasi:", error);
-        alert("Gagal memuat data MPASI. Silakan coba lagi nanti.");
+        console.error('Error fetching mpasi:', error);
+        alert('Gagal memuat data MPASI. Silakan coba lagi nanti.');
       }
     };
 
     loadMpasi();
 
     if (searchForm && filterKategori) {
-      searchForm.addEventListener("submit", (event) => {
+      searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const keyword = searchKeywordInput.value;
         const category = filterKategori.value;
         loadMpasi(keyword, category);
       });
 
-      filterKategori.addEventListener("change", (event) => {
+      filterKategori.addEventListener('change', (event) => {
         const category = event.target.value;
         const keyword = searchKeywordInput.value;
         loadMpasi(keyword, category);
@@ -102,19 +116,19 @@ const Mpasi = {
 };
 
 const addPaginationEventListeners = (loadMpasi, query, category) => {
-  const paginationButtons = document.querySelectorAll("#pagination button");
+  const paginationButtons = document.querySelectorAll('#pagination button');
   paginationButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const page = button.dataset.page;
+    button.addEventListener('click', () => {
+      const { page } = button.dataset;
       loadMpasi(query, category, page);
     });
   });
 };
 
 const renderPagination = (pages) => {
-  const paginationContainer = document.querySelector("#pagination");
+  const paginationContainer = document.querySelector('#pagination');
   if (paginationContainer) {
-    let paginationHtml = "";
+    let paginationHtml = '';
     for (let i = 1; i <= pages; i++) {
       paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
     }

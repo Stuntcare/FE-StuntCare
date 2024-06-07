@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class AboutUs extends HTMLElement {
   constructor() {
     super();
@@ -19,4 +20,4 @@ class AboutUs extends HTMLElement {
   }
 }
 
-customElements.define("about-us", AboutUs);
+customElements.define('about-us', AboutUs);
