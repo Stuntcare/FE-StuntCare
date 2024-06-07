@@ -21,7 +21,8 @@ class navbarnih extends HTMLElement {
             <ul class="dropdown-content" aria-label="submenu">
               <li><a href="#/artikel">Artikel</a></li>
               <li><a href="#/kalkulator">Kalkulator Gizi</a></li>
-              <li><a href="#/mpasi">MPASI</a></li>
+              <li><a href="#/mpasi">Mpasi</a></li>
+              <li><a href="#/konsultasi">Konsultasi</a></li>
             </ul>
           </li>
           <li>

@@ -65,6 +65,119 @@ const createSkeletonArtikelItemTemplate = (count) => {
   return template;
 };
 
+const createSkeletonMpasiDetail = () => `;
+  <div class="container mt-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img class="header__img skeleton">
+      </div>
+      <div class="col-md-6">
+        <div class="mt-4">
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4 p-4 rounded shadow-sm">
+      <div class="row">
+        <div class="col-md-4">
+          <ul>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+
+          </ul>
+        </div>
+        <div class="col-md-8">
+
+          <ol class="pl-3">
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+
+const createSkeletonArtikelDetail = () => `;
+  <style>
+    .text-artikel{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      text-shadow: -1px -1px 0 #000,  
+                1px -1px 0 #000,  
+                -1px 1px 0 #000,  
+                1px 1px 0 #000;
+    }
+
+    .img-artikel-detail{
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .detail-artikel{
+      padding-inline: 4rem;
+    }
+
+    .desc-detail-artikel {
+      text-align: justify;
+      padding: 4rem;
+    }
+  </style>
+
+  <section class="container-fluid">
+    <div class="row">
+      <div class="detail-artikel">
+        <img class="header__img img-artikel-detail skeleton">
+      </div>
+    </div>
+      <div class="desc-detail-artikel px-20">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text skeleton-text__body"></div>
+        <br/>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text skeleton-text__body"></div>
+      </div>
+    </div>
+      
+
+`;
+
 const createMpasiTemplate = (mpasi) => `
 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages">
   <a href="#/mpasi/${mpasi.id}">
@@ -105,14 +218,14 @@ const createArtikelTemplate = (artikel) => `
     <div class="card">
       <img src="${artikel.gambar}" class="card-img-top artikel-img" alt="${artikel.judul}">
       <div class="card-body">
-        <h5 class="card-title">
-          <h2 class="list_item_title arikel-pages-name text-dark" tabindex="0">${artikel.judul}</h2>
-          <p style="    overflow: hidden;
+        <a class="card-title">
+          <h4 class="list_item_title artikel-pages-name text-dark text-capitalize text-center fw-bold" tabindex="0">${artikel.judul}</h4>
+          <p class="artikel-deskripsi" 
+          style="overflow: hidden;
           text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
+          display: -webkit-box; -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;">${artikel.deskripsi}</p>
-        </h5>
+        </a>
         <p class="card-text arikel-pages-desc">${formatTanggal(artikel.tanggal)}</p>
       </div>
     </div>  
@@ -199,7 +312,7 @@ const createArtikelDetailTemplate = (artikel) => {
   <style>
     .text-artikel{
       position: absolute;
-      top: 70%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
@@ -234,7 +347,7 @@ const createArtikelDetailTemplate = (artikel) => {
       <div class="detail-artikel">
         <img src="${artikel.gambar}" alt="${artikel.judul}" class="img-artikel-detail" />
         <div class="text-artikel text-center">
-          <span>${artikel.kategori}</span>
+          <span>${formatTanggal(artikel.tanggal)}</span>
           <h2>${artikel.judul}</h2>
         </div>
 
@@ -243,7 +356,7 @@ const createArtikelDetailTemplate = (artikel) => {
       <div class="container-fluid px-3 container-lg">
         <div class="row news-info justify-content-center">
           <div class="col-md-auto col-author text-center text-md-end">
-            Source: <a href="${artikel.sumber}" target="_blank">Sumber</a>
+            <a href="${artikel.sumber}"   >Sumber Artikel</a>
           </div>
 
           <div class="col-md-auto col-date text-center text-md-center">
@@ -283,4 +396,6 @@ export {
   createSkeletonArtikelItemTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createSkeletonMpasiDetail,
+  createSkeletonArtikelDetail,
 };

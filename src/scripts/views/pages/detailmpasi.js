@@ -2,7 +2,7 @@
 import UrlParser from '../../routes/url-parser';
 import MpasiSource from '../../data/mpasi-source';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-import { createMPASIDetailTemplate, createLikeButtonTemplate } from '../templates/template-creator';
+import { createMPASIDetailTemplate, createLikeButtonTemplate, createSkeletonMpasiDetail } from '../templates/template-creator';
 import FavoriteMpasiIdb from '../../data/favorite-mpasi-idb';
 
 const DetailMpasi = {
@@ -15,8 +15,9 @@ const DetailMpasi = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const mpasi = await MpasiSource.detailMpasi(url.id);
     const mpasiContainer = document.querySelector('#mpasi');
+    mpasiContainer.innerHTML = createSkeletonMpasiDetail();
+    const mpasi = await MpasiSource.detailMpasi(url.id);
     mpasiContainer.innerHTML = createMPASIDetailTemplate(mpasi);
 
     const likeButtonContainer = document.querySelector('#likeButtonContainer');

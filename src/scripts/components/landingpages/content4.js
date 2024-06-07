@@ -33,4 +33,4 @@ class content4 extends HTMLElement {
   }
 }
 
-customElements.define("content4-mungkin", content4);
+customElements.define('content4-mungkin', content4);

@@ -1,4 +1,5 @@
 import '../../components/main';
+import '../../components/loader';
 
 const Home = {
   async render() {
@@ -9,11 +10,22 @@ const Home = {
       <content4-mungkin></content4-mungkin>
       <content5-nih></content5-nih>
       <content6-nih></content6-nih>
+      <custom-loader></custom-loader>
     `;
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render(), bisa dibiarkan kosong jika tidak dibutuhkan
+    const loader = document.querySelector('custom-loader');
+
+    if (loader) {
+      loader.show();
+    }
+
+    setTimeout(() => {
+      if (loader) {
+        loader.hide();
+      }
+    }, 2000);
   },
 };
 

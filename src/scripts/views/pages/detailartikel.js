@@ -5,7 +5,9 @@
 /* eslint-disable no-undef */
 import UrlParser from '../../routes/url-parser';
 import ArtikelSource from '../../data/artikel-source';
-import { createArtikelDetailTemplate, createArtikelTemplate, renderNotFound } from '../templates/template-creator';
+import {
+  createArtikelDetailTemplate, createArtikelTemplate, renderNotFound, createSkeletonArtikelDetail,
+} from '../templates/template-creator';
 
 const DetailArtikel = {
   async render() {
@@ -20,9 +22,9 @@ const DetailArtikel = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const artikel = await ArtikelSource.detailArtikel(url.id);
-    console.log(artikel);
     const detailartikelContainer = document.querySelector('#ArtikelDetail');
+    detailartikelContainer.innerHTML = createSkeletonArtikelDetail();
+    const artikel = await ArtikelSource.detailArtikel(url.id);
     const artikelContainer = document.querySelector('#artikel');
     const paginationContainer = document.querySelector('#pagination');
 

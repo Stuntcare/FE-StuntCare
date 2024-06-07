@@ -4,6 +4,8 @@
 import whoData from '../../data/whoData';
 import ArtikelSource from '../../data/artikel-source';
 import MpasiSource from '../../data/mpasi-source';
+import '../../components/loader';
+
 import {
   createArtikelTemplate,
   createMpasiTemplate,
@@ -112,6 +114,7 @@ const Kalkulator = {
           </div>
           </form>
           </div>
+          <custom-loader></custom-loader>
           <div id="result" class="mt-4 mb-4 d-flex justify-content-center align-items-center"></div>
           <div id="rekomendasi"></div>
           <div id="hasilRekomendasi"></div>
@@ -120,6 +123,7 @@ const Kalkulator = {
 
   async afterRender() {
     const forms = document.querySelectorAll('.needs-validation');
+    const loader = document.querySelector('custom-loader');
 
     Array.prototype.slice.call(forms).forEach((form) => {
       form.addEventListener(
@@ -130,7 +134,12 @@ const Kalkulator = {
             event.stopPropagation();
           } else {
             event.preventDefault();
+            loader.show();
+            setTimeout(() => {
+              loader.hide();
+            }, 500);
             handleFormSubmit();
+            scrollToResult();
           }
 
           form.classList.add('was-validated');
@@ -138,6 +147,11 @@ const Kalkulator = {
         false,
       );
     });
+
+    function scrollToResult() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
 
     async function handleFormSubmit() {
       const ageMonths = parseInt(document.getElementById('usia').value);
