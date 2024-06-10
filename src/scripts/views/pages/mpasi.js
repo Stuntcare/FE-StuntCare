@@ -13,7 +13,7 @@ import FavoriteMpasiIdb from '../../data/favorite-mpasi-idb';
 const Mpasi = {
   async render() {
     return `
-      <h1 class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">MPASI</span></h1>
+      <h1 class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">Makanan</span> Pendamping Air Susu Ibu</h1>
       <div class="container mt-4">
         <div class="row g-3">
           <div class="col-12 d-flex flex-nowrap">

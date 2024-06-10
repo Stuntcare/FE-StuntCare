@@ -15,7 +15,7 @@ import {
 const Kalkulator = {
   async render() {
     return `
-      <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator"  style="height: 90vh;">
+      <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator"  style="height: 80vh;">
       <form class="needs-validation" action="" novalidate>
       <h1 class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
@@ -346,7 +346,7 @@ const Kalkulator = {
         <div class="container text-center mt-5">
           <div class="row">
             <div class="col-md-12">
-              <h2>${type === 'mpasi' ? 'MPASI' : 'Artikel'}</h2>
+              <h2>${type === 'mpasi' ? '<span class="fw-bold">Rekomendasi <span class="text-warning">MPASI</span></span>' : '<span class="fw-bold">Artikel Terkait <span class="text-warning">Stunting</span></span>'}</h2>
               <div class="row">
                 ${itemTemplates}
               </div>

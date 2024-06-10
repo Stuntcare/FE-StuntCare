@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 // Fungsi untuk memformat tanggal
 const formatTanggal = (tanggal) => {
   const options = {
@@ -12,7 +13,7 @@ const formatTanggal = (tanggal) => {
 
 const renderNotFound = () => `
     <div style="text-align: center;">
-      <img src="/images/empty.webp" alt="Page not found image" style="display: block; max-width: 100%; margin-inline: auto;">
+      <img class="lazyload" data-src="/images/empty.webp" alt="Page not found image" style="display: block; max-width: 100%; margin-inline: auto;">
     </div>
   `;
 
@@ -191,7 +192,7 @@ const createMpasiTemplate = (mpasi) => `
   }
   </style>
     <div class="card">
-      <img src="${mpasi.gambar}" class="card-img-top mpasi-img" alt="${mpasi.makanan}">
+      <img data-src="${mpasi.gambar}" class="card-img-top mpasi-img lazyload" alt="${mpasi.makanan}">
       <div class="card-body">
         <h5 class="card-title">
           <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize;" tabindex="0">${mpasi.makanan}</h2>
@@ -216,17 +217,23 @@ const createArtikelTemplate = (artikel) => `
 </style>
   <a href="#/artikel/${artikel.id}">
     <div class="card">
-      <img src="${artikel.gambar}" class="card-img-top artikel-img" alt="${artikel.judul}">
+      <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${
+  artikel.judul
+}">
       <div class="card-body">
         <a class="card-title">
-          <h4 class="list_item_title artikel-pages-name text-dark text-capitalize text-center fw-bold" tabindex="0">${artikel.judul}</h4>
+          <h4 class="list_item_title artikel-pages-name text-dark text-capitalize text-center fw-bold" tabindex="0">${
+            artikel.judul
+          }</h4>
           <p class="artikel-deskripsi" 
           style="overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box; -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;">${artikel.deskripsi}</p>
         </a>
-        <p class="card-text arikel-pages-desc">${formatTanggal(artikel.tanggal)}</p>
+        <p class="card-text arikel-pages-desc">${formatTanggal(
+          artikel.tanggal,
+        )}</p>
       </div>
     </div>  
   </a>
@@ -234,12 +241,15 @@ const createArtikelTemplate = (artikel) => `
 `;
 
 const createMPASIDetailTemplate = (mpasi) => `
-  <div class="container mt-5">
+  <div class="container mt-5 position-relative">
+     <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
+      <i class="bi bi-arrow-left"></i> Kembali
+    </a>
     <div class="row align-items-center">
       <div class="col-md-6">
-        <img src="${mpasi.gambar}" alt="${
+        <img data-src="${mpasi.gambar}" alt="${
   mpasi.makanan
-}" class="img-fluid mb-4 rounded" style="width: 100%; height: auto;">
+}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
       </div>
       <div class="col-md-6">
         <div class="text-center">
@@ -280,24 +290,24 @@ const createMPASIDetailTemplate = (mpasi) => `
           <h4 class="mb-3 pb-2 border-bottom fw-bold">Bahan-bahan</h4>
           <ul>
             ${Object.keys(mpasi.bahan)
-    .map(
-      (key) => `
+              .map(
+                (key) => `
               <li class="mb-2"><strong>${key}</strong>: ${mpasi.bahan[key]}</li>
               `,
-    )
-    .join('')}
+              )
+              .join('')}
           </ul>
         </div>
         <div class="col-md-8">
           <h4 class="mb-3 pb-2 border-bottom fw-bold">Cara Membuat</h4>
           <ol class="pl-3">
             ${mpasi.cara_masak
-    .map(
-      (step) => `
+              .map(
+                (step) => `
               <li class="mb-2">${step}</li>
               `,
-    )
-    .join('')}
+              )
+              .join('')}
           </ol>
         </div>
       </div>
@@ -310,7 +320,7 @@ const createArtikelDetailTemplate = (artikel) => {
 
   return `
   <style>
-    .text-artikel{
+    .text-artikel {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -318,45 +328,69 @@ const createArtikelDetailTemplate = (artikel) => {
       color: white;
       font-size: 20px;
       font-weight: 700;
-      text-shadow: -1px -1px 0 #000,  
-                1px -1px 0 #000,  
-                -1px 1px 0 #000,  
-                1px 1px 0 #000;
+      text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                  -1px 1px 0 #000,
+                  1px 1px 0 #000;
     }
 
-    .img-artikel-detail{
+    .img-artikel-detail {
       width: 100%;
-      height: 700px;
+      height: 400px;
       object-fit: cover;
       object-position: center;
     }
 
-    .detail-artikel{
+    .detail-artikel {
       position: relative;
       padding: 4rem;
+      max-width: 800px;
+      margin: auto;
     }
 
     .desc-detail-artikel {
       text-align: justify;
       margin-top: 20px;
-      padding: 4rem;
+      padding: 2rem 4rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .news-info {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .col-author, .col-date {
+      margin: 0.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .detail-artikel, .desc-detail-artikel {
+        padding: 2rem;
+      }
     }
   </style>
   <section class="container-fluid">
     <div class="row">
       <div class="detail-artikel">
-        <img src="${artikel.gambar}" alt="${artikel.judul}" class="img-artikel-detail" />
+         <a href="javascript:history.back()" class="position-absolute text-dark" style="top: 25px; left: 10px; text-decoration: none;">
+          <i class="bi bi-arrow-left"></i> Kembali
+        </a>
+        <img data-src="${artikel.gambar}" alt="${
+    artikel.judul
+  }" class="img-artikel-detail lazyload" />
         <div class="text-artikel text-center">
           <span>${formatTanggal(artikel.tanggal)}</span>
           <h2>${artikel.judul}</h2>
         </div>
-
       </div>
 
       <div class="container-fluid px-3 container-lg">
         <div class="row news-info justify-content-center">
           <div class="col-md-auto col-author text-center text-md-end">
-            <a href="${artikel.sumber}"   >Sumber Artikel</a>
+            <a href="${artikel.sumber}">Sumber Artikel</a>
           </div>
 
           <div class="col-md-auto col-date text-center text-md-center">
