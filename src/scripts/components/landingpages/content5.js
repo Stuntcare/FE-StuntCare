@@ -1,8 +1,8 @@
 class content5 extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.innerHTML = `
+  constructor() {
+    super();
+
+    this.innerHTML = `
     <section class="content5 bg-gray">
       <div class="container">
         <div class="row text-center justify-content-center">
@@ -15,8 +15,7 @@ class content5 extends HTMLElement {
       </div>
     </section>
       `;
-    }
   }
-  
-  customElements.define("content5-nih", content5);
-  
+}
+
+customElements.define('content5-nih', content5);

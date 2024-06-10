@@ -33,4 +33,4 @@ class content1 extends HTMLElement {
   }
 }
 
-customElements.define("content1-nih", content1);
+customElements.define('content1-nih', content1);

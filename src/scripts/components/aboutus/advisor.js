@@ -1,10 +1,11 @@
+/* eslint-disable no-undef */
 class Advisor extends HTMLElement {
   constructor() {
     super();
 
     this.innerHTML = `
         <div class="card" style="width: 18rem; margin: 30px auto;">
-          <img src="../images/advisor.jpg" class="card-img-top" alt="muhammad fery syahputra" style="width: 150px height: 150px" crossorigin="anonymous" >
+          <img data-src="../images/advisor.jpg" class="card-img-top lazyload" alt="Advisor" style="width: 150px height: 150px" crossorigin="anonymous" >
           <div class="card-body text-center">
               <h5 class="card-title text-uppercase">Agrey Tosira</h5>
               <p class="card-text text-capitalize">Front-End Advisor</p>
@@ -20,4 +21,4 @@ class Advisor extends HTMLElement {
   }
 }
 
-customElements.define("team-advisor", Advisor);
+customElements.define('team-advisor', Advisor);

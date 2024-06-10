@@ -1,4 +1,5 @@
-import "../../components/main";
+import '../../components/main';
+import '../../components/loader';
 
 const Home = {
   async render() {
@@ -10,10 +11,6 @@ const Home = {
       <content5-nih></content5-nih>
       <content6-nih></content6-nih>
     `;
-  },
-
-async afterRender() {
-    // Fungsi ini akan dipanggil setelah render(), bisa dibiarkan kosong jika tidak dibutuhkan
   },
 };
 

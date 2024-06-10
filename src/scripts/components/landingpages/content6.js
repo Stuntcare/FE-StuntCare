@@ -64,4 +64,4 @@ class content6 extends HTMLElement {
   }
 }
 
-customElements.define("content6-nih", content6);
+customElements.define('content6-nih', content6);

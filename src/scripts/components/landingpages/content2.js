@@ -35,4 +35,4 @@ class content2 extends HTMLElement {
   }
 }
 
-customElements.define("content2-nih", content2);
+customElements.define('content2-nih', content2);
