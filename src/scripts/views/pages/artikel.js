@@ -1,8 +1,13 @@
-import ArtikelSource from "../../data/artikel-source";
+/* eslint-disable no-plusplus */
+/* eslint-disable no-alert */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-undef */
+import ArtikelSource from '../../data/artikel-source';
 import {
   createArtikelTemplate,
   renderNotFound,
-} from "../templates/template-creator";
+  createSkeletonArtikelItemTemplate,
+} from '../templates/template-creator';
 
 const Artikel = {
   async render() {
@@ -37,16 +42,17 @@ const Artikel = {
   },
 
   async afterRender() {
-    const artikelContainer = document.querySelector("#artikel");
-    const searchForm = document.querySelector("#searchForm");
-    const searchKeywordInput = document.querySelector("#searchKeyword");
-    const filterKategori = document.querySelector("#filterKategori");
-    const paginationContainer = document.querySelector("#pagination");
+    const artikelContainer = document.querySelector('#artikel');
+    const searchForm = document.querySelector('#searchForm');
+    const searchKeywordInput = document.querySelector('#searchKeyword');
+    const filterKategori = document.querySelector('#filterKategori');
+    const paginationContainer = document.querySelector('#pagination');
 
-    const loadArtikel = async (query = "", category = "semua", page = 1) => {
+    const loadArtikel = async (query = '', category = 'semua', page = 1) => {
       try {
+        artikelContainer.innerHTML = createSkeletonArtikelItemTemplate(6);
         let artikel;
-        if (query || category !== "semua") {
+        if (query || category !== 'semua') {
           if (query) {
             artikel = await ArtikelSource.searchArtikel(query);
           } else {
@@ -56,40 +62,38 @@ const Artikel = {
           artikel = await ArtikelSource.getArtikelByPage(page);
         }
 
-        const data = artikel.data;
-        const pages = artikel.pages;
-        console.log(data);
-        console.log(pages);
+        const { data } = artikel;
+        const { pages } = artikel;
 
         if (!data || data.length === 0) {
           artikelContainer.innerHTML = renderNotFound();
         } else {
-          artikelContainer.innerHTML = data.map(createArtikelTemplate).join("");
+          artikelContainer.innerHTML = data.map(createArtikelTemplate).join('');
         }
 
         if (pages > 1) {
           renderPagination(pages);
           addPaginationEventListeners(loadArtikel, query, category);
         } else {
-          paginationContainer.innerHTML = "";
+          paginationContainer.innerHTML = '';
         }
       } catch (error) {
-        console.error("Error fetching artikel:", error);
-        alert("Gagal memuat data Artikel. Silakan coba lagi nanti.");
+        console.error('Error fetching artikel:', error);
+        alert('Gagal memuat data Artikel. Silakan coba lagi nanti.');
       }
     };
 
     loadArtikel();
 
     if (searchForm && filterKategori) {
-      searchForm.addEventListener("submit", (event) => {
+      searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const keyword = searchKeywordInput.value;
         const category = filterKategori.value;
         loadArtikel(keyword, category);
       });
 
-      filterKategori.addEventListener("change", (event) => {
+      filterKategori.addEventListener('change', (event) => {
         const category = event.target.value;
         const keyword = searchKeywordInput.value;
         loadArtikel(keyword, category);
@@ -99,19 +103,19 @@ const Artikel = {
 };
 
 const addPaginationEventListeners = (loadMpasi, query, category) => {
-  const paginationButtons = document.querySelectorAll("#pagination button");
+  const paginationButtons = document.querySelectorAll('#pagination button');
   paginationButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const page = button.dataset.page;
+    button.addEventListener('click', () => {
+      const { page } = button.dataset;
       loadMpasi(query, category, page);
     });
   });
 };
 
 const renderPagination = (pages) => {
-  const paginationContainer = document.querySelector("#pagination");
+  const paginationContainer = document.querySelector('#pagination');
   if (paginationContainer) {
-    let paginationHtml = "";
+    let paginationHtml = '';
     for (let i = 1; i <= pages; i++) {
       paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
     }

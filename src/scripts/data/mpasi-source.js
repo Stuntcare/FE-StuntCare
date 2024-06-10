@@ -1,4 +1,7 @@
-import API_ENDPOINT from "../globals/api-endpoint";
+/* eslint-disable no-undef */
+/* eslint-disable consistent-return */
+/* eslint-disable no-alert */
+import API_ENDPOINT from '../globals/api-endpoint';
 
 class MpasiSource {
   static async getAllMpasi() {
@@ -7,8 +10,8 @@ class MpasiSource {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error("Failed to fetch MPASI data:", error);
-      alert("Gagal memuat data MPASI. Silakan coba lagi nanti.");
+      console.error('Failed to fetch MPASI data:', error);
+      alert('Gagal memuat data MPASI. Silakan coba lagi nanti.');
     }
   }
 
@@ -36,8 +39,8 @@ class MpasiSource {
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
-      console.error("Failed to fetch MPASI data:", error);
-      alert("Gagal memuat data MPASI. Silakan coba lagi nanti.");
+      console.error('Failed to fetch MPASI data:', error);
+      alert('Gagal memuat data MPASI. Silakan coba lagi nanti.');
     }
   }
 }

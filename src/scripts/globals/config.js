@@ -1,12 +1,11 @@
 const CONFIG = {
-  BASE_URL: "https://restaurant-api.dicoding.dev/",
-  BASE_IMAGE_URL_SMALL: "https://restaurant-api.dicoding.dev/images/small/",
-  BASE_IMAGE_URL_MEDIUM: "https://restaurant-api.dicoding.dev/images/medium/",
-  BASE_IMAGE_URL_LARGE: "https://restaurant-api.dicoding.dev/images/large/",
-  CACHE_NAME: "foodieshunt-V1",
-  DATABASE_NAME: "foodies-hunt-database",
+  BASE_URL: 'http://localhost:3000',
+  // BASE_URL: 'https://stuntcare.cleverapps.io',
+  CACHE_NAME: new Date().toISOString(),
+  DEFAULT_LANGUAGE: 'en-us',
+  DATABASE_NAME: 'mpasi-database',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: "FoodiesHunt",
+  OBJECT_STORE_NAME: 'mpasi',
 };
 
 export default CONFIG;

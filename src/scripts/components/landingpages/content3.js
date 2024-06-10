@@ -68,4 +68,4 @@ class content3 extends HTMLElement {
   }
 }
 
-customElements.define("content3-nih", content3);
+customElements.define('content3-nih', content3);

@@ -7,7 +7,7 @@ const AboutUs = {
         <div class="row">
           <div class="col-sm-6 col-md-4 mb-4">
               <div class="card">
-                  <img src="../images/profile-fery.jpg" class="card-img-top" alt="muhammad fery syahputra" style="width: 150px height: 150px" crossorigin="anonymous" >
+                  <img data-src="../images/profile-fery.jpg" class="card-img-top lazyload" alt="muhammad fery syahputra" style="width: 150px height: 150px" crossorigin="anonymous" >
                   <div class="card-body text-center">
                       <h5 class="card-title text-uppercase">Muhammad fery syahputra</h5>
                       <p class="card-text text-capitalize">front-end developer</p>
@@ -22,7 +22,7 @@ const AboutUs = {
           </div>
           <div class="col-sm-6 col-md-4 mb-4">
               <div class="card">
-                  <img src="../images/firza.jpg" class="card-img-top" alt="Team Member 2" crossorigin="anonymous" >
+                  <img data-src="../images/firza.jpg" class="card-img-top lazyload" alt="Team Member 2" crossorigin="anonymous" >
                   <div class="card-body text-center">
                       <h5 class="card-title text-uppercase">Muhammad Firza Fernanda</h5>
                       <p class="card-text text-capitalize">project manager</p>
@@ -37,7 +37,7 @@ const AboutUs = {
           </div>
           <div class="col-sm-6 col-md-4 mb-4">
               <div class="card">
-                  <img src="../images/rizq.jpg" class="card-img-top" alt="Team Member 3" crossorigin="anonymous" >
+                  <img data-src="../images/rizq.jpg" class="card-img-top lazyload" alt="Team Member 3" crossorigin="anonymous" >
                   <div class="card-body text-center">
                       <h5 class="card-title text-uppercase">Muhammad Rizq Saputra</h5>
                       <p class="card-text text-capitalize">back-end developer</p>
@@ -47,7 +47,7 @@ const AboutUs = {
                   <a href="https://www.instagram.com/rizqsptr/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
                   <a href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
               </div>
-                  </div>
+                  </div> 
               </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class FooterElement extends HTMLElement {
   constructor() {
     super();
@@ -28,10 +29,10 @@ class FooterElement extends HTMLElement {
             <h5>About<span class="text-warning fw-bold"> Us</span></h5>
             <ul class="list-unstyled">
               <li>              
-                <a>F4206YA030- Muhammad Firza Fernanda - F01</a>
+                <a>F0096YB29 - Muhammad Fery Syahputra - F06</a>
               </li>
               <li>              
-                <a>F0096YB29 - Muhammad Fery Syahputra - F06</a>
+                <a>F4206YA030- Muhammad Firza Fernanda - F01</a>  
               </li>
               <li>              
                 <a>F2696YA373 - Muhammad Rizq Saputra - F02</a>
@@ -45,4 +46,4 @@ class FooterElement extends HTMLElement {
   }
 }
 
-customElements.define("footer-gaming", FooterElement);
+customElements.define('footer-gaming', FooterElement);
