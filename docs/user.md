@@ -102,7 +102,8 @@ Method : GET
 Request Body :
 
 ```json
-{
+method: 'GET',
+headers: {
   "Authorization": "Bearer ${token}"
 }
 ```
@@ -142,12 +143,17 @@ Headers:
 
 Method : PUT
 
-Request Body : Body
+Request Body :
 
 ```json
-{
+method: 'PUT',
+headers: {
   "Authorization": "Bearer ${token}"
-}
+},
+body: JSON.stringify({
+  "username": "testing"
+})
+
 ```
 Response Body Success :
 
@@ -180,9 +186,10 @@ Method : DELETE
 Request Body :
 
 ```json
-{
+method: 'DELETE',
+headers: {
   "Authorization": "Bearer ${token}"
-}
+},
 ```
 Response Body Success :
 
@@ -205,9 +212,10 @@ Method : DELETE
 Request Body :
 
 ```json
-{
+method: 'DELETE',
+headers: {
   "Authorization": "Bearer ${token}"
-}
+},
 ```
 
 Response Body Success :
