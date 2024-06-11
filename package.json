@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.24.5",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
+    "aos": "^2.3.4",
     "babel-jest": "^29.6.1",
     "babel-loader": "^8.3.0",
     "bootstrap": "^5.3.3",

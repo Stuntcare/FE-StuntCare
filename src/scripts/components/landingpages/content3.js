@@ -3,7 +3,7 @@ class content3 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section class="content3 mt-4">
+    <section class="content3 mt-4" >
       <div class="container">
         <h1 class="text-center fw-bold">
           Kenapa Pilih <span class="text-warning">StuntCare?</span>

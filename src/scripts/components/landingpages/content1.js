@@ -12,7 +12,7 @@ class content1 extends HTMLElement {
               </h1>
               <p class="lead my-2 deskripsi">
                 Temukan solusi terbaik untuk <span class="text-warning">mencegah stunting</span> pada balita
-                dengan <span class="text-warning">StuntCare</span>. Dapatkan informasi gizi yang tepat dan
+                dengan <span class="text-warning">Stu ntCare</span>. Dapatkan informasi gizi yang tepat dan
                 rekomendasi yang terpercaya untuk kesehatan optimal anak Anda.
               </p>
               <p class="mt-4 button-content1">

@@ -6,15 +6,15 @@ class content2 extends HTMLElement {
     <section class="content2">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0" style="margin-inline: auto;">
+            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0" style="margin-inline: auto;" >
               <img
                 alt="image"
                 class="img-fluid"
                 src="../images/Group 33.png"
               />
             </div>
-            <div class="col-12 col-md-6 col-lg-5 text-content2">
-              <h2 class="subheading fw-bold">Apa itu <span class="text-warning">Stunting?</span></h2>
+            <div class="col-12 col-md-6 col-lg-5 text-content2" >
+              <h2 class="subheading fw-bold" >Apa itu <span class="text-warning">Stunting?</span></h2>
               <p class="lead">
                 Stunting adalah kondisi terhambatnya pertumbuhan fisik dan
                 perkembangan otak pada anak-anak, biasanya disebabkan oleh
