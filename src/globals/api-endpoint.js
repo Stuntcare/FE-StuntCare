@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL: 'http://localhost:3000',
+  BASE_URL: 'https://api.stuntcare.muhammadferysyahputra.my.id',
   // BASE_URL: 'https://stuntcare.cleverapps.io',
 };
 
