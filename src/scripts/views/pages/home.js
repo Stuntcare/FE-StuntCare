@@ -12,6 +12,10 @@ const Home = {
       <content6-nih></content6-nih>
     `;
   },
+
+  async afterRender() {
+    // Fungsi ini akan dipanggil setelah render()
+  },
 };
 
 export default Home;

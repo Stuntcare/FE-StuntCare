@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 import '../../components/main';
 import '../../components/loader';
 
@@ -8,7 +9,7 @@ const konsultasi = {
         <div class="container-fluid px-0">
           <div class="row justify-content-between align-items-center g-0">
             <div class="col-md-6 d-flex justify-content-center order-first order-md-last">
-              <img src="../../images/doc1.webp" style="width: 100%; max-height: 400px; object-fit: cover;" />
+              <img src="../images/doc1-large.jpg" style="width: 100%; max-height: 400px; object-fit: cover;" />
             </div>
             <div class="col-md-6 text-center py-5 px-4 px-md-5">
               <h2>Dr. Sarah Fitriani, M.Sc.</h2>
@@ -32,7 +33,7 @@ const konsultasi = {
         <div class="container-fluid px-0">
           <div class="row justify-content-between align-items-center g-0">
             <div class="col-md-6 d-flex justify-content-center order-first order-md-last">
-              <img src="../../images/doc2.webp" style="width: 100%; max-height: 400px; object-fit: cover;" />
+              <img src="../images/doc2-large.jpg" style="width: 100%; max-height: 400px; object-fit: cover;" />
             </div>
             <div class="col-md-6 text-center py-5 px-4 px-md-5">
               <h2>Prof. Dr. Budi Susanto, Sp.GK.</h2>
@@ -56,7 +57,7 @@ const konsultasi = {
         <div class="container-fluid px-0">
           <div class="row justify-content-between align-items-center g-0">
             <div class="col-md-6 d-flex justify-content-center order-first order-md-last">
-              <img src="../../images/doc3.webp" style="width: 100%; max-height: 400px; object-fit: cover;" />
+              <img src="../images/doc3-large.jpg" style="width: 100%; max-height: 400px; object-fit: cover;" />
             </div>
             <div class="col-md-6 text-center py-5 px-4 px-md-5">
               <h2>Dra. H. Sucipto, MPH.</h2>
@@ -77,6 +78,8 @@ const konsultasi = {
       </section>
     `;
   },
+
+  async afterRender() {},
 };
 
 export default konsultasi;

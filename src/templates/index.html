@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" sizes="48x48" />
     <link rel="manifest" href="./app.webmanifest" />
     <title>StuntCare</title>
@@ -39,5 +40,19 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        disable: function () {
+          var maxWidth = 768;
+          return window.innerWidth < maxWidth;
+        },
+        duration: 1200,
+        easing: "ease-in-out",
+        once: true,
+        mirror: true,
+        anchorPlacement: "top-bottom",
+      });
+    </script>
   </body>
 </html>
