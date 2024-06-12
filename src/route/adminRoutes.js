@@ -29,12 +29,12 @@ router.get('/dashboard', async (req, res) => {
     const mpasi = mpasiApi.data;
     const artikel = artikelApi.data;
     res.render('dashboard', {
-      title: 'Dashboard',
+      title: 'Beranda',
       MpasiTotal: mpasi.total,
       ArtikelTotal: artikel.total,
     });
   } catch (error) {
-    res.status(500).send('Error Render dashboard data, No Access Token');
+    res.status(500).render('auth', { title: 'Membutuhkan Login' });
   }
 });
 
@@ -99,7 +99,7 @@ router.get('/artikel', async (req, res) => {
 });
 
 router.use((req, res) => {
-  res.status(404).render('notfound', { title: 'Page Not Found' });
+  res.status(404).render('notfound', { title: 'Halaman Tidak Ditemukan' });
 });
 
 module.exports = router;

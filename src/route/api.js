@@ -1,7 +1,6 @@
 const express = require('express');
 const mpasiController = require('../controller/mpasi-controller');
 const artikelController = require('../controller/artikel-controller');
-// const verifyToken = require('../middleware/auth');
 
 const userRouter = new express.Router();
 
