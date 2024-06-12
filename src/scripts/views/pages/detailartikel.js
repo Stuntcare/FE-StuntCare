@@ -38,7 +38,7 @@ const DetailArtikel = {
             artikel = await ArtikelSource.kategoriArtikel(category);
           }
         } else {
-          artikel = await ArtikelSource.getArtikelByPage(page);
+          artikel = await ArtikelSource.getDetailArtikelByPage(page);
         }
 
         const { data } = artikel;

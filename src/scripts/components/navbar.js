@@ -16,8 +16,8 @@ class navbarnih extends HTMLElement {
       <nav id="navigationDrawer" class="app-bar__navigation">
         <ul>
           <li><a href="#/">Beranda</a></li>
-          <li class="nav-item dropdown">
-            <a href="#" aria-haspopup="true" aria-expanded="false">Layanan</a>
+          <li class="nav-item dropdown"> 
+            <a href="#" aria-haspopup="true" aria-expanded="false">Layanan <i class="bi bi-caret-down"></i></a>
             <ul class="dropdown-content" aria-label="submenu">
               <li><a href="#/artikel">Artikel</a></li>
               <li><a href="#/kalkulator">Kalkulator Gizi</a></li>
@@ -25,6 +25,7 @@ class navbarnih extends HTMLElement {
               <li><a href="#/konsultasi">Konsultasi</a></li>
             </ul>
           </li>
+          
           <li>
             <a href="#/tentangkami">Tentang</a>
           </li>

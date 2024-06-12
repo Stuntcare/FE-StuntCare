@@ -3,10 +3,10 @@ class content4 extends HTMLElement {
     super();
 
     this.innerHTML = `
-      <section class="content4">
+      <section class="content4" data-aos:"">
           <div class="container">
             <div class="row align-items-center">
-              <div class="col-12 col-md-6 col-lg-5">
+              <div class="col-12 col-md-6 col-lg-5" data-aos:"fade-right">
                 <h1 class="fw-bold" style="margin-top: 15px">
                   Makanan <span class="text-warning"> Bernutrisi </span><br> dan <span class="text-warning"> Bergizi </span> untuk<br> <span class="text-warning">Balita</span> Anda
                 </h1>
@@ -23,7 +23,6 @@ class content4 extends HTMLElement {
                   alt="image"
                   class="img-fluid p-5"
                   src="../images/fotomakanan.png"
-                  
                 />
               </div>
             </div>

@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-// Fungsi untuk memformat tanggal
 const formatTanggal = (tanggal) => {
   const options = {
     weekday: 'long',
@@ -180,60 +179,50 @@ const createSkeletonArtikelDetail = () => `;
 `;
 
 const createMpasiTemplate = (mpasi) => `
-<div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages">
-  <a href="#/mpasi/${mpasi.id}">
-  <style>
-  .card {
-    transition: transform 0.5s;
+<style>
+.card {
+  transition: transform 0.5s;
   }
-
+  
   .card:hover {
-    transform: scale(1.05)
-  }
-  </style>
-    <div class="card">
+    transform: scale(1.05);
+    }
+</style>
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages d-flex">
+  <a href="#/mpasi/${mpasi.id}" class="w-100">
+    <div class="card" style="transition: transform 0.5s; display: flex; flex-direction: column; height: 100%;">
       <img data-src="${mpasi.gambar}" class="card-img-top mpasi-img lazyload" alt="${mpasi.makanan}">
-      <div class="card-body">
-        <h5 class="card-title">
-          <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize;" tabindex="0">${mpasi.makanan}</h2>
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title" style="margin-bottom: auto;">
+          <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" tabindex="0">${mpasi.makanan}</h2>
         </h5>
         <p class="card-text arikel-pages-desc">${mpasi.kategori}</p>
       </div>
-    </div>  
+    </div>
   </a>
 </div>
+
 `;
 
 const createArtikelTemplate = (artikel) => `
-<div class="col-lg- col-md-4 col-sm-6 mb-4 arikel-pages">
 <style>
-  .card {
-    transition: transform 0.5s; /* Efek transisi saat card dihover */
+.card {
+  transition: transform 0.5s;
   }
-
+  
   .card:hover {
-    transform: scale(1.05); /* Mengubah ukuran saat dihover */
-  }
+    transform: scale(1.05);
+    }
 </style>
-  <a href="#/artikel/${artikel.id}">
-    <div class="card">
-      <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${
-  artikel.judul
-}">
-      <div class="card-body">
-        <a class="card-title">
-          <h4 class="list_item_title artikel-pages-name text-dark text-capitalize text-center fw-bold" tabindex="0">${
-            artikel.judul
-          }</h4>
-          <p class="artikel-deskripsi" 
-          style="overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box; -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;">${artikel.deskripsi}</p>
-        </a>
-        <p class="card-text arikel-pages-desc">${formatTanggal(
-          artikel.tanggal,
-        )}</p>
+
+<div class="col-lg-4 col-md-6 col-sm-12 mb-4 arikel-pages">
+  <a href="#/artikel/${artikel.id}" style="text-decoration: none;">
+    <div class="card h-100">
+      <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${artikel.judul}">
+      <div class="card-body d-flex flex-column">
+        <h4 class="card-title list_item_title artikel-pages-name text-dark text-capitalize text-center mb-4 fw-bold" style="margin-bottom: auto; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 0;" tabindex="0">${artikel.judul}</h4>
+        <p class="artikel-deskripsi" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 0;">${artikel.deskripsi}</p>
+        <p class="card-text arikel-pages-desc text-muted text-center mt-auto">${formatTanggal(artikel.tanggal)}</p>
       </div>
     </div>  
   </a>
