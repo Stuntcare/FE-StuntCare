@@ -1,9 +1,5 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable no-alert */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 const BASE_URL = 'http://localhost:3000';
 
 const MAX_LOGIN_ATTEMPTS = 3;
@@ -41,7 +37,10 @@ async function login(email, password) {
       throw new Error();
     }
 
-    document.cookie = `accessToken=${data.accessToken}; path=/;`;
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 7);
+    document.cookie = `accessToken=${data.accessToken}; expires=${expirationDate.toUTCString()}; path=/;`;
+
     localStorage.removeItem('loginAttempts');
     localStorage.removeItem('loginLockedUntil');
 
@@ -88,7 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const password = document.getElementById('password').value;
 
       if (!email || !password) {
-        alert('Email dan password harus diisi.');
+        Swal.fire({
+          title: 'Gagal Login !',
+          text: 'Email dan password harus diisi',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
         return;
       }
 
