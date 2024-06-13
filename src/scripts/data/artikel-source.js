@@ -43,6 +43,17 @@ class ArtikelSource {
       alert('Gagal memuat data Artikel. Silakan coba lagi nanti.');
     }
   }
+
+  static async getDetailArtikelByPage(page) {
+    try {
+      const response = await fetch(API_ENDPOINT.ARTIKELPAGEDETAIL(page));
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      console.error('Failed to fetch Artikel data:', error);
+      alert('Gagal memuat data Artikel. Silakan coba lagi nanti.');
+    }
+  }
 }
 
 export default ArtikelSource;

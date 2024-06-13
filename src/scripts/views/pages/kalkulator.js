@@ -15,7 +15,7 @@ import {
 const Kalkulator = {
   async render() {
     return `
-      <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator"  style="height: 80vh;">
+      <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator" style="height: 80vh;">
       <form class="needs-validation" action="" novalidate>
       <h1 class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">

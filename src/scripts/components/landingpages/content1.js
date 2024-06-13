@@ -3,19 +3,19 @@ class content1 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section class="content1">
+    <section class="content1" data-aos="">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-12 col-md-6 col-lg-5">
-              <h1 class="heading-title fw-bold">
-                Aplikasi Edukasi<br><span class="text-warning">Gizi Balita</span> untuk Pencegahan <span class="text-warning">Stunting</span>
+            <div class="col-12 col-md-6 col-lg-5" >
+              <h1 class="heading-title fw-bold" data-aos="fade-right">
+                Aplikasi Edukasi<br>Gizi Balita untuk Pencegahan Stunting
               </h1>
-              <p class="lead my-2 deskripsi">
+              <p class="lead my-2 deskripsi" data-aos="fade-right">
                 Temukan solusi terbaik untuk <span class="text-warning">mencegah stunting</span> pada balita
-                dengan <span class="text-warning">Stu ntCare</span>. Dapatkan informasi gizi yang tepat dan
+                dengan <span class="text-warning">StuntCare</span>. Dapatkan informasi gizi yang tepat dan
                 rekomendasi yang terpercaya untuk kesehatan optimal anak Anda.
               </p>
-              <p class="mt-4 button-content1">
+              <p class="mt-4 button-content1" data-aos="fade-right">
                 <a class="btn btn-warning py-3 px-2 text-white" href="#">Mari Mulai! ></a>
               </p>
             </div>
@@ -24,6 +24,7 @@ class content1 extends HTMLElement {
                 alt="image"
                 class="img-fluid image__1"
                 src="../images/Group 3473674.png"
+                data-aos="fade-left"
               />
             </div>
           </div>

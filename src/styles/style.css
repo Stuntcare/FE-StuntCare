@@ -331,6 +331,7 @@ input:checked + .radio-tile2 label {
 }
 /* Artikel */
 
+
 .arikel-pages .card img {
   object-fit: cover;
   width: 100%;
@@ -340,7 +341,6 @@ input:checked + .radio-tile2 label {
 .arikel-pages-name {
   font-weight: bold;
   font-size: 18px;
-  color: blue;
   margin-top: 6px;
   transition: 0.3s opacity;
   padding: 0 16px 0 16px;

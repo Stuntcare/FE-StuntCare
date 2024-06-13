@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-// Fungsi untuk memformat tanggal
 const formatTanggal = (tanggal) => {
   const options = {
     weekday: 'long',
@@ -180,60 +179,50 @@ const createSkeletonArtikelDetail = () => `;
 `;
 
 const createMpasiTemplate = (mpasi) => `
-<div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages">
-  <a href="#/mpasi/${mpasi.id}">
-  <style>
-  .card {
-    transition: transform 0.5s;
+<style>
+.card {
+  transition: transform 0.5s;
   }
-
+  
   .card:hover {
-    transform: scale(1.05)
-  }
-  </style>
-    <div class="card">
+    transform: scale(1.05);
+    }
+</style>
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages d-flex">
+  <a href="#/mpasi/${mpasi.id}" class="w-100">
+    <div class="card" style="transition: transform 0.5s; display: flex; flex-direction: column; height: 100%;">
       <img data-src="${mpasi.gambar}" class="card-img-top mpasi-img lazyload" alt="${mpasi.makanan}">
-      <div class="card-body">
-        <h5 class="card-title">
-          <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize;" tabindex="0">${mpasi.makanan}</h2>
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title" style="margin-bottom: auto;">
+          <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" tabindex="0">${mpasi.makanan}</h2>
         </h5>
         <p class="card-text arikel-pages-desc">${mpasi.kategori}</p>
       </div>
-    </div>  
+    </div>
   </a>
 </div>
+
 `;
 
 const createArtikelTemplate = (artikel) => `
-<div class="col-lg- col-md-4 col-sm-6 mb-4 arikel-pages">
 <style>
-  .card {
-    transition: transform 0.5s; /* Efek transisi saat card dihover */
+.card {
+  transition: transform 0.5s;
   }
-
+  
   .card:hover {
-    transform: scale(1.05); /* Mengubah ukuran saat dihover */
-  }
+    transform: scale(1.05);
+    }
 </style>
-  <a href="#/artikel/${artikel.id}">
-    <div class="card">
-      <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${
-  artikel.judul
-}">
-      <div class="card-body">
-        <a class="card-title">
-          <h4 class="list_item_title artikel-pages-name text-dark text-capitalize text-center fw-bold" tabindex="0">${
-            artikel.judul
-          }</h4>
-          <p class="artikel-deskripsi" 
-          style="overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box; -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;">${artikel.deskripsi}</p>
-        </a>
-        <p class="card-text arikel-pages-desc">${formatTanggal(
-          artikel.tanggal,
-        )}</p>
+
+<div class="col-lg-4 col-md-6 col-sm-12 mb-4 arikel-pages">
+  <a href="#/artikel/${artikel.id}" style="text-decoration: none;">
+    <div class="card h-100">
+      <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${artikel.judul}">
+      <div class="card-body d-flex flex-column">
+        <h4 class="card-title list_item_title artikel-pages-name text-dark text-capitalize text-center mb-4 fw-bold" style="margin-bottom: auto; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 0;" tabindex="0">${artikel.judul}</h4>
+        <p class="artikel-deskripsi" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 0;">${artikel.deskripsi}</p>
+        <p class="card-text arikel-pages-desc text-muted text-center mt-auto">${formatTanggal(artikel.tanggal)}</p>
       </div>
     </div>  
   </a>
@@ -242,21 +231,17 @@ const createArtikelTemplate = (artikel) => `
 
 const createMPASIDetailTemplate = (mpasi) => `
   <div class="container mt-5 position-relative">
-     <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
+    <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
       <i class="bi bi-arrow-left"></i> Kembali
     </a>
     <div class="row align-items-center">
       <div class="col-md-6">
-        <img data-src="${mpasi.gambar}" alt="${
-  mpasi.makanan
-}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
+        <img data-src="${mpasi.gambar}" alt="${mpasi.makanan}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
       </div>
       <div class="col-md-6">
         <div class="text-center">
           <h2 class="mb-3 fw-bold">${mpasi.makanan}</h2>
-          <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${
-  mpasi.kategori
-}</p>
+          <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${mpasi.kategori}</p>
         </div>
         <div class="mt-4">
           <h4 class="mb-3 fw-bold text-center">Kandungan Gizi</h4>
@@ -310,6 +295,27 @@ const createMPASIDetailTemplate = (mpasi) => `
               .join('')}
           </ol>
         </div>
+      </div>
+    </div>
+
+    <!-- Comment Form -->
+    <div class="container mt-4 p-4 rounded shadow-sm">
+      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <form id="commentForm">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="mb-3">
+          <label for="komentar" class="form-label">Komentar</label>
+          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+        </div>
+        <input type="hidden" id="mpasiId" name="mpasiId" value="${mpasi.id}">
+        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+      </form>
+      <div id="commentList" class="mt-4">
+        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+        <!-- Komentar akan ditampilkan di sini -->
       </div>
     </div>
   </div>
@@ -403,6 +409,27 @@ const createArtikelDetailTemplate = (artikel) => {
         ${deskripsiFormatted}
       </p>
     </div>
+    
+    <!-- Comment Form -->
+    <div class="container mt-4 p-4 rounded shadow-sm">
+      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <form id="commentForm">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="mb-3">
+          <label for="komentar" class="form-label">Komentar</label>
+          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+        </div>
+        <input type="hidden" id="artikelId" name="artikelId" value="${artikel.id}">
+        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+      </form>
+      <div id="commentList" class="mt-4">
+        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+        <!-- Komentar akan ditampilkan di sini -->
+      </div>
+    </div>
   </section>
   `;
 };
@@ -421,6 +448,7 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
+  formatTanggal,
   renderNotFound,
   createMpasiTemplate,
   createMPASIDetailTemplate,
