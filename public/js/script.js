@@ -3,9 +3,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-param-reassign */
 (function () {
-  /**
-     * Easy selector helper function
-     */
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {

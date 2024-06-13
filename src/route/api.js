@@ -1,8 +1,15 @@
 const express = require('express');
+const komentarController = require('../controller/komentar-controller');
 const mpasiController = require('../controller/mpasi-controller');
 const artikelController = require('../controller/artikel-controller');
 
 const userRouter = new express.Router();
+
+// Komentar API
+userRouter.post('/api/komentar', komentarController.createKomentar);
+userRouter.delete('/api/komentar/:id', komentarController.deleteKomentar);
+userRouter.get('/api/komentar/artikel/:artikelId', komentarController.getKomentarByArtikelId);
+userRouter.get('/api/komentar/mpasi/:mpasiId', komentarController.getKomentarByMpasiId);
 
 // MPASI API
 userRouter.post('/api/mpasi', mpasiController.createMpasi);

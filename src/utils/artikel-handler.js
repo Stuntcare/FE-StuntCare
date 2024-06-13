@@ -204,19 +204,21 @@ const loadPageData = async (pageUrl) => {
       if (data.data.length > 0) {
         data.data.forEach((artikel) => {
           const artikelCard = `
-          <div class="col-12 col-md-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="${artikel.gambar}" alt="${artikel.judul}" class="card-img-top skeleton-img" style="height: 150px; background-color: #e1e1e1; object-fit: cover;">
-              <div class="card-body">
-                <h5 class="card-title">${artikel.judul}</h5>
-                <p class="card-text">${artikel.kategori}</p>
-                <div class="d-flex justify-content-center">
-                  <button id="edit-button" class="btn button-tambah px-4 me-2" data-id="${artikel.id}" data-bs-toggle="modal" data-bs-target="#editArtikelModal"><i class="bi bi-pencil"></i></button>
-                  <button id="delete-button" class="btn px-4 btn-danger" data-id="${artikel.id}"><i class="bi bi-trash"></i></button>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 position-relative">
+                    <div class="category-label position-absolute start-0 p-2 bg-warning text-dark rounded">
+                        ${artikel.kategori}
+                    </div>
+                    <img src="${artikel.gambar}" alt="${artikel.judul}" class="card-img-top skeleton-img" style="height: 150px; background-color: #e1e1e1; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${artikel.judul}</h5>
+                        <div class="mt-auto d-flex justify-content-center">
+                            <button type="button" id="edit-button" class="btn button-tambah px-4 me-2" data-bs-toggle="modal" data-bs-target="#editArtikelModal" data-id="${artikel.id}"><i class="bi bi-pencil"></i></button>
+                            <button type="button" id="delete-button" class="btn px-4 btn-danger" data-id="${artikel.id}"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         `;
           artikelListDiv.innerHTML += artikelCard;
         });
