@@ -17,7 +17,7 @@ class navbarnih extends HTMLElement {
         <ul>
           <li><a href="#/">Beranda</a></li>
           <li class="nav-item dropdown"> 
-            <a href="#" aria-haspopup="true" aria-expanded="false">Layanan <i class="bi bi-caret-down"></i></a>
+            <a href="#" aria-haspopup="true" aria-expanded="false">Layanan <i class="bi bi-caret-down-fill"></i></a>
             <ul class="dropdown-content" aria-label="submenu">
               <li><a href="#/artikel">Artikel</a></li>
               <li><a href="#/kalkulator">Kalkulator Gizi</a></li>

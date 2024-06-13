@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-alert */
 /* eslint-disable no-use-before-define */
@@ -5,8 +6,9 @@
 /* eslint-disable no-undef */
 import UrlParser from '../../routes/url-parser';
 import ArtikelSource from '../../data/artikel-source';
+import KomentarSource from '../../data/komentar-source';
 import {
-  createArtikelDetailTemplate, createArtikelTemplate, renderNotFound, createSkeletonArtikelDetail,
+  createArtikelDetailTemplate, createArtikelTemplate, renderNotFound, createSkeletonArtikelDetail, formatTanggal,
 } from '../templates/template-creator';
 
 const DetailArtikel = {
@@ -43,8 +45,6 @@ const DetailArtikel = {
 
         const { data } = artikel;
         const { pages } = artikel;
-        console.log(data);
-        console.log(pages);
 
         if (!data || data.length === 0) {
           artikelContainer.innerHTML = renderNotFound();
@@ -67,7 +67,44 @@ const DetailArtikel = {
     loadArtikel();
 
     detailartikelContainer.innerHTML = createArtikelDetailTemplate(artikel);
+
+    // Event Listener for Comment Form Submission
+    const commentForm = document.querySelector('#commentForm');
+    commentForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const nama = document.querySelector('#nama').value;
+      const komentar = document.querySelector('#komentar').value;
+      const artikelId = document.querySelector('#artikelId').value;
+
+      const komentarData = { nama, komentar, artikelId };
+
+      try {
+        await KomentarSource.createKomentar(komentarData);
+        alert('Komentar berhasil ditambahkan!');
+        displayComments(artikelId);
+      } catch (error) {
+        alert('Gagal menambahkan komentar. Silakan coba lagi.');
+      }
+    });
+
+    // Display comments
+    displayComments(artikel.id);
   },
+};
+
+const displayComments = async (artikelId) => {
+  const commentList = document.querySelector('#commentList');
+  const comments = await KomentarSource.getKomentarByArtikelId(artikelId);
+  commentList.innerHTML = `
+    <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+    ${comments.map((comment) => `
+      <div class="mb-3">
+        <h5>${comment.nama}</h5>
+        <p>${comment.komentar}</p>
+        <small class="text-muted">${formatTanggal(comment.createdAt)}</small>
+      </div>
+    `).join('')}
+  `;
 };
 
 const addPaginationEventListeners = (loadMpasi, query, category) => {

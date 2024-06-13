@@ -231,21 +231,17 @@ const createArtikelTemplate = (artikel) => `
 
 const createMPASIDetailTemplate = (mpasi) => `
   <div class="container mt-5 position-relative">
-     <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
+    <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
       <i class="bi bi-arrow-left"></i> Kembali
     </a>
     <div class="row align-items-center">
       <div class="col-md-6">
-        <img data-src="${mpasi.gambar}" alt="${
-  mpasi.makanan
-}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
+        <img data-src="${mpasi.gambar}" alt="${mpasi.makanan}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
       </div>
       <div class="col-md-6">
         <div class="text-center">
           <h2 class="mb-3 fw-bold">${mpasi.makanan}</h2>
-          <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${
-  mpasi.kategori
-}</p>
+          <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${mpasi.kategori}</p>
         </div>
         <div class="mt-4">
           <h4 class="mb-3 fw-bold text-center">Kandungan Gizi</h4>
@@ -299,6 +295,27 @@ const createMPASIDetailTemplate = (mpasi) => `
               .join('')}
           </ol>
         </div>
+      </div>
+    </div>
+
+    <!-- Comment Form -->
+    <div class="container mt-4 p-4 rounded shadow-sm">
+      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <form id="commentForm">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="mb-3">
+          <label for="komentar" class="form-label">Komentar</label>
+          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+        </div>
+        <input type="hidden" id="mpasiId" name="mpasiId" value="${mpasi.id}">
+        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+      </form>
+      <div id="commentList" class="mt-4">
+        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+        <!-- Komentar akan ditampilkan di sini -->
       </div>
     </div>
   </div>
@@ -392,6 +409,27 @@ const createArtikelDetailTemplate = (artikel) => {
         ${deskripsiFormatted}
       </p>
     </div>
+    
+    <!-- Comment Form -->
+    <div class="container mt-4 p-4 rounded shadow-sm">
+      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <form id="commentForm">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama" name="nama" required>
+        </div>
+        <div class="mb-3">
+          <label for="komentar" class="form-label">Komentar</label>
+          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+        </div>
+        <input type="hidden" id="artikelId" name="artikelId" value="${artikel.id}">
+        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+      </form>
+      <div id="commentList" class="mt-4">
+        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+        <!-- Komentar akan ditampilkan di sini -->
+      </div>
+    </div>
   </section>
   `;
 };
@@ -410,6 +448,7 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
+  formatTanggal,
   renderNotFound,
   createMpasiTemplate,
   createMPASIDetailTemplate,
