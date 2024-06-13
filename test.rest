@@ -207,3 +207,32 @@ Content-Type: application/json
   "email": "admin@gmail.com",
   "password": "password"
 }
+
+###
+POST http://localhost:3000/api/komentar
+Content-Type: application/json
+
+{
+  "nama": "afa",
+  "komentar": "Mantap",
+  "mpasiId": 1
+}
+
+###
+POST http://localhost:3000/api/komentar
+Content-Type: application/json
+
+{
+  "nama": "abu",
+  "komentar": "Komentar aja ini boy",
+  "artikelId": 29
+}
+
+###
+DELETE http://localhost:3000/api/komentar/1
+
+###
+GET http://localhost:3000/api/komentar/artikel/29
+
+###
+GET http://localhost:3000/api/komentar/mpasi/1

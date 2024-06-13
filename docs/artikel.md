@@ -259,3 +259,89 @@ Response Body Error :
   "errors": "Gagal menghapus artikel"
 }
 ```
+
+## Menambahkan Komentar Artikel
+
+Endpoint: /api/komentar/artikel
+
+Method: POST
+
+Headers:
+
+- Content-Type: application/json
+
+Request Body:
+
+```json
+{
+  "nama": "John Doe",
+  "komentar": "Komentar mengenai artikel ini.",
+  "artikelId": 1,
+}
+```
+
+Response Body Success:
+
+```json
+{
+  "message": "Sukses menambahkan komentar",
+  "data": {
+    "id": 1,
+    "nama": "John Doe",
+    "komentar": "Komentar mengenai artikel ini.",
+    "artikelId": 1,
+    "createdAt": "2024-06-13T10:00:00Z",
+    "updatedAt": "2024-06-13T10:00:00Z"
+  }
+}
+```
+
+## Mengambil Komentar Artikel Berdasarkan ID Artikel
+
+Endpoint: /api/komentar/artikel/:artikelId
+
+Method: GET
+
+- artikelId: ID artikel untuk mengambil komentar-komentar terkait.
+
+Response Body Success:
+
+```json
+{
+  "message": "Sukses mendapatkan komentar",
+  "data": [
+    {
+      "id": 1,
+      "nama": "John Doe",
+      "komentar": "Komentar mengenai artikel ini.",
+      "artikelId": 1,
+      "createdAt": "2024-06-13T10:00:00Z",
+      "updatedAt": "2024-06-13T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "nama": "Jane Smith",
+      "komentar": "Saya setuju dengan artikel ini.",
+      "artikelId": 1,
+      "createdAt": "2024-06-14T11:00:00Z",
+      "updatedAt": "2024-06-14T11:00:00Z"
+    }
+  ]
+}
+```
+
+## Menghapus Komentar Artikel Berdasarkan ID Artikel
+
+Endpoint: /api/komentar/artikel/:artikelId
+
+Method: DELETE
+
+- artikelId: ID artikel
+
+Response Body Success:
+
+```json
+{
+  "message": "Berhasil menghapus komentar",
+}
+```

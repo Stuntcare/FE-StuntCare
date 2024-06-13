@@ -320,3 +320,89 @@ Response Body Error :
   "errors": "Gagal menghapus data makanan"
 }
 ```
+
+# Menambahkan Komentar Mpasi
+
+Endpoint: /api/komentar/mpasi
+
+Method: POST
+
+Headers:
+
+- Content-Type: application/json
+
+Request Body:
+
+```json
+{
+  "nama": "John Doe",
+  "komentar": "Komentar mengenai mpasi ini.",
+  "mpasiId": 1,
+}
+```
+
+Response Body Success:
+
+```json
+{
+  "message": "Sukses menambahkan komentar",
+  "data": {
+    "id": 1,
+    "nama": "John Doe",
+    "komentar": "Komentar mengenai mpasi ini.",
+    "mpasiId": 1,
+    "createdAt": "2024-06-13T10:00:00Z",
+    "updatedAt": "2024-06-13T10:00:00Z"
+  }
+}
+```
+
+## Mengambil Komentar Mpasi Berdasarkan ID Mpasi
+
+Endpoint: /api/komentar/mpasi/:mpasiId
+
+Method: GET
+
+- mpasiId: ID mpasi untuk mengambil komentar-komentar terkait.
+
+Response Body Success:
+
+```json
+{
+  "message": "Sukses mendapatkan komentar",
+  "data": [
+    {
+      "id": 1,
+      "nama": "John Doe",
+      "komentar": "Komentar mengenai mpasi ini.",
+      "mpasiId": 1,
+      "createdAt": "2024-06-13T10:00:00Z",
+      "updatedAt": "2024-06-13T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "nama": "Jane Smith",
+      "komentar": "Saya setuju dengan mpasi ini.",
+      "mpasiId": 1,
+      "createdAt": "2024-06-14T11:00:00Z",
+      "updatedAt": "2024-06-14T11:00:00Z"
+    }
+  ]
+}
+```
+
+## Menghapus Komentar Mpasi Berdasarkan ID Mpasi
+
+Endpoint: /api/komentar/mpasi/:mpasiId
+
+Method: DELETE
+
+- mpasiId: ID mpasi
+
+Response Body Success:
+
+```json
+{
+  "message": "Berhasil menghapus komentar",
+}
+```
