@@ -3,10 +3,10 @@ class content2 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section class="content2" data-aos="">
+    <section id="content2" class="content2" data-aos="">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0" style="margin-inline: auto;" >
+            <div class="col-12 col-md-7 ms-md-auto mt-4 mt-md-0">
               <img
                 tabindex="0"
                 alt="Family Image"
@@ -24,9 +24,11 @@ class content2 extends HTMLElement {
                 kehidupan. Untuk mengetahui mengenai stunting lebih lengkap,
                 Anda bisa klik tombol yang di bawah ini
               </p>
-              <p class="mt-4" data-aos="fade-right">
-                <button aria-label="tombol Baca Selengkapnya" class="btn btn-outline-warning fw-bold align-content-center" href="#/artikel">Baca Selengkapnya</button>
-              </p>
+              <a href="#/artikel">
+                <p class="mt-4" data-aos="fade-right">
+                  <button aria-label="tombol Baca Selengkapnya" class="btn btn-outline-warning fw-bold align-content-center" href="#/artikel">Baca Selengkapnya</button>
+                </p>
+              </a>
               </p>
             </div>
           </div>

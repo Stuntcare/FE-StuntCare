@@ -10,10 +10,9 @@ class Advisor extends HTMLElement {
               <h5 tabindex="0" class="card-title text-uppercase fw-bold">Agrey Tosira</h5>
               <p tabindex="0" class="card-text text-capitalize">Front-End Advisor</p>
               <div class="d-flex justify-content-center ">
-                  <a tabindex="0" href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
-                  <a tabindex="0" href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
-                  <a tabindex="0" href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
-                  <a tabindex="0" href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
+                  <a tabindex="0" href="https://github.com/agreytosira" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
+                  <a tabindex="0" href="https://www.linkedin.com/in/agreytosira/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
+                  <a tabindex="0" href="https://www.instagram.com/agtsra/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
               </div>
           </div>
         </div>

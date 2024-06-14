@@ -11,7 +11,7 @@ import {
 const Artikel = {
   async render() {
     return `
-    <h1 tabindex="0" class="fw-bold mt-4" style="text-align: center;">Artikel Terkait <span class="text-warning">Stunting</span></h1>
+    <h1 tabindex="0" class="fw-bold mt-4" style="text-align: center;">Artikel Terkait Stunting</h1>
     <div class="container mt-4">
       <div class="row g-3">
         <div class="col-12 d-flex flex-nowrap">
@@ -71,7 +71,14 @@ const Artikel = {
         }
       } catch (error) {
         console.error('Error fetching artikel:', error);
-        alert('Gagal memuat data Artikel. Silakan coba lagi nanti.');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'error',
+            title: 'Error memuat data Artikel. Silakan coba lagi nanti!!!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       }
     };
 

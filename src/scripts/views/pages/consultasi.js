@@ -4,101 +4,118 @@ import '../../components/main';
 const konsultasi = {
   async render() {
     return `
+    <style>
+      .btn-pink {
+        color: white;
+        align-items: center;
+      }
+    </style>
       <section class="konsultasi py-3 mt-3">
         <div class="container">
-        <h1 class="text-center fw-bold mb-4" tabindex="0">Konsultasi</h1>
-          <div class="row row-cols-1 row-cols-md-2 g-3">
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc1-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Dr. Sarah Fitriani, M.Sc.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Dr. Sarah Fitriani, M.Sc.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Pakar Gizi dan Kesehatan Anak
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Apakah balita Anda mengalami masalah pertumbuhan? Ayo berkonsultasi dengan ahli gizi untuk mendapatkan solusi terbaik.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
+          <h1 class="text-center fw-bold mb-4" tabindex="0">Konsultasi ke Dokter</h1>
+          
+    <section>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="../images/doc1-large.jpg"
+                    class="card-img"
+                    alt="Dr. Gione Giandito"
+                  />
                 </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc2-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Prof. Dr. Budi Susanto, Sp.GK.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Prof. Dr. Budi Susanto, Sp.GK.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Ahli Gizi Klinis
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Perhatikan pola makan balita Anda. Dapatkan saran langsung dari pakar gizi untuk meningkatkan asupan nutrisi yang dibutuhkan.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc3-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Dra. H. Sucipto, MPH.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Dra. H. Sucipto, MPH.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Peneliti Bidang Gizi dan Kesehatan Masyarakat
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Jika Anda sedang hamil, pastikan asupan gizi Anda terpenuhi untuk mencegah stunting pada janin. Temui peneliti gizi untuk informasi lebih lanjut.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc1-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Dr. Sarah Fitriani, M.Sc.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Dr. Sarah Fitriani, M.Sc.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Pakar Gizi dan Kesehatan Anak
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Apakah balita Anda mengalami masalah pertumbuhan? Ayo berkonsultasi dengan ahli gizi untuk mendapatkan solusi terbaik.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc2-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Prof. Dr. Budi Susanto, Sp.GK.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Prof. Dr. Budi Susanto, Sp.GK.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Ahli Gizi Klinis
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Perhatikan pola makan balita Anda. Dapatkan saran langsung dari pakar gizi untuk meningkatkan asupan nutrisi yang dibutuhkan.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100 d-flex flex-row">
-                <img tabindex="0" src="../images/doc3-large.jpg" class="card-img-left" style="object-fit: cover; width: 250px; height: 250px;" alt="Dra. H. Sucipto, MPH.">
-                <div class="card-body d-flex flex-column justify-content-center">
-                  <h5 tabindex="0" class="card-title fw-bold text-center">Dra. H. Sucipto, MPH.</h5>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Peneliti Bidang Gizi dan Kesehatan Masyarakat
-                  </p>
-                  <p tabindex="0" class="card-text text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-                    Jika Anda sedang hamil, pastikan asupan gizi Anda terpenuhi untuk mencegah stunting pada janin. Temui peneliti gizi untuk informasi lebih lanjut.
-                  </p>
-                  <a tabindex="0" href="#" class="btn btn-custom align-self-center align-content-center" target="_blank"><i class="bi bi-whatsapp"></i> Hubungi Dokter</a>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Dr. Gione Giandito Sp.A</h5>
+                    <p class="card-text">Sp. Anak</p>                    
+                    <p class="card-text">
+                      Rp 55.000
+                      <small class="text-muted"><s>Rp 56.000</s></small>
+                    </p>
+                    <a href="#" class="btn btn-pink btn-custom bi-whatsapp"> Chat</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="../images/doc2-large.jpg"
+                    class="card-img"
+                    alt="Dr. Daniel Simangunsong"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Dr. Daniel Simangunsong Sp.A</h5>
+                    <p class="card-text">Sp. Anak</p>                    
+                    <p class="card-text">
+                      Rp 55.000
+                      <small class="text-muted"><s>Rp 56.000</s></small>
+                    </p>
+                    <a href="#" class="btn btn-pink btn-custom bi-whatsapp"> Chat</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="../images/doc3-large.jpg"
+                    class="card-img"
+                    alt="Dr. Lisa Marlina"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Dr. Lisa Marlina Sp.A</h5>
+                    <p class="card-text">Sp. Anak</p>
+                    <p class="card-text">
+                      Rp 55.000
+                      <small class="text-muted"><s>Rp 56.000</s></small>
+                    </p>
+                    <a href="#" class="btn btn-pink btn-custom bi-whatsapp"> Chat</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    src="../images/doc1-large.jpg"
+                    class="card-img"
+                    alt="Dr. Andi Wijaya"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Dr. Andi Wijaya Sp.A</h5>
+                    <p class="card-text">Sp. Anak</p>
+                    <p class="card-text">
+                      Rp 55.000
+                      <small class="text-muted"><s>Rp 56.000</s></small>
+                    </p>
+                    <a href="#" class="btn btn-pink btn-custom bi-whatsapp"> Chat</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
         </div>
       </section>
     `;

@@ -8,7 +8,11 @@ import UrlParser from '../../routes/url-parser';
 import ArtikelSource from '../../data/artikel-source';
 import KomentarSource from '../../data/komentar-source';
 import {
-  createArtikelDetailTemplate, createArtikelTemplate, renderNotFound, createSkeletonArtikelDetail, formatTanggal,
+  createArtikelDetailTemplate,
+  createArtikelTemplate,
+  renderNotFound,
+  createSkeletonArtikelDetail,
+  formatTanggal,
 } from '../templates/template-creator';
 
 const DetailArtikel = {
@@ -60,7 +64,14 @@ const DetailArtikel = {
         }
       } catch (error) {
         console.error('Error fetching artikel:', error);
-        alert('Gagal memuat data Artikel. Silakan coba lagi nanti.');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'error',
+            title: 'Error memuat data Artikel. Silakan coba lagi nanti!!!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       }
     };
 
@@ -68,7 +79,6 @@ const DetailArtikel = {
 
     detailartikelContainer.innerHTML = createArtikelDetailTemplate(artikel);
 
-    // Event Listener for Comment Form Submission
     const commentForm = document.querySelector('#commentForm');
     commentForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -80,10 +90,24 @@ const DetailArtikel = {
 
       try {
         await KomentarSource.createKomentar(komentarData);
-        alert('Komentar berhasil ditambahkan!');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'success',
+            title: 'Komentar berhasil ditambahkan!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
         displayComments(artikelId);
       } catch (error) {
-        alert('Gagal menambahkan komentar. Silakan coba lagi.');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'error',
+            title: 'Error menambahkan komentar. Silakan coba lagi.',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       }
     });
 
@@ -97,9 +121,20 @@ const displayComments = async (artikelId) => {
   const comments = await KomentarSource.getKomentarByArtikelId(artikelId);
   commentList.innerHTML = '';
 
-  const commentsHtml = comments.map((comment) => `
+  const commentsHtml = comments
+    .map(
+      (comment) => `
+    <style>
+    .comment-card {
+    border: 1px solid #ddd; 
+    transition: none;
+    }
+
+    .comment-card .card-body {
+      padding: 1rem;
+    }</style>
     <div class="col-md-4">
-      <div class="card mb-3">
+      <div class="comment-card mb-3" style="display: flex; flex-direction: column; height: 100%;">
         <div tabindex="0" class="card-body">
           <h5 class="card-title">${comment.nama}</h5>
           <p class="card-text">${comment.komentar}</p>
@@ -107,7 +142,9 @@ const displayComments = async (artikelId) => {
         </div>
       </div>
     </div>
-  `).join('');
+  `,
+    )
+    .join('');
 
   commentList.innerHTML = `
     <div class="container">

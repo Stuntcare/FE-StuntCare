@@ -3,16 +3,14 @@ class content6 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section class="content6 mt-4" data-aos="">
-      <div class="container" style="
-      margin-top: 100px;">
+    <section id="content6" class="content6 mt-4" data-aos="">
+      <div class="container">
         <h1 tabindex="0" class="text-center fw-bold" >
           Layanan <span class="text-warning">StuntCare</span>
         </h1>
         <div class="row justify-content-center">
           <div
-            class="shadow p-3 mb-5 card m-2 mx-4 text-center"
-            style="width: 15rem"
+            class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
             data-aos="zoom-in-left"
           >
             <img
@@ -20,17 +18,15 @@ class content6 extends HTMLElement {
               src="../images/icon artikel.png"
               class="card-img-top p-3 mx-auto d-block"
               alt="artikel icon"
-              style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 tabindex="0" class="card-title">Artikel</h5>
+              <h2 tabindex="0" class="card-title">Artikel</h2>
               <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/Artikel">Lihat Selengkapnya</a>
             </div>
           </div>
 
           <div
-            class="shadow p-3 mb-5 card m-2 mx-4 text-center"
-            style="width: 15rem"
+            class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
             data-aos="zoom-in"
           >
             <img
@@ -38,17 +34,15 @@ class content6 extends HTMLElement {
               src="../images/icon kalkulator.png"
               class="card-img-top p-3 mx-auto d-block"
               alt="kalkulator icon"
-              style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 tabindex="0" class="card-title">Kalkulator Gizi</h5>
+              <h2 tabindex="0" class="card-title">Kalkulator Gizi</h2>
               <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/kalkulator">Lihat Selengkapnya</a>
             </div>
           </div>
 
           <div
-            class="shadow p-3 mb-5 card m-2 mx-4 text-center"
-            style="width: 15rem"
+            class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
             data-aos="zoom-in-right"
             >
             <img
@@ -56,10 +50,9 @@ class content6 extends HTMLElement {
               src="../images/icon makanan.png"
               class="card-img-top p-3 mx-auto d-block"
               alt="makanan icon"
-              style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 tabindex="0" class="card-title">MPASI</h5>
+              <h2 tabindex="0" class="card-title">MPASI</h2>
               <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/mpasi">Lihat Selengkapnya</a>
             </div>
           </div>

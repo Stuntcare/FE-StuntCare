@@ -16,7 +16,7 @@ class FooterElement extends HTMLElement {
             </div>
           </div>
           <div class="col-md-4 mb-4">
-            <h5 tabindex="0"><span class="text-warning fw-bold">Layanan</span></h5>
+            <h1 tabindex="0"><span class="text-warning title fw-bold">Layanan</span></h1>
             <ul class="list-unstyled">
               <a tabindex="0" class="nav-link" href="#">Beranda</a>
               <a tabindex="0" class="nav-link" href="#/artikel">Artikel</a>
@@ -26,16 +26,16 @@ class FooterElement extends HTMLElement {
             </ul>
           </div>
           <div class="col-md-4 mb-4">
-            <h5 tabindex="0">Kelompok<span class="text-warning fw-bold"> C624-PS076</span></h5>
+            <h1 class="title" tabindex="0">Kelompok<span class="text-warning fw-bold"> C624-PS076</span></h1>
             <ul class="list-unstyled" tabindex="0">
-              <li>              
-                <a >F0096YB29 - Muhammad Fery Syahputra - F06</a>
+              <li>
+                <span>F0096YB29 - Muhammad Fery Syahputra - F06</span>
               </li>
-              <li>              
-                <a>F4206YA030- Muhammad Firza Fernanda - F01</a>  
+              <li>
+                <span>F4206YA030 - Muhammad Firza Fernanda - F01</span>
               </li>
-              <li>              
-                <a>F2696YA373 - Muhammad Rizq Saputra - F02</a>
+              <li>
+                <span>F2696YA373 - Muhammad Rizq Saputra - F02</span>
               </li>
             </ul>
           </div>

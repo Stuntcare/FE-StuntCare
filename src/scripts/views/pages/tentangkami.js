@@ -3,7 +3,7 @@ const AboutUs = {
     return `
     <about-us></about-us>
     <div class="container my-5" data-aos="">
-        <h1 tabindex="0" style="text-align: center;" class="fw-bold mb-5">Tentang <span class="text-warning">Kami</span></h1>
+        <h1 tabindex="0" style="text-align: center;" class="fw-bold mb-5">Tentang Kami</h1>
         <div class="row">
           <div class="col-sm-6 col-md-4 mb-4">
               <div class="card" data-aos="zoom-out-right">
@@ -45,7 +45,6 @@ const AboutUs = {
                   <a tabindex="0" href="https://github.com/Rizq-Saputra" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-github"></i></a>
                   <a tabindex="0" tabindex="0" href="https://www.linkedin.com/in/muhammad-rizq-saputra-378088281/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-linkedin"></i></a>
                   <a tabindex="0" href="https://www.instagram.com/rizqsptr/" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-instagram"></i></a>
-                  <a tabindex="0" href="#" target="_blank" class="fs-3 mr-3 ijonih"><i class="bi bi-telegram"></i></a>
               </div>
                   </div> 
               </div>
@@ -53,15 +52,13 @@ const AboutUs = {
         </div>
     </div>
     <div class="container mt-4" >
-    <h1 tabindex="0" style="text-align: center;" class="text-warning fw-bold">Advisor</h1>
+    <h1 tabindex="0" style="text-align: center;" class="fw-bold">Advisor</h1>
     <div class="container mt-4" >
     <team-advisor></team-advisor>
       `;
   },
 
-  async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
-  },
+  afterRender() {},
 };
 
 export default AboutUs;
