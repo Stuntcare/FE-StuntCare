@@ -5,18 +5,19 @@ class content3 extends HTMLElement {
     this.innerHTML = `
     <section class="content3 mt-4" data-aos="">
       <div class="container">
-        <h1 class="text-center fw-bold">
+        <h1 tabindex="0" class="text-center fw-bold">
           Kenapa Pilih <span class="text-warning">StuntCare?</span>
         </h1>
         <div class="row justify-content-center" >
           <div class="card m-2 mx-4 highlight-hover text-center" style="width:18rem;" data-aos="flip-left">
             <img
+              tabindex="0"
               src="../images/undraw_family_vg76 2.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="Family svg"
               style="height: 200px; object-fit: contain"
             />
-            <div class="card-body">
+            <div class="card-body" tabindex="0">
               <h5 class="card-title">Informasi Gizi yang Terpercaya</h5>
               <p class="card-text">
                 StuntCare menyediakan informasi gizi balita yang didukung oleh
@@ -28,12 +29,13 @@ class content3 extends HTMLElement {
 
           <div class="card m-2 highlight-hover text-center" style="width:18rem;" data-aos="flip-right">
             <img
+              tabindex="0"
               src="../images/Group 3473678.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="Family svg"
               style="height: 200px; object-fit: contain"
             />
-            <div class="card-body">
+            <div class="card-body" tabindex="0">
               <h5 class="card-title">Kemudahan Akses dan Pengguna</h5>
               <p class="card-text">
                 Dengan antarmuka yang ramah pengguna dan dapat diakses melalui
@@ -46,12 +48,13 @@ class content3 extends HTMLElement {
 
           <div class="card m-2 highlight-hover text-center" style="width:18rem;" data-aos="flip-left">
             <img
+              tabindex="0"
               src="../images/undraw_fatherhood_-7-i19 2.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="Family svg"
               style="height: 200px; object-fit: contain"
             />
-            <div class="card-body">
+            <div class="card-body" tabindex="0">
               <h5 class="card-title">Interaktif dan Edukatif</h5>
               <p class="card-text">
                 StuntCare tidak hanya memberikan informasi, tetapi juga

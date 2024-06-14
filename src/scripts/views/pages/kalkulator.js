@@ -17,12 +17,12 @@ const Kalkulator = {
     return `
       <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator" style="height: 80vh;">
       <form class="needs-validation" action="" novalidate>
-      <h1 class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
+      <h1 tabindex="0" class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
 
           <div class="input-container">
-              <input id="gender1" type="radio" value="wanita" name="radio" required/>
-              <div class="radio-tile">
+              <input tabindex="0" id="gender1" type="radio" value="wanita" name="radio" required/>
+              <div tabindex="0" class="radio-tile">
               <svg width="200" height="200" class="wanita">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
                   <path d="M138.8 73.4C138.8 97.9 199.5 193.9 100.1 193.9C0.699955 193.9 61.3999 97.9 61.3999 73.4C61.3999 48.9 63 29 100.1 29C137.2 29 138.8 48.9 138.8 73.4Z" fill="white"/>
@@ -55,8 +55,8 @@ const Kalkulator = {
               </div>
           </div>
           <div class="input-container">
-              <input id="gender2" type="radio" value="pria" name="radio" required/>     
-              <div class="radio-tile">
+              <input tabindex="0" id="gender2" type="radio" value="pria" name="radio" required/>     
+              <div tabindex="0" class="radio-tile">
               <svg width="200" height="200" class="pria">
                   <circle cx="100" cy="100" r="100" fill="#fff" />
                   <path d="M177.9 162.1C161.4 182.8 137.4 196.1 111.1 199C103.8 199.8 96.4999 199.8 89.1999 199C62.8999 196.1 38.7999 182.8 22.3999 162.1C34.3999 153.8 49.9999 145 67.6999 139.8C78.1999 136.6 89.0999 134.9 100.1 134.9C111.1 135 122.1 136.6 132.6 139.8C150.3 145.1 165.9 153.8 177.9 162.1Z" fill="#019973"/>
@@ -89,28 +89,28 @@ const Kalkulator = {
           
           </div>
           <div class="mb-3">
-              <label for="usia" class="form-label">Usia (0-23 Bulan)</label>
-              <input type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" max="23" required>
-              <div class="invalid-feedback">
+              <label tabindex="0" for="usia" class="form-label">Usia (0-23 Bulan)</label>
+              <input tabindex="0" type="number" class="form-control" id="usia" placeholder="Masukkan usia Anda" min="0" max="23" required>
+              <div tabindex="0" class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu (0-23 Bulan)
               </div>
           </div>
           <div class="mb-3">
-              <label for="tinggiBadan" class="form-label">Tinggi Badan (cm)</label>
-              <input type="number" class="form-control" id="tinggiBadan" placeholder="Masukkan tinggi badan Anda" min="0" required>
-              <div class="invalid-feedback">
+              <label tabindex="0" for="tinggiBadan" class="form-label">Tinggi Badan (cm)</label>
+              <input tabindex="0" type="number" class="form-control" id="tinggiBadan" placeholder="Masukkan tinggi badan Anda" min="0" required>
+              <div tabindex="0" class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
           </div>
           <div class="mb-3">
-              <label for="beratBadan" class="form-label">Berat Badan (kg)</label>
-              <input type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
-              <div class="invalid-feedback">
+              <label tabindex="0" for="beratBadan" class="form-label">Berat Badan (kg)</label>
+              <input tabindex="0" type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
+              <div tabindex="0" class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
           </div>
           <div class="d-grid">
-              <button type="submit" class="btn btn-custom">Submit</button>
+              <button tabindex="0" aria-label="tombol hitung" type="submit" class="btn btn-custom">Hitung</button>
           </div>
           </form>
           </div>
@@ -242,21 +242,21 @@ const Kalkulator = {
                 <div class="container mt-5">
                 <div class="row">
                   <div class="col-md-6 text-center">
-                    <img src="${result.gambar}" class="img-fluid" alt="Responsive image" style="display:block; margin-inline:auto;">
+                    <img tabindex="0" src="${result.gambar}" class="img-fluid" alt="Gambar Hasil Perhitungan" style="display:block; margin-inline:auto;">
                   </div>
                   <div class="col-md-6 text-center" style="margin-block: auto;">
-                    <h1 class="text-center">Informasi Gizi</h1>
-                  <div class="result-box mt-4">
+                    <h1 tabindex="0" class="text-center">Informasi Gizi</h1>
+                  <div tabindex="0" class="result-box mt-4">
                       <div class="text-secondary">Status Gizi</div>
                       <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.status}</div>
                     </div>
                     
-                    <div class="result-box">
+                    <div tabindex="0" class="result-box">
                       <div class="text-secondary">Berat Badan Ideal</div>
                       <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.weightRecommendation}</div>
                     </div>
                     
-                    <div class="result-box">
+                    <div tabindex="0" class="result-box">
                       <div class="text-secondary">Tinggi Badan Ideal</div>
                       <div class="bg-success text-white py-2 rounded d-inline-block px-3">${result.heightRecommendation}</div>
                     </div>
@@ -273,18 +273,18 @@ const Kalkulator = {
       const rekomendasi = document.getElementById('rekomendasi');
       rekomendasi.innerHTML = `
         <div class="container d-flex justify-content-center align-items-center flex-column mb-4">
-          <div class="mb-4"><h1>Rekomendasi Kategori</h1></div>
+          <div class="mb-4"><h1 tabindex="0">Rekomendasi Kategori</h1></div>
           <div class="radio-tile-group d-flex flex-wrap justify-content-center">
             <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
-              <input id="mpasi" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;" checked>
-              <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+              <input tabindex="0" id="mpasi" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;" checked>
+              <div tabindex="0" class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
                 <ion-icon name="nutrition-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
                 <label for="mpasi" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Mpasi</label>
               </div>
             </div>
             <div class="input-container" style="position: relative; height: 7rem; width: 7rem; margin: 0.5rem;">
-              <input id="artikel" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
-              <div class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
+              <input tabindex="0" id="artikel" type="radio" name="rekomendasi-radio" style="position: absolute; height: 100%; width: 100%; margin: 0; cursor: pointer; z-index: 2; opacity: 0;">
+              <div tabindex="0" class="radio-tile2" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; border: 2px solid #019973; border-radius: 8px; transition: all 300ms ease;">
                 <ion-icon name="book-outline" style="color: #019973; font-size: 3rem;"></ion-icon>
                 <label for="artikel" style="color: #019973; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Artikel</label>
               </div>
@@ -346,7 +346,7 @@ const Kalkulator = {
         <div class="container text-center mt-5">
           <div class="row">
             <div class="col-md-12">
-              <h2>${type === 'mpasi' ? '<span class="fw-bold">Rekomendasi <span class="text-warning">MPASI</span></span>' : '<span class="fw-bold">Artikel Terkait <span class="text-warning">Stunting</span></span>'}</h2>
+              <h2 tabindex="0">${type === 'mpasi' ? '<span class="fw-bold">Rekomendasi <span class="text-warning">MPASI</span></span>' : '<span class="fw-bold">Artikel Terkait <span class="text-warning">Stunting</span></span>'}</h2>
               <div class="row">
                 ${itemTemplates}
               </div>

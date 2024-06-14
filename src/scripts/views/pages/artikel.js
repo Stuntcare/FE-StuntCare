@@ -1,7 +1,6 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-alert */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
+/* eslint-disable no-plusplus */
 import ArtikelSource from '../../data/artikel-source';
 import {
   createArtikelTemplate,
@@ -12,24 +11,22 @@ import {
 const Artikel = {
   async render() {
     return `
-    <h1 class="fw-bold mt-4" style="text-align: center;">Artikel Terkait <span class="text-warning">Stunting</span></h1>
+    <h1 tabindex="0" class="fw-bold mt-4" style="text-align: center;">Artikel Terkait <span class="text-warning">Stunting</span></h1>
     <div class="container mt-4">
       <div class="row g-3">
         <div class="col-12 d-flex flex-nowrap">
           <div class="flex-grow-1 me-2 mb-3">
             <div class="input-group">
               <form id="searchForm" class="w-100 d-flex flex-row">
-                <input type="text" id="searchKeyword" class="form-control" placeholder="Cari...">
+                <input tabindex="0" type="text" id="searchKeyword" class="form-control" placeholder="Cari...">
               </form>
             </div>
           </div>
           <div class="mb-3">
             <div class="input-group">
-              <select class="form-select" id="filterKategori" aria-label="Filter">
-                <option value="semua">Semua Kategori</option>
-                <option value="6-8 bulan">6-8 bulan</option>
-                <option value="9-12 bulan">9-12 bulan</option>
-                <option value="12-23 bulan">12-23 bulan</option>
+              <select tabindex="0" class="form-select" id="filterOrder" aria-label="Filter">
+                <option value="desc">Terbaru</option>
+                <option value="asc">Terlama</option>
               </select>
             </div>
           </div>
@@ -45,25 +42,20 @@ const Artikel = {
     const artikelContainer = document.querySelector('#artikel');
     const searchForm = document.querySelector('#searchForm');
     const searchKeywordInput = document.querySelector('#searchKeyword');
-    const filterKategori = document.querySelector('#filterKategori');
+    const filterOrder = document.querySelector('#filterOrder');
     const paginationContainer = document.querySelector('#pagination');
 
-    const loadArtikel = async (query = '', category = 'semua', page = 1) => {
+    const loadArtikel = async (query = '', order = 'desc', page = 1) => {
       try {
         artikelContainer.innerHTML = createSkeletonArtikelItemTemplate(6);
         let artikel;
-        if (query || category !== 'semua') {
-          if (query) {
-            artikel = await ArtikelSource.searchArtikel(query);
-          } else {
-            artikel = await ArtikelSource.kategoriArtikel(category);
-          }
+        if (query) {
+          artikel = await ArtikelSource.searchArtikel(query);
         } else {
-          artikel = await ArtikelSource.getArtikelByPage(page);
+          artikel = await ArtikelSource.getArtikelByPageAndOrder(order, page);
         }
 
-        const { data } = artikel;
-        const { pages } = artikel;
+        const { data, pages } = artikel;
 
         if (!data || data.length === 0) {
           artikelContainer.innerHTML = renderNotFound();
@@ -73,7 +65,7 @@ const Artikel = {
 
         if (pages > 1) {
           renderPagination(pages);
-          addPaginationEventListeners(loadArtikel, query, category);
+          addPaginationEventListeners(loadArtikel, query, order);
         } else {
           paginationContainer.innerHTML = '';
         }
@@ -85,29 +77,29 @@ const Artikel = {
 
     loadArtikel();
 
-    if (searchForm && filterKategori) {
+    if (searchForm && filterOrder) {
       searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const keyword = searchKeywordInput.value;
-        const category = filterKategori.value;
-        loadArtikel(keyword, category);
+        const order = filterOrder.value;
+        loadArtikel(keyword, order);
       });
 
-      filterKategori.addEventListener('change', (event) => {
-        const category = event.target.value;
+      filterOrder.addEventListener('change', (event) => {
+        const order = event.target.value;
         const keyword = searchKeywordInput.value;
-        loadArtikel(keyword, category);
+        loadArtikel(keyword, order);
       });
     }
   },
 };
 
-const addPaginationEventListeners = (loadMpasi, query, category) => {
+const addPaginationEventListeners = (loadArtikel, query, order) => {
   const paginationButtons = document.querySelectorAll('#pagination button');
   paginationButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const { page } = button.dataset;
-      loadMpasi(query, category, page);
+      loadArtikel(query, order, page);
     });
   });
 };
@@ -117,7 +109,7 @@ const renderPagination = (pages) => {
   if (paginationContainer) {
     let paginationHtml = '';
     for (let i = 1; i <= pages; i++) {
-      paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
+      paginationHtml += `<button class="btn btn-custom mx-1 mb-2" tabindex="0" aria-label="Tombol pagenation" data-page="${i}">${i}</button>`;
     }
     paginationContainer.innerHTML = paginationHtml;
   }

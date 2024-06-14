@@ -189,14 +189,14 @@ const createMpasiTemplate = (mpasi) => `
     }
 </style>
 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mpasi-pages d-flex">
-  <a href="#/mpasi/${mpasi.id}" class="w-100">
+  <a tabindex="0" href="#/mpasi/${mpasi.id}" class="w-100">
     <div class="card" style="transition: transform 0.5s; display: flex; flex-direction: column; height: 100%;">
       <img data-src="${mpasi.gambar}" class="card-img-top mpasi-img lazyload" alt="${mpasi.makanan}">
       <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title" style="margin-bottom: auto;">
-          <h2 class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" tabindex="0">${mpasi.makanan}</h2>
-        </h5>
-        <p class="card-text arikel-pages-desc">${mpasi.kategori}</p>
+        <div class="card-title" style="margin-bottom: auto;">
+          <h2 tabindex="-1" class="list_item_title arikel-pages-name" style="color: black; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;" tabindex="0">${mpasi.makanan}</h2>
+        </div>
+        <p tabindex="0" class="card-text arikel-pages-desc">${mpasi.kategori}</p>
       </div>
     </div>
   </a>
@@ -216,13 +216,13 @@ const createArtikelTemplate = (artikel) => `
 </style>
 
 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 arikel-pages">
-  <a href="#/artikel/${artikel.id}" style="text-decoration: none;">
+  <a tabindex="0" href="#/artikel/${artikel.id}" style="text-decoration: none;">
     <div class="card h-100">
       <img data-src="${artikel.gambar}" class="card-img-top artikel-img lazyload" alt="${artikel.judul}">
       <div class="card-body d-flex flex-column">
-        <h4 class="card-title list_item_title artikel-pages-name text-dark text-capitalize text-center mb-4 fw-bold" style="margin-bottom: auto; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 0;" tabindex="0">${artikel.judul}</h4>
+        <h4 tabindex="-1" class="card-title list_item_title artikel-pages-name text-dark text-capitalize text-center mb-4 fw-bold" style="margin-bottom: auto; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-bottom: 0;" tabindex="0">${artikel.judul}</h4>
         <p class="artikel-deskripsi" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 0;">${artikel.deskripsi}</p>
-        <p class="card-text arikel-pages-desc text-muted text-center mt-auto">${formatTanggal(artikel.tanggal)}</p>
+        <p tabindex="0" class="card-text arikel-pages-desc text-muted text-center mt-auto">${formatTanggal(artikel.tanggal)}</p>
       </div>
     </div>  
   </a>
@@ -231,35 +231,35 @@ const createArtikelTemplate = (artikel) => `
 
 const createMPASIDetailTemplate = (mpasi) => `
   <div class="container mt-5 position-relative">
-    <a href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
+    <a tabindex="0" href="javascript:history.back()" class="position-absolute text-dark" style="top: -25px; left: 5px; text-decoration: none;">
       <i class="bi bi-arrow-left"></i> Kembali
     </a>
     <div class="row align-items-center">
       <div class="col-md-6">
-        <img data-src="${mpasi.gambar}" alt="${mpasi.makanan}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
+        <img tabindex="0" data-src="${mpasi.gambar}" alt="${mpasi.makanan}" class="img-fluid mb-4 rounded lazyload" style="width: 100%; height: auto;">
       </div>
       <div class="col-md-6">
         <div class="text-center">
-          <h2 class="mb-3 fw-bold">${mpasi.makanan}</h2>
-          <p class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${mpasi.kategori}</p>
+          <h2 tabindex="0" class="mb-3 fw-bold">${mpasi.makanan}</h2>
+          <p tabindex="0" class="text-muted">${mpasi.porsi} porsi &bullet; Kategori: ${mpasi.kategori}</p>
         </div>
         <div class="mt-4">
-          <h4 class="mb-3 fw-bold text-center">Kandungan Gizi</h4>
+          <h4 tabindex="0" class="mb-3 fw-bold text-center">Kandungan Gizi</h4>
           <table class="table table-striped text-center">
             <tbody>
-              <tr>
+              <tr tabindex="0">
                 <td>Kalori</td>
                 <td>${mpasi.kalori} kkal</td>
               </tr>
-              <tr>
+              <tr tabindex="0">
                 <td>Protein</td>
                 <td>${mpasi.protein} gram</td>
               </tr>
-              <tr>
+              <tr tabindex="0">
                 <td>Lemak</td>
                 <td>${mpasi.lemak} gram</td>
               </tr>
-              <tr>
+              <tr tabindex="0">
                 <td>Karbohidrat</td>
                 <td>${mpasi.karbohidrat} gram</td>
               </tr>
@@ -272,8 +272,8 @@ const createMPASIDetailTemplate = (mpasi) => `
     <div class="container mt-4 p-4 rounded shadow-sm">
       <div class="row">
         <div class="col-md-4">
-          <h4 class="mb-3 pb-2 border-bottom fw-bold">Bahan-bahan</h4>
-          <ul>
+          <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Bahan-bahan</h4>
+          <ul tabindex="0">
             ${Object.keys(mpasi.bahan)
               .map(
                 (key) => `
@@ -284,8 +284,8 @@ const createMPASIDetailTemplate = (mpasi) => `
           </ul>
         </div>
         <div class="col-md-8">
-          <h4 class="mb-3 pb-2 border-bottom fw-bold">Cara Membuat</h4>
-          <ol class="pl-3">
+          <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Cara Membuat</h4>
+          <ol tabindex="0" class="pl-3">
             ${mpasi.cara_masak
               .map(
                 (step) => `
@@ -300,22 +300,21 @@ const createMPASIDetailTemplate = (mpasi) => `
 
     <!-- Comment Form -->
     <div class="container mt-4 p-4 rounded shadow-sm">
-      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
       <form id="commentForm">
         <div class="mb-3">
-          <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="nama" name="nama" required>
+          <label tabindex="0" for="nama" class="form-label">Nama</label>
+          <input tabindex="0" type="text" class="form-control" id="nama" name="nama" required>
         </div>
         <div class="mb-3">
-          <label for="komentar" class="form-label">Komentar</label>
-          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+          <label tabindex="0" for="komentar" class="form-label">Komentar</label>
+          <textarea tabindex="0" class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
         </div>
-        <input type="hidden" id="mpasiId" name="mpasiId" value="${mpasi.id}">
-        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+        <input tabindex="0" type="hidden" id="mpasiId" name="mpasiId" value="${mpasi.id}">
+        <button tabindex="0" aria-label="tombol kirim Komentar" type="submit" class="btn btn-custom">Kirim Komentar</button>
       </form>
       <div id="commentList" class="mt-4">
-        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
-        <!-- Komentar akan ditampilkan di sini -->
+        <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
       </div>
     </div>
   </div>
@@ -381,10 +380,10 @@ const createArtikelDetailTemplate = (artikel) => {
   <section class="container-fluid">
     <div class="row">
       <div class="detail-artikel">
-         <a href="javascript:history.back()" class="position-absolute text-dark" style="top: 25px; left: 10px; text-decoration: none;">
+        <a tabindex="0" href="javascript:history.back()" class="position-absolute text-dark" style="top: 25px; left: 10px; text-decoration: none;">
           <i class="bi bi-arrow-left"></i> Kembali
         </a>
-        <img data-src="${artikel.gambar}" alt="${
+        <img tabindex="0" data-src="${artikel.gambar}" alt="${
     artikel.judul
   }" class="img-artikel-detail lazyload" />
         <div class="text-artikel text-center">
@@ -396,38 +395,37 @@ const createArtikelDetailTemplate = (artikel) => {
       <div class="container-fluid px-3 container-lg">
         <div class="row news-info justify-content-center">
           <div class="col-md-auto col-author text-center text-md-end">
-            <a href="${artikel.sumber}">Sumber Artikel</a>
+            <a tabindex="0" href="${artikel.sumber}">Sumber Artikel</a>
           </div>
 
-          <div class="col-md-auto col-date text-center text-md-center">
+          <div tabindex="0" class="col-md-auto col-date text-center text-md-center">
             Date: ${formatTanggal(artikel.tanggal)}.
           </div>
         </div>
       </div>
       
-      <p class="desc-detail-artikel">
+      <p tabindex="0" class="desc-detail-artikel">
         ${deskripsiFormatted}
       </p>
     </div>
     
     <!-- Comment Form -->
     <div class="container mt-4 p-4 rounded shadow-sm">
-      <h4 class="mb-3 pb-2 border-bottom fw-bold">Tambahkan Komentar</h4>
+      <h4 class="mb-3 pb-2 border-bottom fw-bold" tabindex="0">Tambahkan Komentar</h4>
       <form id="commentForm">
         <div class="mb-3">
-          <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="nama" name="nama" required>
+          <label for="nama" tabindex="0" class="form-label">Nama</label>
+          <input tabindex="0" type="text" class="form-control" id="nama" name="nama" required>
         </div>
         <div class="mb-3">
-          <label for="komentar" class="form-label">Komentar</label>
-          <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+          <label for="komentar" tabindex="0" class="form-label">Komentar</label>
+          <textarea tabindex="0" class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
         </div>
-        <input type="hidden" id="artikelId" name="artikelId" value="${artikel.id}">
-        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+        <input tabindex="0" type="hidden" id="artikelId" name="artikelId" value="${artikel.id}">
+        <button tabindex="0" aria-label="Tombol kirim komentar" type="submit" class="btn btn-custom">Kirim Komentar</button>
       </form>
       <div id="commentList" class="mt-4">
-        <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
-        <!-- Komentar akan ditampilkan di sini -->
+        <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
       </div>
     </div>
   </section>
@@ -436,13 +434,13 @@ const createArtikelDetailTemplate = (artikel) => {
 
 // * TOMBOL LIKE
 const createLikeButtonTemplate = () => `;
-  <button aria-label="like this mpasi" id="likeButton" class="like">
+  <button tabindex="0" aria-label="tambahkan mpasi ke favorit" id="likeButton" class="like">
     <i class="bi bi-heart" aria-hidden="true"></i>
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this mpasi" id="likeButton" class="like">
+  <button tabindex="0" aria-label="hapus mpasi dari favorit" id="likeButton" class="like">
     <i class="bi bi-heart-fill" aria-hidden="true"></i>
   </button>
 `;

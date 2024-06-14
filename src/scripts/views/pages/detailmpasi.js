@@ -70,15 +70,27 @@ const DetailMpasi = {
 const displayComments = async (mpasiId) => {
   const commentList = document.querySelector('#commentList');
   const comments = await KomentarSource.getKomentarByMpasiId(mpasiId);
-  commentList.innerHTML = `
-    <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
-    ${comments.map((comment) => `
-      <div class="mb-3">
-        <h5>${comment.nama}</h5>
-        <p>${comment.komentar}</p>
-        <small class="text-muted">${formatTanggal(comment.createdAt)}</small>
+  commentList.innerHTML = '';
+
+  const commentsHtml = comments.map((comment) => `
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div tabindex="0" class="card-body">
+          <h5 class="card-title">${comment.nama}</h5>
+          <p class="card-text">${comment.komentar}</p>
+          <p class="card-text"><small class="text-muted">${formatTanggal(comment.createdAt)}</small></p>
+        </div>
       </div>
-    `).join('')}
+    </div>
+  `).join('');
+
+  commentList.innerHTML = `
+    <div class="container">
+      <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+      <div class="row">
+        ${commentsHtml}
+      </div>
+    </div>
   `;
 };
 

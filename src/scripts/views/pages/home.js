@@ -13,9 +13,7 @@ const Home = {
     `;
   },
 
-  async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
-  },
+  afterRender() {},
 };
 
 export default Home;
