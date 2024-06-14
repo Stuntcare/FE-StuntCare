@@ -95,15 +95,27 @@ const DetailArtikel = {
 const displayComments = async (artikelId) => {
   const commentList = document.querySelector('#commentList');
   const comments = await KomentarSource.getKomentarByArtikelId(artikelId);
-  commentList.innerHTML = `
-    <h4 class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
-    ${comments.map((comment) => `
-      <div class="mb-3">
-        <h5>${comment.nama}</h5>
-        <p>${comment.komentar}</p>
-        <small class="text-muted">${formatTanggal(comment.createdAt)}</small>
+  commentList.innerHTML = '';
+
+  const commentsHtml = comments.map((comment) => `
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div tabindex="0" class="card-body">
+          <h5 class="card-title">${comment.nama}</h5>
+          <p class="card-text">${comment.komentar}</p>
+          <p class="card-text"><small class="text-muted">${formatTanggal(comment.createdAt)}</small></p>
+        </div>
       </div>
-    `).join('')}
+    </div>
+  `).join('');
+
+  commentList.innerHTML = `
+    <div class="container">
+      <h4 tabindex="0" class="mb-3 pb-2 border-bottom fw-bold">Komentar</h4>
+      <div class="row">
+        ${commentsHtml}
+      </div>
+    </div>
   `;
 };
 
@@ -122,7 +134,7 @@ const renderPagination = (pages) => {
   if (paginationContainer) {
     let paginationHtml = '';
     for (let i = 1; i <= pages; i++) {
-      paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
+      paginationHtml += `<button tabindex="0" aria-label="tombol pagenation" class="btn btn-custom mx-1 mb-2" data-page="${i}">${i}</button>`;
     }
     paginationContainer.innerHTML = paginationHtml;
   }

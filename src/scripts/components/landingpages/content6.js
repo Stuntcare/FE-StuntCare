@@ -6,7 +6,7 @@ class content6 extends HTMLElement {
     <section class="content6 mt-4" data-aos="">
       <div class="container" style="
       margin-top: 100px;">
-        <h1 class="text-center fw-bold" >
+        <h1 tabindex="0" class="text-center fw-bold" >
           Layanan <span class="text-warning">StuntCare</span>
         </h1>
         <div class="row justify-content-center">
@@ -16,14 +16,15 @@ class content6 extends HTMLElement {
             data-aos="zoom-in-left"
           >
             <img
+              tabindex="0"
               src="../images/icon artikel.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="artikel icon"
               style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 class="card-title">Artikel</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/Artikel">Lihat Selengkapnya</a>
+              <h5 tabindex="0" class="card-title">Artikel</h5>
+              <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/Artikel">Lihat Selengkapnya</a>
             </div>
           </div>
 
@@ -33,14 +34,15 @@ class content6 extends HTMLElement {
             data-aos="zoom-in"
           >
             <img
+              tabindex="0"
               src="../images/icon kalkulator.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="kalkulator icon"
               style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 class="card-title">Kalkulator Gizi</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/kalkulator">Lihat Selengkapnya</a>
+              <h5 tabindex="0" class="card-title">Kalkulator Gizi</h5>
+              <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/kalkulator">Lihat Selengkapnya</a>
             </div>
           </div>
 
@@ -50,14 +52,15 @@ class content6 extends HTMLElement {
             data-aos="zoom-in-right"
             >
             <img
+              tabindex="0"
               src="../images/icon makanan.png"
               class="card-img-top p-3 mx-auto d-block"
-              alt="..."
+              alt="makanan icon"
               style="object-fit: contain; height: 100px;"
             />
             <div class="card-body">
-              <h5 class="card-title">MPASI</h5>
-              <a class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/mpasi">Lihat Selengkapnya</a>
+              <h5 tabindex="0" class="card-title">MPASI</h5>
+              <a tabindex="0" class="btn btn-outline-warning fw-bold mt-3 align-content-center" style="font-size: 14px" href="#/mpasi">Lihat Selengkapnya</a>
             </div>
           </div>
         </div>

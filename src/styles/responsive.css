@@ -153,6 +153,19 @@
   .kalkulator {
     height: 105vh !important;
   }
+  .konsultasi .card-img-left {
+    width: 135px !important;
+    height: 290px !important;
+  }
+
+  .konsultasi .card-title {
+    font-size: 1.2rem;
+  }
+
+  .konsultasi .card-text {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+  }
 }
 
 @media screen and (max-width: 550px) {

@@ -4,6 +4,10 @@ body {
   font-family: "Poppins", Arial, sans-serif;
 }
 
+*[tabindex="0"]:focus {
+  outline: 4px dashed #ffca2c;
+}
+
 .ijonih {
   color: #019973;
 }
@@ -294,11 +298,13 @@ input:checked + .radio-tile label {
 .btn-custom {
   background-color: #019973;
   color: white;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-custom:hover {
-  background-color: #019973;
-  color: white;
+  background-color: #017a5c;
+  color: #e0f7f4;
 }
 
 .form-control {

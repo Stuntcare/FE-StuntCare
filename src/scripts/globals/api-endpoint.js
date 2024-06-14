@@ -12,6 +12,7 @@ const API_ENDPOINT = {
   DETAILARTIKEL: (id) => `${BASE_URL}/api/artikel/${id}`,
   SEARCHARTIKEL: (query) => `${BASE_URL}/api/artikel?q=${query}`,
   KATEGORIARTIKEL: (query) => `${BASE_URL}/api/artikel?kategori=${query}`,
+  ORDERARTIKEL: (order, page) => `${BASE_URL}/api/artikel?page=${page}&limit=6&order=${order}`,
   ARTIKELPAGE: (page) => `${BASE_URL}/api/artikel?page=${page}&limit=6`,
   ARTIKELPAGEDETAIL: (page) => `${BASE_URL}/api/artikel?page=${page}&limit=3`,
   KOMENTAR: `${BASE_URL}/api/komentar`,

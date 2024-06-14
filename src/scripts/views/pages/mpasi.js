@@ -13,20 +13,20 @@ import FavoriteMpasiIdb from '../../data/favorite-mpasi-idb';
 const Mpasi = {
   async render() {
     return `
-      <h1 class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">Makanan</span> Pendamping Air Susu Ibu</h1>
+      <h1 tabindex="0" class="fw-bold mt-4" style="text-align: center;"><span class="text-warning">Makanan</span> Pendamping Air Susu Ibu</h1>
       <div class="container mt-4">
         <div class="row g-3">
           <div class="col-12 d-flex flex-nowrap">
             <div class="flex-grow-1 me-2 mb-3">
               <div class="input-group">
                 <form id="searchForm" class="w-100 d-flex flex-row">
-                  <input type="text" id="searchKeyword" class="form-control" placeholder="Cari...">
+                  <input tabindex="0" type="text" id="searchKeyword" class="form-control" placeholder="Cari...">
                 </form>
               </div>
             </div>
             <div class="mb-3">
               <div class="input-group">
-                <select class="form-select" id="filterKategori" aria-label="Filter">
+                <select tabindex="0" class="form-select" id="filterKategori" aria-label="Filter">
                   <option value="semua">Semua Kategori</option>
                   <option value="Favorite">Favorite</option>
                   <option value="6-8 bulan">6-8 bulan</option>
@@ -130,7 +130,7 @@ const renderPagination = (pages) => {
   if (paginationContainer) {
     let paginationHtml = '';
     for (let i = 1; i <= pages; i++) {
-      paginationHtml += `<button class="btn mx-1 mb-2" data-page="${i}" style="background-color: #019973; color:white;">${i}</button>`;
+      paginationHtml += `<button aria-label="tombol pagenation" tabindex="0" class="btn btn-custom mx-1 mb-2" data-page="${i}">${i}</button>`;
     }
     paginationContainer.innerHTML = paginationHtml;
   }
