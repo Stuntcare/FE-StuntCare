@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const ArtikelService = require('../service/artikel-service');
 
 const createArtikel = async (req, res, next) => {
@@ -15,9 +14,10 @@ const getAllArtikel = async (req, res, next) => {
   const searchQuery = req.query.q;
   const page = parseInt(req.query.page, 10) || 1;
   const limit = parseInt(req.query.limit, 10) || 12;
+  const order = req.query.order === 'asc' ? 'ASC' : 'DESC';
 
   try {
-    const { artikelList, count } = await ArtikelService.getAllArtikel(category, searchQuery, page, limit);
+    const { artikelList, count } = await ArtikelService.getAllArtikel(category, searchQuery, page, limit, order);
     res.status(200).json({
       message: 'Sukses mendapatkan data Artikel',
       data: artikelList.map((artikel) => ({
