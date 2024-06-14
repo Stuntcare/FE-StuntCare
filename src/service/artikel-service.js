@@ -10,13 +10,14 @@ const createArtikel = async (artikelData) => {
   return artikel;
 };
 
-const getAllArtikel = async (category, searchQuery, page = 1, limit = 12) => {
+const getAllArtikel = async (category, searchQuery, page = 1, limit = 12, order = 'DESC') => {
   const offset = (page - 1) * limit;
 
   const queryOptions = {
     where: {},
     limit,
     offset,
+    order: [['tanggal', order]],
   };
 
   if (category) {

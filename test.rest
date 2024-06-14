@@ -236,3 +236,15 @@ GET http://localhost:3000/api/komentar/artikel/29
 
 ###
 GET http://localhost:3000/api/komentar/mpasi/1
+
+
+###
+GET http://localhost:3000/api/artikel?order=desc
+
+###
+GET http://localhost:3000/api/artikel?order=asc
+
+###
+GET http://localhost:3000/api/artikel?page=1&limit=6&order=asc
+
+# {BASE_URL}/api/artikel?order=${order}?page=${page}&limit=6
