@@ -3,13 +3,13 @@ class content3 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section id="content3" class="content3 mt-4" data-aos="">
+    <section id="content3" class="content3 mt-4">
       <div class="container">
         <h1 tabindex="0" class="text-center fw-bold">
           Kenapa Pilih <span class="text-warning">StuntCare?</span>
         </h1>
         <div class="row justify-content-center" >
-          <div class="content3-card m-2 mx-4 highlight-hover text-center" data-aos="flip-left">
+          <div class="content3-card m-2 mx-4 highlight-hover text-center">
             <img
               tabindex="0"
               src="../images/undraw_family_vg76 2.png"
@@ -26,7 +26,7 @@ class content3 extends HTMLElement {
             </div>
           </div>
 
-          <div class="content3-card m-2 highlight-hover text-center" data-aos="flip-right">
+          <div class="content3-card m-2 highlight-hover text-center">
             <img
               tabindex="0"
               src="../images/Group 3473678.png"
@@ -44,7 +44,7 @@ class content3 extends HTMLElement {
             </div>
           </div>
 
-          <div class="content3-card m-2 highlight-hover text-center" data-aos="flip-left">
+          <div class="content3-card m-2 highlight-hover text-center">
             <img
               tabindex="0"
               src="../images/undraw_fatherhood_-7-i19 2.png"

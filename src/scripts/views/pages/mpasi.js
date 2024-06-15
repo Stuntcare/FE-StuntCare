@@ -16,7 +16,7 @@ const Mpasi = {
       <h1 tabindex="0" class="fw-bold mt-4" style="text-align: center;">Makanan Pendamping Air Susu Ibu</h1>
       <div class="container mt-4">
         <div class="row g-3">
-          <div class="col-12 d-flex flex-nowrap">
+          <div class="col-12 d-flex flex-wrap" style="justify-content: space-evenly;">
             <div class="flex-grow-1 me-2 mb-3">
               <div class="input-group">
                 <form id="searchForm" class="w-100 d-flex flex-row">

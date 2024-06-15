@@ -3,7 +3,7 @@ class content6 extends HTMLElement {
     super();
 
     this.innerHTML = `
-    <section id="content6" class="content6 mt-4" data-aos="">
+    <section id="content6" class="content6 mt-4">
       <div class="container">
         <h1 tabindex="0" class="text-center fw-bold" >
           Layanan <span class="text-warning">StuntCare</span>
@@ -11,7 +11,6 @@ class content6 extends HTMLElement {
         <div class="row justify-content-center">
           <div
             class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
-            data-aos="zoom-in-left"
           >
             <img
               tabindex="0"
@@ -27,7 +26,6 @@ class content6 extends HTMLElement {
 
           <div
             class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
-            data-aos="zoom-in"
           >
             <img
               tabindex="0"
@@ -43,7 +41,6 @@ class content6 extends HTMLElement {
 
           <div
             class="shadow p-3 mb-5 content6-card m-2 mx-4 text-center"
-            data-aos="zoom-in-right"
             >
             <img
               tabindex="0"

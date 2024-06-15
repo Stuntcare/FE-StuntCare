@@ -445,6 +445,12 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const OntopButton = () => `
+  <button tabindex="0" aria-label="Kembali ke atas" id="ontopButton" class="ontop">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+`;
+
 export {
   formatTanggal,
   renderNotFound,
@@ -458,4 +464,5 @@ export {
   createLikedButtonTemplate,
   createSkeletonMpasiDetail,
   createSkeletonArtikelDetail,
+  OntopButton,
 };

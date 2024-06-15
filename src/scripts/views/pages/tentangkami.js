@@ -2,11 +2,11 @@ const AboutUs = {
   async render() {
     return `
     <about-us></about-us>
-    <div class="container my-5" data-aos="">
+    <div class="container my-5">
         <h1 tabindex="0" style="text-align: center;" class="fw-bold mb-5">Tentang Kami</h1>
         <div class="row">
           <div class="col-sm-6 col-md-4 mb-4">
-              <div class="card" data-aos="zoom-out-right">
+              <div class="card">
                   <img tabindex="0" data-src="../images/fery-large.webp" class="card-img-top lazyload" alt="muhammad fery syahputra" style="width: 150px height: 150px" crossorigin="anonymous" >
                   <div class="card-body text-center" >
                       <h5  tabindex="0" class="card-title text-uppercase fw-bold">Muhammad fery syahputra</h5>
@@ -21,7 +21,7 @@ const AboutUs = {
               </div>
           </div>
           <div class="col-sm-6 col-md-4 mb-4">
-              <div class="card" data-aos="zoom-out-down">
+              <div class="card">
                   <img tabindex="0" data-src="../images/firza.jpg" class="card-img-top lazyload" alt="Team Member 2" crossorigin="anonymous" >
                   <div class="card-body text-center">
                       <h5 tabindex="0" class="card-title text-uppercase fw-bold">Muhammad Firza Fernanda</h5>
@@ -36,7 +36,7 @@ const AboutUs = {
               </div>
           </div>
           <div class="col-sm-6 col-md-4 mb-4">
-              <div class="card" data-aos="zoom-out-left">
+              <div class="card">
                   <img tabindex="0" data-src="../images/rizq.jpg" class="card-img-top lazyload" alt="Team Member 3" crossorigin="anonymous" >
                   <div class="card-body text-center">
                       <h5 tabindex="0" class="card-title text-uppercase fw-bold">Muhammad Rizq Saputra</h5>

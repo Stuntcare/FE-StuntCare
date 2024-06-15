@@ -4,7 +4,7 @@ class Advisor extends HTMLElement {
     super();
 
     this.innerHTML = `
-        <div class="card" data-aos="fade-down" style="width: 18rem; margin: 30px auto;">
+        <div class="card" style="width: 18rem; margin: 30px auto;">
           <img tabindex="0" data-src="../images/advisor.jpg" class="card-img-top lazyload" alt="Advisor" style="width: 150px height: 150px" crossorigin="anonymous" >
           <div class="card-body text-center">
               <h5 tabindex="0" class="card-title text-uppercase fw-bold">Agrey Tosira</h5>
