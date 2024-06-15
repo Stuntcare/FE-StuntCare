@@ -11,7 +11,14 @@ class MpasiSource {
       return responseJson;
     } catch (error) {
       console.error('Failed to fetch MPASI data:', error);
-      alert('Gagal memuat data MPASI. Silakan coba lagi nanti.');
+      import('sweetalert2').then((Swal) => {
+        Swal.default.fire({
+          icon: 'error',
+          title: 'Error memuat data MPASI. Silakan coba lagi nanti!!!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
     }
   }
 
@@ -40,7 +47,14 @@ class MpasiSource {
       return responseJson;
     } catch (error) {
       console.error('Failed to fetch MPASI data:', error);
-      alert('Gagal memuat data MPASI. Silakan coba lagi nanti.');
+      import('sweetalert2').then((Swal) => {
+        Swal.default.fire({
+          icon: 'error',
+          title: 'Error memuat data MPASI. Silakan coba lagi nanti!!!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
     }
   }
 }

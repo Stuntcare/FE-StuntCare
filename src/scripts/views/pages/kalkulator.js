@@ -16,8 +16,8 @@ const Kalkulator = {
   async render() {
     return `
       <div class="container mt-5 d-flex justify-content-center align-items-center kalkulator" style="height: 80vh;">
-      <form class="needs-validation" action="" novalidate>
-      <h1 tabindex="0" class="text-center fw-bold">Kalkulator <span class="text-warning">Gizi</span></h1>
+      <form class="needs-validation" action="">
+      <h1 tabindex="0" class="text-center fw-bold">Kalkulator Gizi</h1>
           <div class="radio-tile-group d-flex justify-content-center flex-wrap">
 
           <div class="input-container">
@@ -96,15 +96,15 @@ const Kalkulator = {
               </div>
           </div>
           <div class="mb-3">
-              <label tabindex="0" for="tinggiBadan" class="form-label">Tinggi Badan (cm)</label>
-              <input tabindex="0" type="number" class="form-control" id="tinggiBadan" placeholder="Masukkan tinggi badan Anda" min="0" required>
+              <label tabindex="0" for="beratBadan" class="form-label">Berat Badan (kg)</label>
+              <input tabindex="0" type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
               <div tabindex="0" class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
           </div>
           <div class="mb-3">
-              <label tabindex="0" for="beratBadan" class="form-label">Berat Badan (kg)</label>
-              <input tabindex="0" type="number" class="form-control" id="beratBadan" placeholder="Masukkan berat badan Anda" min="0" required>
+              <label tabindex="0" for="tinggiBadan" class="form-label">Tinggi Badan (cm)</label>
+              <input tabindex="0" type="number" class="form-control" id="tinggiBadan" placeholder="Masukkan tinggi badan Anda" min="0" required>
               <div tabindex="0" class="invalid-feedback">
                   Tolong isi kolom ini terlebih dahulu
               </div>
@@ -226,9 +226,9 @@ const Kalkulator = {
       return {
         status: 'Normal (Well-Nourished)',
         weightRecommendation:
-          'Berat badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.',
+          'Berat badan anak sudah sesuai.',
         heightRecommendation:
-          'Tinggi badan anak sudah sesuai dengan perkiraan normal WHO untuk usia ini.',
+          'Tinggi badan anak sudah sesuai.',
         gambar: '../images/Gizi-baik.webp',
       };
     }

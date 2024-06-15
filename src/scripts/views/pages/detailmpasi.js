@@ -43,7 +43,6 @@ const DetailMpasi = {
       },
     });
 
-    // Event Listener for Comment Form Submission
     const commentForm = document.querySelector('#commentForm');
     commentForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -55,10 +54,24 @@ const DetailMpasi = {
 
       try {
         await KomentarSource.createKomentar(komentarData);
-        alert('Komentar berhasil ditambahkan!');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'success',
+            title: 'Komentar berhasil ditambahkan!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
         displayComments(mpasiId);
       } catch (error) {
-        alert('Gagal menambahkan komentar. Silakan coba lagi.');
+        import('sweetalert2').then((Swal) => {
+          Swal.default.fire({
+            icon: 'error',
+            title: 'Error menambahkan komentar. Silakan coba lagi nanti!!!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
       }
     });
 

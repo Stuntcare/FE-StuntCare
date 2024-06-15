@@ -3,20 +3,22 @@ class content4 extends HTMLElement {
     super();
 
     this.innerHTML = `
-      <section class="content4" data-aos:"">
+      <section id="content4" class="content4">
           <div class="container">
             <div class="row align-items-center">
-              <div class="col-12 col-md-6 col-lg-5" data-aos:"fade-right">
-                <h1 tabindex="0" class="fw-bold" style="margin-top: 15px">
+              <div class="col-12 col-md-6 col-lg-5">
+                <h1 tabindex="0" class="fw-bold">
                   Makanan <span class="text-warning"> Bernutrisi </span><br> dan <span class="text-warning"> Bergizi </span> untuk<br> <span class="text-warning">Balita</span> Anda
                 </h1>
                 <p tabindex="0" class="lead">
                 Dapatkan informasi lengkap mengenai gizi makanan yang diperlukan untuk pertumbuhan optimal balita Anda. 
                 Temukan rekomendasi gizi yang dapat dipercaya untuk menjaga kesehatan anak Anda.
                 </p>
-                <p class="mt-4">
-                  <button aria-label="Tombol Gizi Makanan" class="btn btn-warning text-white align-content-center" href="#/mpasi">Gizi Makanan ></button>
-                </p>
+                <a href="#/mpasi">
+                  <p class="mt-4">
+                    <button aria-label="Tombol Gizi Makanan" class="btn btn-warning text-white align-content-center" href="#/mpasi">Gizi Makanan ></button>
+                  </p>
+                </a>
               </div>
               <div class="col-12 col-md-6 ms-md-auto mt-4 mt-md-0">
                 <img

@@ -2,6 +2,7 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+import NotFound from './pages/notfound';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -24,7 +25,7 @@ class App {
 
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
+    const page = routes[url] || NotFound;
     this._content.innerHTML = await page.render();
     await page.afterRender();
     const mainContent = document.querySelector('#mainContent');
