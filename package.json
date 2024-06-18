@@ -39,8 +39,6 @@
     "jest-environment-jsdom": "^29.6.1",
     "playwright": "^1.43.1",
     "mini-css-extract-plugin": "^2.9.0",
-    "sass": "^1.74.1",
-    "sass-loader": "^14.1.1",
     "sharp": "^0.33.4",
     "style-loader": "^3.3.4",
     "sweetalert2": "^11.11.1",
