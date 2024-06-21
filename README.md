@@ -30,7 +30,7 @@
 
 | Presentasi                                         | Link Website                                       | Demo Video |
 | -------------------------------------------------- | ------------------------------------------ |------------------------------------------ |
-| [Presentation Video](https://youtu.be/Xa03MmcfiKU) | [Link Website](https://stuntcare.my.id/) | [Demo Video]()
+| [Presentation Video](https://youtu.be/Xa03MmcfiKU) | [Link Website](https://stuntcare.my.id/) | [Demo Video](https://www.youtube.com/watch?v=NN-Upwjl3Tk)
 
 ### Team ID : `C624-PS076`
 
